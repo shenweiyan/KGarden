@@ -1,1 +1,1 @@
-# Knowledge-Garden
+# Knowledge Garden
