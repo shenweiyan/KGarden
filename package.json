@@ -1,0 +1,50 @@
+{
+  "name": "@elog/doc",
+  "version": "1.0.0",
+  "description": "Elog文档",
+  "homepage": "https://github.com/LetTTGACO/elog/tree/master/packages/elog-doc#readme",
+  "author": "1874 <me@mail.1874.cool>",
+  "license": "MIT",
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LetTTGACO/elog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LetTTGACO/elog/issues"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "elog:init": "elog init",
+    "local:yuque": "elog sync -c elog.config.yuque.js -e .elog.env -a elog.cache.yuque.json",
+    "local:notion": "elog sync -c elog.config.notion.js -e .elog.env -a elog.cache.notion.json",
+    "local:flowus": "elog sync -c elog.config.flowus.js -e .elog.env  -a elog.cache.flowus.json",
+    "sync:yuque": "elog sync -c elog.config.yuque.js -a elog.cache.yuque.json",
+    "sync:notion": "elog sync -c elog.config.notion.js -a elog.cache.notion.json",
+    "sync:flowus": "elog sync -c elog.config.flowus.js -a elog.cache.flowus.json",
+    "clean:yuque": "elog clean -c elog.config.yuque.js -a elog.cache.yuque.json",
+    "clean:notion": "elog clean -c elog.config.notion.js -a elog.cache.notion.json",
+    "clean:flowus": "elog clean -c elog.config.flowus.js  -a elog.cache.flowus.json"
+  },
+  "dependencies": {
+    "@elog/cli": "0.5.0-beta.9",
+    "@types/node": "^18.11.9",
+    "markdown-it-task-lists": "^2.1.1",
+    "sitemap": "^7.1.1",
+    "vitepress": "1.0.0-alpha.45",
+    "vue": "3.2.45"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "search-insights"
+      ]
+    }
+  }
+}
