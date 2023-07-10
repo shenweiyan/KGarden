@@ -60,6 +60,7 @@ jobs:
           #pnpm sync:flowus
           pnpm sync:yuque
           #pnpm sync:notion
+          cat  elog.cache.yuque.json
 
       - name: 配置Git用户名邮箱
         run: |
