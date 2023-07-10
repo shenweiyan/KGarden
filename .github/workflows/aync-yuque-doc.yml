@@ -14,6 +14,7 @@ env:
   # COOKIE: ${{ secrets.COOKIE }}
   YUQUE_USERNAME: ${{secrets.YUQUE_USERNAME}}
   YUQUE_PASSWORD: ${{secrets.YUQUE_PASSWORD}}
+  
 jobs:
   sync_doc:
     runs-on: ubuntu-latest
