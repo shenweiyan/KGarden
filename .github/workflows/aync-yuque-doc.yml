@@ -77,18 +77,3 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      #- name: 生成静态文件
-        #env:
-          #YUQUE_TOKEN: ${{ secrets.YUQUE_TOKEN }}
-        #run: |
-          #pnpm docs:build
-
-      #- name: 部署到Github Pages
-        #uses: peaceiris/actions-gh-pages@v3
-        #with:
-          #deploy_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          #publish_dir: docs/.vitepress/dist
-          #external_repository: LetTTGACO/LetTTGACO.github.io
-          #publish_branch: master
-          #commit_message: ${{ github.event.head_commit.message }}
