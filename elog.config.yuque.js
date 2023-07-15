@@ -39,7 +39,7 @@ module.exports = {
     enable: true,
     platform: 'cos',
     local: {
-      outputDir: '',
+      outputDir: 'KnowledgeGarden',
       prefixKey: '',
     },
     oss: {
