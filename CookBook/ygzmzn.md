@@ -1,4 +1,0 @@
-- [Python 程序员的 Golang 学习指南（I）: Go 之初体验](https://gocn.vip/article/36)
-- [Go 零基础编程入门教程](https://gocn.vip/question/1615)
-- [跟煎鱼学 Go](https://eddycjy.gitbook.io/golang/)
-- 软软 Go 语言上课链接：[https://docs.microsoft.com/zh-cn/learn/paths/go-first-steps/](https://docs.microsoft.com/zh-cn/learn/paths/go-first-steps/)
