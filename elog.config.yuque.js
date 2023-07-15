@@ -20,7 +20,7 @@ module.exports = {
   deploy: {
     platform: 'local',
     local: {
-      outputDir: './docs/yuque',
+      outputDir: './CookBook',
       filename: 'urlname',
       format: 'markdown',
       catalog: false,
