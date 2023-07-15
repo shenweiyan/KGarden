@@ -1,0 +1,2 @@
+- [病原微生物高通量测序数据分析笔记](https://indexofire.github.io/pathongs/) - 杭州市疾控中心微生物检验科病原微生物测序实验室
+- [R 语言教程](http://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html) - 李东风
