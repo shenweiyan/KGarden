@@ -1,5 +1,0 @@
-- [NFS 挂载常用参数](https://bbs.huaweicloud.com/blogs/114222)
-- [nfs(5) - Linux man page](https://linux.die.net/man/5/nfs)
-- [When nfs server is stopped how long does the client retry ?](https://access.redhat.com/solutions/33108)
-- [NFS 服务常见故障排查和解决方法](https://www.centos.bz/2018/02/nfs%e6%9c%8d%e5%8a%a1%e5%b8%b8%e8%a7%81%e6%95%85%e9%9a%9c%e6%8e%92%e6%9f%a5%e5%92%8c%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95/)
-- 鸟哥的 Linux 私房菜：[第十三章、文件服务器之一：NFS  服务器](http://linux.vbird.org/linux_server/0330nfs.php)

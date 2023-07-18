@@ -6,7 +6,7 @@ module.exports = {
       baseUrl: '',
       login: process.env.YUQUE_LOGIN,
       repo: process.env.YUQUE_REPO,
-      onlyPublic: false,
+      onlyPublic: true,
       onlyPublished: true,
     },
     notion: {
@@ -20,10 +20,10 @@ module.exports = {
   deploy: {
     platform: 'local',
     local: {
-      outputDir: './CookBook',
+      outputDir: './Cookbook',
       filename: 'title',
       format: 'markdown',
-      catalog: false,
+      catalog: true,
       formatExt: '',
     },
     confluence: {
@@ -48,7 +48,7 @@ module.exports = {
       bucket: process.env.OSS_BUCKET,
       region: process.env.OSS_REGION,
       host: process.env.OSS_HOST,
-      prefixKey: '',
+      prefixKey: 'elog-cookbook-img',
       secretExt: '', // 可选
     },
     cos: {
@@ -57,7 +57,7 @@ module.exports = {
       bucket: process.env.COS_IMAGE_BUCKET,
       region: process.env.COS_IMAGE_REGION,
       host: process.env.COS_HOST,
-      prefixKey: 'elog-docs-images',
+      prefixKey: 'elog-cookbook-img',
       secretExt: '', // 可选
     },
     qiniu: {
