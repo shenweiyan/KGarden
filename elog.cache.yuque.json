@@ -5841,6 +5841,31 @@
         }
       ],
       "body": ""
+    },
+    {
+      "id": 133517124,
+      "doc_id": "elog-note",
+      "title": "elog-note",
+      "updated": 1689650149000,
+      "body_original": "Elog ([https://github.com/LetTTGACO/elog](https://github.com/LetTTGACO/elog)) —— 开放式跨平台博客解决方案，随意组合写作平台(语雀/Notion/FlowUs)和部署平台(Hexo/Vitepress等)。\n\n基于语雀 WebHook 实现实时同步：[https://github.com/LetTTGACO/serverless-api](https://github.com/LetTTGACO/serverless-api)\n",
+      "properties": {
+        "title": "Elog 使用与备忘",
+        "urlname": "elog-note",
+        "author": "章鱼猫先生",
+        "date": "2023-07-18 03:08:32",
+        "updated": "2023-07-18 03:15:49"
+      },
+      "catalog": [
+        {
+          "title": "知识杂项",
+          "doc_id": "elog-note"
+        },
+        {
+          "title": "好玩",
+          "doc_id": "elog-note"
+        }
+      ],
+      "body": ""
     }
   ],
   "catalog": [
@@ -9931,7 +9956,7 @@
       "url": "",
       "prev_uuid": "rAsIJZUFystMaVB8",
       "sibling_uuid": "",
-      "child_uuid": "2aQEjNHjwEN_1GIh",
+      "child_uuid": "eNiORneAf8hO5mE_",
       "parent_uuid": "xJRCcYfvPxOa-oDK",
       "doc_id": "",
       "level": 1,
@@ -9943,10 +9968,27 @@
     },
     {
       "type": "DOC",
+      "title": "Elog 使用与备忘",
+      "uuid": "eNiORneAf8hO5mE_",
+      "url": "elog-note",
+      "prev_uuid": "v0UhVhfgeNEKT_mu",
+      "sibling_uuid": "2aQEjNHjwEN_1GIh",
+      "child_uuid": "",
+      "parent_uuid": "v0UhVhfgeNEKT_mu",
+      "doc_id": 133517124,
+      "level": 2,
+      "id": 133517124,
+      "open_window": 1,
+      "visible": 1,
+      "depth": 3,
+      "slug": "elog-note"
+    },
+    {
+      "type": "DOC",
       "title": "浏览器翻译扩展神器",
       "uuid": "2aQEjNHjwEN_1GIh",
       "url": "exs6yzfcvv4nblob",
-      "prev_uuid": "v0UhVhfgeNEKT_mu",
+      "prev_uuid": "eNiORneAf8hO5mE_",
       "sibling_uuid": "qZbEy7i5WS5yiJIv",
       "child_uuid": "",
       "parent_uuid": "v0UhVhfgeNEKT_mu",
