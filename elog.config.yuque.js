@@ -21,7 +21,7 @@ module.exports = {
     platform: 'local',
     local: {
       outputDir: './CookBook',
-      filename: 'urlname',
+      filename: 'title',
       format: 'markdown',
       catalog: false,
       formatExt: '',
