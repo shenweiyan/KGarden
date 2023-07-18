@@ -1,10 +1,10 @@
-# 解决 SSH Failed Permission Denied
+#解决 SSH Failed Permission Denied
 
 在 SSH 服务器上修改了与权限相关的设置之后，会出现 SSH 权限拒绝错误（SSH Permission denied error）。通常的场景包括安装新的软件包或创建新用户。
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FuDhlk0w8wDpdRM2uh0B508OzPs9.png)
 在本教程中，您将学习如何排除 SSH Permission denied 错误并重新连接到 SSH 服务器。
 
-### 前提条件
+###前提条件
 
 - 以本地计算机作为 SSH Client 客户机和远程系统作为 SSH server 服务器。
 - 通过一个用户账号对远程服务器进行访问(用于基于密码的登录)。
