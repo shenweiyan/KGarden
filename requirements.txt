@@ -2,3 +2,5 @@ mkdocs==1.4.2
 mkdocs-material
 mkdocs-rss-plugin
 mkdocs-git-revision-date-plugin
+fancyboxmd
+include_dir_to_nav
