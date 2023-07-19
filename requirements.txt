@@ -3,4 +3,4 @@ mkdocs-material
 mkdocs-rss-plugin
 mkdocs-git-revision-date-plugin
 fancyboxmd
-include_dir_to_nav
+mkdocs-include-dir-to-nav
