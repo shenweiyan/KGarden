@@ -604,14 +604,14 @@
       "id": 92475087,
       "doc_id": "gpg9ir",
       "title": "gpg9ir",
-      "updated": 1681290076000,
+      "updated": 1689751143000,
       "body_original": "当我们在使用 MobaXterm/XShell 进行远程访问服务器时，进行远程访问的界面往往不能关掉，否则，程序将不再运行。而且，程序在运行的过程中，还必须时刻保证网络的通常，这些条件都很难得到满足。\n\n为了解决上述问题，可以使用 Linux 下的`**screen**`命令，即使网络连接中断，用户也不会失去对已经打开的命令行会话的控制。下面介绍一些常用的`**screen**`命令。\n\n`**screen**`为多重视窗管理程序。此处所谓的视窗，是指一个全屏幕的文字模式画面。通常只有在使用 telnet 登入主机或是使用老式的终端机时，才有可能用到`**screen**`程序。具体使用如下：\n\n我们可以使用`**screen -S snam**e`创建一个叫做 **sname** 的 session，这时我们要进入该 session，需要使用`**screen -r sname**`进入到该 session 中，此时就可以在该 session 里进行操作了，如运行程序。之后我们可以使用`**Ctrl + a + d**`命令将该 session 丢到后台进行处理。\n<a name=\"ZLyhw\"></a>\n# 语法\n```bash\nscreen [-AmRvx -ls -wipe][-d <作业名称>][-h <行数>][-r <作业名称>][-s <shell>][-S <作业名称>]\n```\n参数说明：\n\n- -A\t将所有的视窗都调整为目前终端机的大小。\n- -d<作业名称>\t将指定的screen作业离线。\n- -h<行数>\t指定视窗的缓冲区行数。\n- -m \t即使目前已在作业中的screen作业，仍强制建立新的screen作业。\n- -r<作业名称> \t恢复离线的screen作业。\n- -R \t先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。\n- -s<shell> \t指定建立新视窗时，所要执行的shell。\n- -S<作业名称> \t指定screen作业的名称。\n- -v \t显示版本信息。\n- -x \t恢复之前离线的screen作业。\n- -ls或--list \t显示目前所有的screen作业。\n- -wipe \t检查目前所有的screen作业，并删除已经无法使用的screen作业。\n",
       "properties": {
-        "title": "screen：多重视窗管理程序",
+        "title": "多重视窗管理程序 screen",
         "urlname": "gpg9ir",
         "author": "章鱼猫先生",
         "date": "2022-09-09 02:28:16",
-        "updated": "2023-04-12 09:01:16"
+        "updated": "2023-07-19 07:19:03"
       },
       "catalog": [
         {
@@ -619,7 +619,7 @@
           "doc_id": "gpg9ir"
         },
         {
-          "title": "Linux 命令大全",
+          "title": "Linux 命令",
           "doc_id": "gpg9ir"
         }
       ],
@@ -1051,31 +1051,6 @@
       "body": ""
     },
     {
-      "id": 63114941,
-      "doc_id": "sfmr9t",
-      "title": "sfmr9t",
-      "updated": 1640062827000,
-      "body_original": "\n",
-      "properties": {
-        "title": "软件包管理",
-        "urlname": "sfmr9t",
-        "author": "章鱼猫先生",
-        "date": "2021-12-21 03:15:26",
-        "updated": "2021-12-21 05:00:27"
-      },
-      "catalog": [
-        {
-          "title": "专栏主题",
-          "doc_id": "sfmr9t"
-        },
-        {
-          "title": "Debian | Ubuntu 系列",
-          "doc_id": "sfmr9t"
-        }
-      ],
-      "body": ""
-    },
-    {
       "id": 62771210,
       "doc_id": "edam",
       "title": "edam",
@@ -1179,14 +1154,14 @@
       "id": 61305871,
       "doc_id": "ut1tmm",
       "title": "ut1tmm",
-      "updated": 1661911046000,
-      "body_original": "<a name=\"tYUiC\"></a>\n# Hostname\n\n新的服务器一般自带的 hostname 都是一串无规律的字符串，很难记也不好看（例如我们这个服务器的 r0sasd1bQi ），对于有强迫症的童鞋可以参考下面的方法去修改。\n> 在 CentOS 7 中，有三种定义的主机名：静态的（static）、瞬态的（transient）、灵活的（pretty）。“静态”主机名也称为内核主机名，是系统在启动时从 /etc/hostname 自动初始化的主机名。“瞬态”主机名是在系统运行时临时分配的主机名，例如，通过 DHCP 或 mDNS 服务器分配。静态主机名和瞬态主机名都遵从作为互联网域名同样的字符限制规则。而另一方面，“灵活”主机名则允许使用自由形式（包括特殊/空白字符）的主机名，以展示给终端用户。\n> \n> - 方法一，通过 `hostnamectl` 来修改主机名。修改后需要重启服务器。\n\n```bash\n[root@r0sasd1bQi ~]# hostnamectl   #查看一下当前主机名的情况\n Static hostname: r0sasd1bQi\n       Icon name: computer-vm\n         Chassis: vm 🖴\n      Machine ID: 5b87417f755c419bbacbb0a0f0f363e8\n         Boot ID: 2ba10754ac064e6f9473ad579a5ba163\n  Virtualization: kvm\nOperating System: AlmaLinux 9.0 (Emerald Puma)\n     CPE OS Name: cpe:/o:almalinux:almalinux:9::baseos\n          Kernel: Linux 5.14.0-70.17.1.el9_0.x86_64\n    Architecture: x86-64\n Hardware Vendor: Alibaba Cloud\n  Hardware Model: Alibaba Cloud ECS\n\n[root@r0sasd1bQi ~]# hostnamectl set-hostname shumlab-server --static\n[root@r0sasd1bQi ~]# hostnamectl status\n Static hostname: shumlab-rhel9\n       Icon name: computer-vm\n         Chassis: vm 🖴\n      Machine ID: 5b87417f755c419bbacbb0a0f0f363e8\n         Boot ID: 2ba10754ac064e6f9473ad579a5ba163\n  Virtualization: kvm\nOperating System: AlmaLinux 9.0 (Emerald Puma)\n     CPE OS Name: cpe:/o:almalinux:almalinux:9::baseos\n          Kernel: Linux 5.14.0-70.17.1.el9_0.x86_64\n    Architecture: x86-64\n Hardware Vendor: Alibaba Cloud\n  Hardware Model: Alibaba Cloud ECS\n\n[root@r0sasd1bQi ~]# reboot now    # 重启服务器\n```\n> - 方法二，通过修改文件 `/etc/hostname` 来实现主机名的修改。把该文件内容替换成自己想要的主机名重启即可。\n\n```bash\n[root@r0sasd1bQi ~]# vim /etc/hostname\t\t# 修改 hostname\n[root@r0sasd1bQi ~]# reboot now    \t\t\t\t# 重启服务器\n```\n> **声明：**以上为CSDN博主「点亮梦想那束光」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n> **原文：**[https://blog.csdn.net/solaraceboy/java/article/details/78563537](https://blog.csdn.net/solaraceboy/java/article/details/78563537)\n\n\n<a name=\"CGzyY\"></a>\n# 环境变量\n常用的自定义环境变量配置。\n```\n# User Specific Alias\nalias disp='display'\nalias rm='rm -i'\nalias la='ls -al'\nalias ll='ls -lht'\nalias le='less -S'\n\n# Custom History setting\n# HISTFILESIZE 定义了在 .bash_history 中保存命令的记录总数\nHISTFILESIZE=3000000\n# HISTSIZE 定义了 history 命令输出的记录数\nHISTSIZE=3000\n# 定义 History 输出格式\nexport HISTTIMEFORMAT='%F %T '\n# 使用 HISTCONTROL 从命令历史中剔除连续重复的条目\nHISTCONTROL=ignoredups\n# 将 bash 内存中历史命令追加到 .bash_history 历史命令文件中， 默认只有退出 shell 是才会保存\nPROMPT_COMMAND=\"history -a\"\n\n# Login Style\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\nclear;\n```\n<a name=\"aqiga\"></a>\n## 命令行提示符\n\nbash 中命令行提示符的格式是由 PS1 来控制的。 `/etc/bashrc` 中 PS1 的格式定义用于控制全局用户的命令行提示符样式；而针对个人用户的 PS1 设置，位于 `~/.bashrc` 中。\n\n我自己的 PS1 定义：\n```bash\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\ncd /data; clear;\n```\n![image.png](https://cdn.nlark.com/yuque/0/2022/png/126032/1660793230828-397b5ef6-aa30-4938-ac6a-8199de4709c4.png#clientId=u60b54abe-7590-4&from=paste&height=244&id=uceeb95d3&originHeight=244&originWidth=949&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27917&status=done&style=none&taskId=uda9c7f0d-0247-4798-afe9-cedae415775&title=&width=949)<br />有关于 PS1 的格式介绍如下：\n```bash\n序列\t\t\t\t\t说明\n\\a\t\t\tASCII 响铃字符（也可以键入 \\007）\n\\d\t\t\t\"Wed Sep 06\" 格式的日期\n\\e\t\t\tASCII 转义字符（也可以键入 \\033）\n\\h\t\t\t主机名的第一部分（如 \"mybox\"）\n\\H\t\t\t主机的全称（如 \"mybox.mydomain.com\"）\n\\j\t\t\t在此 shell 中通过按 ^Z 挂起的进程数\n\\l\t\t\t此 shell 的终端设备名（如 \"ttyp4\"）\n\\n\t\t\t换行符\n\\r\t\t\t回车符\n\\s\t\t\tshell 的名称（如 \"bash\"）\n\\t\t\t\t24 小时制时间（如 \"23:01:01\"）\n\\T\t\t\t12 小时制时间（如 \"11:01:01\"）\n\\@\t\t\t带有 am/pm 的 12 小时制时间\n\\u\t\t\t用户名\n\\v\t\t\tbash 的版本（如 2.04）\n\\V\t\t\tBash 版本（包括补丁级别）\n\\w\t\t\t当前工作目录（如 \"/home/shenweiyan\"）\n\\W\t\t\t当前工作目录的 \"basename\"（如 \"shenweiyan\"）\n\\!\t\t\t当前命令在历史缓冲区中的位置\n\\#\t\t\t命令编号（只要您键入内容，它就会在每次提示时累加）\n\\$\t\t\t如果您不是超级用户 (root)，则插入一个 \"$\"；如果您是超级用户，则显示一个 \"#\"\n\\xxx\t\t插入一个用三位数 xxx（用零代替未使用的数字，如 \"\\007\"）表示的 ASCII 字符\n\\\\\t\t\t反斜杠\n\\[\t\t\t这个序列应该出现在不移动光标的字符序列（如颜色转义序列）之前。它使 bash 能够正确计算自动换行。\n\\]\t\t\t这个序列应该出现在非打印字符序列之后。\n```\n",
+      "updated": 1689752333000,
+      "body_original": "<a name=\"tYUiC\"></a>\n## Hostname\n\n新的服务器一般自带的 hostname 都是一串无规律的字符串，很难记也不好看（例如我们这个服务器的 r0sasd1bQi ），对于有强迫症的童鞋可以参考下面的方法去修改。\n> 在 CentOS 7 中，有三种定义的主机名：静态的（static）、瞬态的（transient）、灵活的（pretty）。“静态”主机名也称为内核主机名，是系统在启动时从 /etc/hostname 自动初始化的主机名。“瞬态”主机名是在系统运行时临时分配的主机名，例如，通过 DHCP 或 mDNS 服务器分配。静态主机名和瞬态主机名都遵从作为互联网域名同样的字符限制规则。而另一方面，“灵活”主机名则允许使用自由形式（包括特殊/空白字符）的主机名，以展示给终端用户。\n> \n> - 方法一，通过 `hostnamectl` 来修改主机名。修改后需要重启服务器。\n\n```bash\n[root@r0sasd1bQi ~]# hostnamectl   #查看一下当前主机名的情况\n Static hostname: r0sasd1bQi\n       Icon name: computer-vm\n         Chassis: vm 🖴\n      Machine ID: 5b87417f755c419bbacbb0a0f0f363e8\n         Boot ID: 2ba10754ac064e6f9473ad579a5ba163\n  Virtualization: kvm\nOperating System: AlmaLinux 9.0 (Emerald Puma)\n     CPE OS Name: cpe:/o:almalinux:almalinux:9::baseos\n          Kernel: Linux 5.14.0-70.17.1.el9_0.x86_64\n    Architecture: x86-64\n Hardware Vendor: Alibaba Cloud\n  Hardware Model: Alibaba Cloud ECS\n\n[root@r0sasd1bQi ~]# hostnamectl set-hostname shumlab-server --static\n[root@r0sasd1bQi ~]# hostnamectl status\n Static hostname: shumlab-rhel9\n       Icon name: computer-vm\n         Chassis: vm 🖴\n      Machine ID: 5b87417f755c419bbacbb0a0f0f363e8\n         Boot ID: 2ba10754ac064e6f9473ad579a5ba163\n  Virtualization: kvm\nOperating System: AlmaLinux 9.0 (Emerald Puma)\n     CPE OS Name: cpe:/o:almalinux:almalinux:9::baseos\n          Kernel: Linux 5.14.0-70.17.1.el9_0.x86_64\n    Architecture: x86-64\n Hardware Vendor: Alibaba Cloud\n  Hardware Model: Alibaba Cloud ECS\n\n[root@r0sasd1bQi ~]# reboot now    # 重启服务器\n```\n> - 方法二，通过修改文件 `/etc/hostname` 来实现主机名的修改。把该文件内容替换成自己想要的主机名重启即可。\n\n```bash\n[root@r0sasd1bQi ~]# vim /etc/hostname\t\t# 修改 hostname\n[root@r0sasd1bQi ~]# reboot now    \t\t\t\t# 重启服务器\n```\n> **声明：**以上为CSDN博主「点亮梦想那束光」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n> **原文：**[https://blog.csdn.net/solaraceboy/java/article/details/78563537](https://blog.csdn.net/solaraceboy/java/article/details/78563537)\n\n\n<a name=\"CGzyY\"></a>\n## 环境变量\n常用的自定义环境变量配置。\n```\n# User Specific Alias\nalias disp='display'\nalias rm='rm -i'\nalias la='ls -al'\nalias ll='ls -lht'\nalias le='less -S'\n\n# Custom History setting\n# HISTFILESIZE 定义了在 .bash_history 中保存命令的记录总数\nHISTFILESIZE=3000000\n# HISTSIZE 定义了 history 命令输出的记录数\nHISTSIZE=3000\n# 定义 History 输出格式\nexport HISTTIMEFORMAT='%F %T '\n# 使用 HISTCONTROL 从命令历史中剔除连续重复的条目\nHISTCONTROL=ignoredups\n# 将 bash 内存中历史命令追加到 .bash_history 历史命令文件中， 默认只有退出 shell 是才会保存\nPROMPT_COMMAND=\"history -a\"\n\n# Login Style\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\nclear;\n```\n<a name=\"aqiga\"></a>\n### 命令行提示符\n\nbash 中命令行提示符的格式是由 PS1 来控制的。 `/etc/bashrc` 中 PS1 的格式定义用于控制全局用户的命令行提示符样式；而针对个人用户的 PS1 设置，位于 `~/.bashrc` 中。\n\n我自己的 PS1 定义：\n```bash\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\ncd /data; clear;\n```\n![image.png](https://cdn.nlark.com/yuque/0/2022/png/126032/1660793230828-397b5ef6-aa30-4938-ac6a-8199de4709c4.png#averageHue=%23363535&clientId=u60b54abe-7590-4&from=paste&height=244&id=uceeb95d3&originHeight=244&originWidth=949&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27917&status=done&style=none&taskId=uda9c7f0d-0247-4798-afe9-cedae415775&title=&width=949)<br />有关于 PS1 的格式介绍如下：\n```bash\n序列\t\t\t\t\t说明\n\\a\t\t\tASCII 响铃字符（也可以键入 \\007）\n\\d\t\t\t\"Wed Sep 06\" 格式的日期\n\\e\t\t\tASCII 转义字符（也可以键入 \\033）\n\\h\t\t\t主机名的第一部分（如 \"mybox\"）\n\\H\t\t\t主机的全称（如 \"mybox.mydomain.com\"）\n\\j\t\t\t在此 shell 中通过按 ^Z 挂起的进程数\n\\l\t\t\t此 shell 的终端设备名（如 \"ttyp4\"）\n\\n\t\t\t换行符\n\\r\t\t\t回车符\n\\s\t\t\tshell 的名称（如 \"bash\"）\n\\t\t\t\t24 小时制时间（如 \"23:01:01\"）\n\\T\t\t\t12 小时制时间（如 \"11:01:01\"）\n\\@\t\t\t带有 am/pm 的 12 小时制时间\n\\u\t\t\t用户名\n\\v\t\t\tbash 的版本（如 2.04）\n\\V\t\t\tBash 版本（包括补丁级别）\n\\w\t\t\t当前工作目录（如 \"/home/shenweiyan\"）\n\\W\t\t\t当前工作目录的 \"basename\"（如 \"shenweiyan\"）\n\\!\t\t\t当前命令在历史缓冲区中的位置\n\\#\t\t\t命令编号（只要您键入内容，它就会在每次提示时累加）\n\\$\t\t\t如果您不是超级用户 (root)，则插入一个 \"$\"；如果您是超级用户，则显示一个 \"#\"\n\\xxx\t\t插入一个用三位数 xxx（用零代替未使用的数字，如 \"\\007\"）表示的 ASCII 字符\n\\\\\t\t\t反斜杠\n\\[\t\t\t这个序列应该出现在不移动光标的字符序列（如颜色转义序列）之前。它使 bash 能够正确计算自动换行。\n\\]\t\t\t这个序列应该出现在非打印字符序列之后。\n```\n",
       "properties": {
         "title": "基础配置",
         "urlname": "ut1tmm",
         "author": "章鱼猫先生",
         "date": "2021-11-26 08:30:39",
-        "updated": "2022-08-31 01:57:26"
+        "updated": "2023-07-19 07:38:53"
       },
       "catalog": [
         {
@@ -1204,14 +1179,14 @@
       "id": 61270593,
       "doc_id": "psetzg",
       "title": "psetzg",
-      "updated": 1637894445000,
+      "updated": 1689752404000,
       "body_original": "openEuler-20.03 LTS 管理用户和用户组的官方文档，在[这里](https://docs.openeuler.org/zh/docs/20.03_LTS/docs/Administration/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%BB%84.html)。补充一下关于如何在 openeuler 上创建启用 sudo 新用户（无需修改服务器 /etc/sudoers 文件）的一个小知识点。\n\n<a name=\"o4SAs\"></a>\n## 创建启用 sudo 新用户\n\n该 sudo 命令提供了一种向普通用户授予管理员特权（通常仅对 root 用户可用）的机制。本指南将向您展示如何 sudo 在 openeuler 上创建具有访问权限的新用户，而无需修改服务器 /etc/sudoers 文件。\n:::tips\n注意：如果要 sudo 为现有的 openeuler 用户配置，请跳至步骤 3。\n:::\n\n<a name=\"ePSMR\"></a>\n### 第 1 步，登录到服务器\n\n以 root 用户身份登录到服务器：\n```bash\n#使用服务器的IP地址或主机名代替your_server_ip_address上面的名称\nssh root@your_server_ip_address \n```\n\n<a name=\"lQDRl\"></a>\n### 第 2 步，将新用户添加到系统\n\n使用 adduser 命令将新用户添加到系统中：\n```bash\n#确保sammy用您要创建的用户名替换\nadduser sammy\n```\n使用 passwd 命令来更新新用户的密码：\n```bash\npasswd sammy\n```\n请记住 sammy 用您刚创建的用户替换。系统将提示您两次输入新密码：\n```bash\nChanging password for user developer.\nNew password:\nRetype new password: \n```\n\n<a name=\"ibXJU\"></a>\n### 步骤 3，将用户添加到 wheel 组\n\n使用 usermod 命令将用户添加到 wheel 组：\n```bash\nusermod -aG wheel sammy\n```\n再一次，请确保替换 sammy 为您要赋予 sudo 特权的用户名。**默认情况下，在 CentOS 上，wheel 组的所有成员都具有完全 sudo 访问权限。**\n\n<a name=\"emgkC\"></a>\n### 第 4 步，测试 sudo 访问权限\n\n要测试新 sudo 权限是否正常运行，请首先使用以下 su 命令从 root 用户切换到新用户帐户：\n```bash\nsu - sammy\n```\n作为新用户，sammy 通过 sudo 在要使用超级用户特权运行的命令之前添加验证您可以使用：\n```bash\nsudo command_to_run\n```\n例如，您可以列出目录的内容，该 /root 目录通常只有 root 用户可以访问：\n```bash\nsudo ls -la /root\n```\n第一次 sudo 在会话中使用时，系统将提示您输入该用户帐户的密码。输入密码以继续：\n```bash\n[sudo] password for sammy:\n```\n:::tips\n**注意：**这不是要求输入** root** 密码！输入启用了 sudo 的用户的密码，而不是 **root** 密码。\n:::\n\n如果您的用户在适当的组中，并且您正确输入了密码，则发出的命令 sudo 将以 root 特权运行。\n\n<a name=\"m9Bkw\"></a>\n### 总结\n\n在本快速入门教程中，我们创建了一个新的用户帐户，并将其添加到 wheel 组以启用 sudo 访问权限。\n\n\n<a name=\"XbpuY\"></a>\n### <br />\n",
       "properties": {
         "title": "管理用户和用户组",
         "urlname": "psetzg",
         "author": "章鱼猫先生",
         "date": "2021-11-26 02:37:07",
-        "updated": "2021-11-26 02:40:45"
+        "updated": "2023-07-19 07:40:04"
       },
       "catalog": [
         {
@@ -1219,29 +1194,8 @@
           "doc_id": "psetzg"
         },
         {
-          "title": "openEuler 系列",
+          "title": "openEuler系列",
           "doc_id": "psetzg"
-        }
-      ],
-      "body": ""
-    },
-    {
-      "id": 61304397,
-      "doc_id": "siukgd",
-      "title": "siukgd",
-      "updated": 1684287842000,
-      "body_original": "根据官网最新的产品规范，CentOS 7 在 2024 年停止支持，CentOS 8 将在今年年末停止支持。产品规范链接：[https://wiki.centos.org/zh/About/Product](https://wiki.centos.org/zh/About/Product)<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1630994486421-1ddbab6a-2aa5-4122-a21e-20a70857ca2d.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_27%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#averageHue=%238eb481&clientId=u68174597-a7f7-4&from=paste&height=129&id=u8d834ce2&originHeight=129&originWidth=948&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14440&status=done&style=none&taskId=u10835c15-147d-4459-8ae2-4536a008294&title=&width=948)\n\n:::tips\n**Rocky Linux 8 (released **[**June 2021**](https://forums.rockylinux.org/t/rocky-linux-8-4-available-now/3015)**, LTS EOL **[**May 2029**](https://forums.rockylinux.org/t/what-is-eol-of-rl8/3316)**)**\n:::\n\n<a name=\"FPHiW\"></a>\n# 论坛社区\n\n官网：[https://rockylinux.org/](https://rockylinux.org/)<br />中文社区：[https://www.rockylinux.cn/](https://www.rockylinux.cn/)\n\n<a name=\"JckyM\"></a>\n# 镜像源\n\n官方源列表：[https://mirror.rockylinux.org/mirrormanager/mirrors](https://mirror.rockylinux.org/mirrormanager/mirrors)<br />阿里云源：[https://developer.aliyun.com/mirror/rockylinux](https://developer.aliyun.com/mirror/rockylinux)\n\n<a name=\"b4vHc\"></a>\n# 资料文档\nRocky Linux 的基础知识，可以阅读下面三个 PDF。<br />[RHEL 安装程序的引导选项.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287766015-55bcc398-3f4f-43da-8619-304e216fb3ab.pdf)<br />[在 Red Hat Enterprise Linux 8 中配置 InfiniBand 和 RDMA 网络的指南.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287807849-fd5169b0-3d12-4b1c-8133-8764259201a6.pdf)<br />[配置 Red Hat Enterprise Linux 9 中基本系统设置的指南.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287824129-2584dc32-9e9e-4411-bcaa-fa1dbaa72655.pdf)\n\n",
-      "properties": {
-        "title": "RHEL 系列",
-        "urlname": "siukgd",
-        "author": "章鱼猫先生",
-        "date": "2021-11-26 08:17:59",
-        "updated": "2023-05-17 01:44:02"
-      },
-      "catalog": [
-        {
-          "title": "专栏主题",
-          "doc_id": "siukgd"
         }
       ],
       "body": ""
@@ -1275,14 +1229,14 @@
       "id": 61269749,
       "doc_id": "imno9x",
       "title": "imno9x",
-      "updated": 1640057185000,
-      "body_original": "<a name=\"olRnL\"></a>\n# GCC\n\n默认的 Ubuntu 软件源包含了一个软件包组，名称为 \"[build-essentia](https://pkgs.org/download/build-essential)l\"，它包含了 GNU 编辑器集合，GNU 调试器，和其他编译软件所必需的开发库和工具。\n\n想要安装开发工具软件包，以 拥有 sudo 权限用户身份或者 root 身份运行下面的命令：\n```bash\nsudo apt update \nsudo apt install build-essential\n```\n这个命令将会安装一系列软件包，包括 gcc，g++ 和 make。\n\n你可能还想安装关于如何使用 GNU/Linux 开发的手册。\n```bash\nsudo apt install manpages-dev\n```\n通过运行下面的命令，打印 GCC 版本，来验证 GCC 编译器是否被成功地安装。\n```bash\ngcc --version\n```\n在 Ubuntu 20.04 软件源中 GCC 的默认可用版本号为 **9.3.0**：<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1640056216355-9f80e74b-dc6e-48da-8921-88f20f8b390e.png#clientId=ued197642-78ba-4&from=paste&height=146&id=ucda0a1ee&originHeight=146&originWidth=740&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12127&status=done&style=none&taskId=ub6cdcb4a-2d31-44a3-8327-3cf8ed7096d&title=&width=740)<br />就这些。GCC 已经在你的 Ubuntu 系统上安装好了，你可以开始使用它了。\n\n\n<a name=\"MTMYT\"></a>\n# 参考资料\n\n1. [如何在 Ubuntu 20.04 上安装 GCC (build-essential)](https://developer.aliyun.com/article/766146) - 阿里云开发者社区\n",
+      "updated": 1689752595000,
+      "body_original": "<a name=\"olRnL\"></a>\n## GCC\n\n默认的 Ubuntu 软件源包含了一个软件包组，名称为 \"[build-essentia](https://pkgs.org/download/build-essential)l\"，它包含了 GNU 编辑器集合，GNU 调试器，和其他编译软件所必需的开发库和工具。\n\n想要安装开发工具软件包，以 拥有 sudo 权限用户身份或者 root 身份运行下面的命令：\n```bash\nsudo apt update \nsudo apt install build-essential\n```\n这个命令将会安装一系列软件包，包括 gcc，g++ 和 make。\n\n你可能还想安装关于如何使用 GNU/Linux 开发的手册。\n```bash\nsudo apt install manpages-dev\n```\n通过运行下面的命令，打印 GCC 版本，来验证 GCC 编译器是否被成功地安装。\n```bash\ngcc --version\n```\n在 Ubuntu 20.04 软件源中 GCC 的默认可用版本号为 **9.3.0**：<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1640056216355-9f80e74b-dc6e-48da-8921-88f20f8b390e.png#averageHue=%230a0705&clientId=ued197642-78ba-4&from=paste&height=146&id=ucda0a1ee&originHeight=146&originWidth=740&originalType=binary&ratio=1&rotation=0&showTitle=false&size=12127&status=done&style=none&taskId=ub6cdcb4a-2d31-44a3-8327-3cf8ed7096d&title=&width=740)<br />就这些。GCC 已经在你的 Ubuntu 系统上安装好了，你可以开始使用它了。\n\n\n<a name=\"MTMYT\"></a>\n## 参考资料\n\n1. [如何在 Ubuntu 20.04 上安装 GCC (build-essential)](https://developer.aliyun.com/article/766146) - 阿里云开发者社区\n",
       "properties": {
         "title": "GCC 套件",
         "urlname": "imno9x",
         "author": "章鱼猫先生",
         "date": "2021-11-26 02:30:42",
-        "updated": "2021-12-21 03:26:25"
+        "updated": "2023-07-19 07:43:15"
       },
       "catalog": [
         {
@@ -1290,7 +1244,7 @@
           "doc_id": "imno9x"
         },
         {
-          "title": "Debian | Ubuntu 系列",
+          "title": "Debian 系列",
           "doc_id": "imno9x"
         },
         {
@@ -1329,14 +1283,14 @@
       "id": 61269275,
       "doc_id": "ytodmy",
       "title": "ytodmy",
-      "updated": 1637895846000,
-      "body_original": "<a name=\"tYUiC\"></a>\n# Hostname\n\n新的服务器一般自带的 hostname 都是一串无规律的字符串，很难记也不好看（例如我们这个服务器的 r0sasd1bQi ），对于有强迫症的童鞋可以参考下面的方法去修改。\n> 在 CentOS 7 中，有三种定义的主机名：静态的（static）、瞬态的（transient）、灵活的（pretty）。“静态”主机名也称为内核主机名，是系统在启动时从 /etc/hostname 自动初始化的主机名。“瞬态”主机名是在系统运行时临时分配的主机名，例如，通过 DHCP 或 mDNS 服务器分配。静态主机名和瞬态主机名都遵从作为互联网域名同样的字符限制规则。而另一方面，“灵活”主机名则允许使用自由形式（包括特殊/空白字符）的主机名，以展示给终端用户。\n> \n> - 方法一，通过 `hostnamectl` 来修改主机名。修改后需要重启服务器。\n\n```bash\n[root@r0sasd1bQi ~]# hostnamectl   #查看一下当前主机名的情况\n   Static hostname: r0sasd1bQi\n         Icon name: computer-vm\n           Chassis: vm\n        Machine ID: b6302a1a586547a09aae75efbfa34901\n           Boot ID: f75d72657c524500b47edc250c13c6f2\n    Virtualization: kvm\n  Operating System: CentOS Linux 7 (Core)\n       CPE OS Name: cpe:/o:centos:centos:7\n            Kernel: Linux 3.10.0-957.el7.x86_64\n      Architecture: x86-64\n\n[root@r0sasd1bQi ~]# hostnamectl set-hostname bioitee-server --static\n[root@r0sasd1bQi ~]# hostnamectl status\n   Static hostname: bioitee-server\n         Icon name: computer-vm\n           Chassis: vm\n        Machine ID: b6302a1a586547a09aae75efbfa34901\n           Boot ID: f75d72657c524500b47edc250c13c6f2\n    Virtualization: kvm\n  Operating System: CentOS Linux 7 (Core)\n       CPE OS Name: cpe:/o:centos:centos:7\n            Kernel: Linux 3.10.0-957.el7.x86_64\n      Architecture: x86-64\n\n[root@r0sasd1bQi ~]# reboot now    # 重启服务器\n```\n> \n> - 方法二，通过修改文件 `/etc/hostname` 来实现主机名的修改。把该文件内容替换成自己想要的主机名重启即可。\n\n```bash\n[root@r0sasd1bQi ~]# vim /etc/hostname\t\t# 修改 hostname\n[root@r0sasd1bQi ~]# reboot now    \t\t\t\t# 重启服务器\n```\n> ————————————————\n> 版权声明：本文为CSDN博主「点亮梦想那束光」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n> 原文链接：[https://blog.csdn.net/solaraceboy/java/article/details/78563537](https://blog.csdn.net/solaraceboy/java/article/details/78563537)\n\n\n![hostname.png](https://cdn.nlark.com/yuque/0/2020/png/126032/1591152960720-21c0d6e2-76f5-4bdc-ba03-da345f526b4c.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_20%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_20%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#height=209&id=hRlhX&originHeight=209&originWidth=712&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19384&status=done&style=none&title=&width=712)\n\n<a name=\"Naydb\"></a>\n# 命令行提示符\n\nbash 中命令行提示符的格式是由 PS1 来控制的。 `/etc/bashrc` 中 PS1 的格式定义用于控制全局用户的命令行提示符样式；而针对个人用户的 PS1 设置，位于 `~/.bashrc` 中。\n\n我自己的 PS1 定义：\n```bash\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\ncd /data; clear;\n```\n![bashrc.png](https://cdn.nlark.com/yuque/0/2020/png/126032/1591153610113-cf5464ec-45c3-4b36-9a81-ab3359f771a5.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_18%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_18%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#height=142&id=dHmZL&originHeight=142&originWidth=647&originalType=binary&ratio=1&rotation=0&showTitle=false&size=17271&status=done&style=none&title=&width=647)\n\n有关于 PS1 的格式介绍如下：\n```bash\n序列\t\t\t\t\t说明\n\\a\t\t\tASCII 响铃字符（也可以键入 \\007）\n\\d\t\t\t\"Wed Sep 06\" 格式的日期\n\\e\t\t\tASCII 转义字符（也可以键入 \\033）\n\\h\t\t\t主机名的第一部分（如 \"mybox\"）\n\\H\t\t\t主机的全称（如 \"mybox.mydomain.com\"）\n\\j\t\t\t在此 shell 中通过按 ^Z 挂起的进程数\n\\l\t\t\t此 shell 的终端设备名（如 \"ttyp4\"）\n\\n\t\t\t换行符\n\\r\t\t\t回车符\n\\s\t\t\tshell 的名称（如 \"bash\"）\n\\t\t\t\t24 小时制时间（如 \"23:01:01\"）\n\\T\t\t\t12 小时制时间（如 \"11:01:01\"）\n\\@\t\t\t带有 am/pm 的 12 小时制时间\n\\u\t\t\t用户名\n\\v\t\t\tbash 的版本（如 2.04）\n\\V\t\t\tBash 版本（包括补丁级别）\n\\w\t\t\t当前工作目录（如 \"/home/shenweiyan\"）\n\\W\t\t\t当前工作目录的 \"basename\"（如 \"shenweiyan\"）\n\\!\t\t\t当前命令在历史缓冲区中的位置\n\\#\t\t\t命令编号（只要您键入内容，它就会在每次提示时累加）\n\\$\t\t\t如果您不是超级用户 (root)，则插入一个 \"$\"；如果您是超级用户，则显示一个 \"#\"\n\\xxx\t\t插入一个用三位数 xxx（用零代替未使用的数字，如 \"\\007\"）表示的 ASCII 字符\n\\\\\t\t\t反斜杠\n\\[\t\t\t这个序列应该出现在不移动光标的字符序列（如颜色转义序列）之前。它使 bash 能够正确计算自动换行。\n\\]\t\t\t这个序列应该出现在非打印字符序列之后。\n```\n\n<a name=\"he94m\"></a>\n# vim 中启用鼠标复制粘贴\n\nDebian 10 操作系统中，使用 apt 安装的 vim 默认无法使用鼠标进行复制粘贴，很不方便。因此，介绍一下如何在 Debian 10 中恢复鼠标复制粘贴的功能。\n\n1. 创建 vimrc.local 文件。\n```bash\ntouch /etc/vim/vimrc.local\n```\n\n2. 编辑文件 /etc/vim/vimrc.local 加入下面的行：\n```\nsource /usr/share/vim/vim81/defaults.vim  #这里根据你 vim 实际的目录填写\nlet skip_defaults_vim = 1 \nif has('mouse')\n    set mouse=r\nendif\n```\n\n3. 也可以通过 curl 直接下载本人已经编辑好的 vimrc.local 文件。\n```shell\n# <VERSION> 为非必填项，默认为 latest\n# https://shenweiyan.coding.net/public-artifacts/btscl/debian-ubuntu-config/packages\n\n$ curl -fL \"https://shenweiyan-generic.pkg.coding.net/btscl/debian-ubuntu-config/vimrc.local?version=latest\" -o /etc/vim/vimrc.local\n```\n\n这个启用了鼠标的配置文件覆盖了 vim 的配置。这样，我们再使用 vim 的时候就可以使用鼠标来复制粘贴了。\n\n",
+      "updated": 1689752496000,
+      "body_original": "<a name=\"tYUiC\"></a>\n## Hostname\n\n新的服务器一般自带的 hostname 都是一串无规律的字符串，很难记也不好看（例如我们这个服务器的 r0sasd1bQi ），对于有强迫症的童鞋可以参考下面的方法去修改。\n> 在 CentOS 7 中，有三种定义的主机名：静态的（static）、瞬态的（transient）、灵活的（pretty）。“静态”主机名也称为内核主机名，是系统在启动时从 /etc/hostname 自动初始化的主机名。“瞬态”主机名是在系统运行时临时分配的主机名，例如，通过 DHCP 或 mDNS 服务器分配。静态主机名和瞬态主机名都遵从作为互联网域名同样的字符限制规则。而另一方面，“灵活”主机名则允许使用自由形式（包括特殊/空白字符）的主机名，以展示给终端用户。\n> \n> - 方法一，通过 `hostnamectl` 来修改主机名。修改后需要重启服务器。\n\n```bash\n[root@r0sasd1bQi ~]# hostnamectl   #查看一下当前主机名的情况\n   Static hostname: r0sasd1bQi\n         Icon name: computer-vm\n           Chassis: vm\n        Machine ID: b6302a1a586547a09aae75efbfa34901\n           Boot ID: f75d72657c524500b47edc250c13c6f2\n    Virtualization: kvm\n  Operating System: CentOS Linux 7 (Core)\n       CPE OS Name: cpe:/o:centos:centos:7\n            Kernel: Linux 3.10.0-957.el7.x86_64\n      Architecture: x86-64\n\n[root@r0sasd1bQi ~]# hostnamectl set-hostname bioitee-server --static\n[root@r0sasd1bQi ~]# hostnamectl status\n   Static hostname: bioitee-server\n         Icon name: computer-vm\n           Chassis: vm\n        Machine ID: b6302a1a586547a09aae75efbfa34901\n           Boot ID: f75d72657c524500b47edc250c13c6f2\n    Virtualization: kvm\n  Operating System: CentOS Linux 7 (Core)\n       CPE OS Name: cpe:/o:centos:centos:7\n            Kernel: Linux 3.10.0-957.el7.x86_64\n      Architecture: x86-64\n\n[root@r0sasd1bQi ~]# reboot now    # 重启服务器\n```\n> \n> - 方法二，通过修改文件 `/etc/hostname` 来实现主机名的修改。把该文件内容替换成自己想要的主机名重启即可。\n\n```bash\n[root@r0sasd1bQi ~]# vim /etc/hostname\t\t# 修改 hostname\n[root@r0sasd1bQi ~]# reboot now    \t\t\t\t# 重启服务器\n```\n> ————————————————\n> 版权声明：本文为CSDN博主「点亮梦想那束光」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。\n> 原文链接：[https://blog.csdn.net/solaraceboy/java/article/details/78563537](https://blog.csdn.net/solaraceboy/java/article/details/78563537)\n\n\n![hostname.png](https://cdn.nlark.com/yuque/0/2020/png/126032/1591152960720-21c0d6e2-76f5-4bdc-ba03-da345f526b4c.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_20%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_20%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#averageHue=%23292928&height=209&id=hRlhX&originHeight=209&originWidth=712&originalType=binary&ratio=1&rotation=0&showTitle=false&size=19384&status=done&style=none&title=&width=712)\n\n<a name=\"Naydb\"></a>\n## 命令行提示符\n\nbash 中命令行提示符的格式是由 PS1 来控制的。 `/etc/bashrc` 中 PS1 的格式定义用于控制全局用户的命令行提示符样式；而针对个人用户的 PS1 设置，位于 `~/.bashrc` 中。\n\n我自己的 PS1 定义：\n```bash\nPS1='\\033[35;1m\\u@\\h \\[\\e[m\\]\\t \\[\\033[36;1m\\]$(pwd) \\n$ \\[\\e[m\\]'\ncd /data; clear;\n```\n![bashrc.png](https://cdn.nlark.com/yuque/0/2020/png/126032/1591153610113-cf5464ec-45c3-4b36-9a81-ab3359f771a5.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_18%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_18%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#averageHue=%233a3938&height=142&id=dHmZL&originHeight=142&originWidth=647&originalType=binary&ratio=1&rotation=0&showTitle=false&size=17271&status=done&style=none&title=&width=647)\n\n有关于 PS1 的格式介绍如下：\n```bash\n序列\t\t\t\t\t说明\n\\a\t\t\tASCII 响铃字符（也可以键入 \\007）\n\\d\t\t\t\"Wed Sep 06\" 格式的日期\n\\e\t\t\tASCII 转义字符（也可以键入 \\033）\n\\h\t\t\t主机名的第一部分（如 \"mybox\"）\n\\H\t\t\t主机的全称（如 \"mybox.mydomain.com\"）\n\\j\t\t\t在此 shell 中通过按 ^Z 挂起的进程数\n\\l\t\t\t此 shell 的终端设备名（如 \"ttyp4\"）\n\\n\t\t\t换行符\n\\r\t\t\t回车符\n\\s\t\t\tshell 的名称（如 \"bash\"）\n\\t\t\t\t24 小时制时间（如 \"23:01:01\"）\n\\T\t\t\t12 小时制时间（如 \"11:01:01\"）\n\\@\t\t\t带有 am/pm 的 12 小时制时间\n\\u\t\t\t用户名\n\\v\t\t\tbash 的版本（如 2.04）\n\\V\t\t\tBash 版本（包括补丁级别）\n\\w\t\t\t当前工作目录（如 \"/home/shenweiyan\"）\n\\W\t\t\t当前工作目录的 \"basename\"（如 \"shenweiyan\"）\n\\!\t\t\t当前命令在历史缓冲区中的位置\n\\#\t\t\t命令编号（只要您键入内容，它就会在每次提示时累加）\n\\$\t\t\t如果您不是超级用户 (root)，则插入一个 \"$\"；如果您是超级用户，则显示一个 \"#\"\n\\xxx\t\t插入一个用三位数 xxx（用零代替未使用的数字，如 \"\\007\"）表示的 ASCII 字符\n\\\\\t\t\t反斜杠\n\\[\t\t\t这个序列应该出现在不移动光标的字符序列（如颜色转义序列）之前。它使 bash 能够正确计算自动换行。\n\\]\t\t\t这个序列应该出现在非打印字符序列之后。\n```\n\n<a name=\"he94m\"></a>\n## vim 中启用鼠标复制粘贴\n\nDebian 10 操作系统中，使用 apt 安装的 vim 默认无法使用鼠标进行复制粘贴，很不方便。因此，介绍一下如何在 Debian 10 中恢复鼠标复制粘贴的功能。\n\n1. 创建 vimrc.local 文件。\n```bash\ntouch /etc/vim/vimrc.local\n```\n\n2. 编辑文件 /etc/vim/vimrc.local 加入下面的行：\n```\nsource /usr/share/vim/vim81/defaults.vim  #这里根据你 vim 实际的目录填写\nlet skip_defaults_vim = 1 \nif has('mouse')\n    set mouse=r\nendif\n```\n\n3. 也可以通过 curl 直接下载本人已经编辑好的 vimrc.local 文件。\n```shell\n# <VERSION> 为非必填项，默认为 latest\n# https://shenweiyan.coding.net/public-artifacts/btscl/debian-ubuntu-config/packages\n\n$ curl -fL \"https://shenweiyan-generic.pkg.coding.net/btscl/debian-ubuntu-config/vimrc.local?version=latest\" -o /etc/vim/vimrc.local\n```\n\n这个启用了鼠标的配置文件覆盖了 vim 的配置。这样，我们再使用 vim 的时候就可以使用鼠标来复制粘贴了。\n\n",
       "properties": {
         "title": "基础配置",
         "urlname": "ytodmy",
         "author": "章鱼猫先生",
         "date": "2021-11-26 02:26:24",
-        "updated": "2021-11-26 03:04:06"
+        "updated": "2023-07-19 07:41:36"
       },
       "catalog": [
         {
@@ -1344,7 +1298,7 @@
           "doc_id": "ytodmy"
         },
         {
-          "title": "Debian | Ubuntu 系列",
+          "title": "Debian 系列",
           "doc_id": "ytodmy"
         }
       ],
@@ -1426,27 +1380,6 @@
       "body": ""
     },
     {
-      "id": 56079485,
-      "doc_id": "ixziaz",
-      "title": "ixziaz",
-      "updated": 1637894416000,
-      "body_original": "<a name=\"ZJwuC\"></a>\n# 论坛社区\n\nopenEuler 官网：[https://www.openeuler.org/](https://www.openeuler.org/)\n\n\n<a name=\"JjVHa\"></a>\n# 文档资料\nopenEuler 官方文档链接，相关的一系列操作可以直接参考官方文档。\n\n[openEuler documentation](https://docs.openeuler.org/zh/)\n\n![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1635298160363-d07623b0-ef9a-40aa-bfc4-52262f13441b.png#clientId=u424b1c3e-11a9-4&from=paste&height=539&id=ub5241cca&originHeight=539&originWidth=1337&originalType=binary&ratio=1&rotation=0&showTitle=false&size=62469&status=done&style=none&taskId=ubc1a1a0e-81bd-4627-ae57-dfacb3e8eb1&title=&width=1337)\n<a name=\"msOBk\"></a>\n# \n",
-      "properties": {
-        "title": "openEuler 系列",
-        "urlname": "ixziaz",
-        "author": "章鱼猫先生",
-        "date": "2021-10-27 01:18:03",
-        "updated": "2021-11-26 02:40:16"
-      },
-      "catalog": [
-        {
-          "title": "专栏主题",
-          "doc_id": "ixziaz"
-        }
-      ],
-      "body": ""
-    },
-    {
       "id": 56925907,
       "doc_id": "lrzsz",
       "title": "lrzsz",
@@ -1467,27 +1400,6 @@
         {
           "title": "文件同步传输",
           "doc_id": "lrzsz"
-        }
-      ],
-      "body": ""
-    },
-    {
-      "id": 55690521,
-      "doc_id": "debian-ubuntu",
-      "title": "debian-ubuntu",
-      "updated": 1637894209000,
-      "body_original": "根据官网最新的产品规范，CentOS 7 在 2024 年停止支持，CentOS 8 将在今年年末停止支持。产品规范链接：[https://wiki.centos.org/zh/About/Product](https://wiki.centos.org/zh/About/Product)<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1630994486421-1ddbab6a-2aa5-4122-a21e-20a70857ca2d.png#clientId=u68174597-a7f7-4&from=paste&height=129&id=u8d834ce2&originHeight=129&originWidth=948&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14440&status=done&style=none&taskId=u10835c15-147d-4459-8ae2-4536a008294&title=&width=948)<br />所以，想着要入手 Debian 学习和折腾一番，刚好腾讯云有个2核4G，80GB SSD盘的轻量云服务器，首年才74块，于是开始入手。\n\n<a name=\"UVeWU\"></a>\n# 论坛社区\n\n官网：[https://www.debian.org/](https://www.debian.org/)\n\n<a name=\"fAShw\"></a>\n# 文档资料\n\n- 《[Debian 用户手册](https://www.debian.org/doc/user-manuals.zh-cn.html)》\n- 《[Debian 管理员手册](https://debian-handbook.info/browse/zh-CN/stable/)》：一本介绍 Debian 发行版的书，从初始的安装过程到配置各种服务。\n\n<a name=\"ud88n\"></a>\n# 其他资料\n\n1. 张亚，《[[Linux]-Debian10基础使用](https://www.cnblogs.com/alaska/p/14141992.html)》，博客园\n",
-      "properties": {
-        "title": "Debian | Ubuntu 系列",
-        "urlname": "debian-ubuntu",
-        "author": "章鱼猫先生",
-        "date": "2021-10-21 04:36:15",
-        "updated": "2021-11-26 02:36:49"
-      },
-      "catalog": [
-        {
-          "title": "专栏主题",
-          "doc_id": "debian-ubuntu"
         }
       ],
       "body": ""
@@ -4721,14 +4633,14 @@
       "id": 2012023,
       "doc_id": "windows-ports",
       "title": "windows-ports",
-      "updated": 1639987426000,
-      "body_original": "<a name=\"7TRMy\"></a>\n# 1. 问题\n\n将项目部署到 Windows server 2008 服务器上，开启了 http/https 之后，在用服务器本身的浏览器访问：[http://domain.com](http://domain.com) 就可以访问，可是在外用其他电脑就访问相同的 url 就不能够访问。\n\n<a name=\"gULFp\"></a>\n# 2. 原因\n\n造成以上问题，很大部分的原因在于服务器的防火墙限制了 80、443 对外的端口，也就是说没有开放这个端口给外部客户端访问。\n\n<a name=\"wywPX\"></a>\n# 3. 开启端口\n\nwindows server 2008 大多数端口都是默认关闭的，这里我们使用 httpd 的 80 端口为例，演示如何开启一个端口。\n\n\"**开始**\" -> \"**控制面板**\" ->\"**Windows 防火墙**\" -> \"**高级设置**\" -> \"**入站规则**\"：\n\n选择 \"**Windows 防火墙**\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036858993-2d97356a-6df9-4026-b31c-f1a19628d03e.png#align=left&display=inline&height=431&originHeight=431&originWidth=722&size=38916&status=done&width=722)\n\n选择\"**高级设置**\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036806356-33a68ccf-13a6-4328-9ebc-3280fb5b0bf6.png#align=left&display=inline&height=431&originHeight=431&originWidth=722&size=43779&status=done&width=722)\n\n选择 \"入站规则\" → \"新建规则\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036673262-ce659a83-0eaa-4382-be28-4b2c3d7e8d2d.png#align=left&display=inline&height=487&originHeight=487&originWidth=719&size=55883&status=done&width=719)\n\n点击端口：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036949712-ee064673-9edc-463f-948d-aac021b42783.png#align=left&display=inline&height=529&originHeight=529&originWidth=720&size=24482&status=done&width=720)\n\n添加 80 端口：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037078099-4e0bd403-d601-4000-8d7e-28545c3483e1.png#align=left&display=inline&height=531&originHeight=531&originWidth=721&size=21813&status=done&width=721)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037108133-6a523e0c-9080-4ae9-8814-a94991e3233b.png#align=left&display=inline&height=532&originHeight=532&originWidth=719&size=25816&status=done&width=719)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037135819-a9ee5f84-8308-43aa-8fd1-04c947886879.png#align=left&display=inline&height=532&originHeight=532&originWidth=720&size=21584&status=done&width=720)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037200758-2054ad84-6d48-43fc-b495-ca161bb01e8a.png#align=left&display=inline&height=529&originHeight=529&originWidth=721&size=17383&status=done&width=721)\n\n这样我们就可以访问我们的主机 apache 服务了。\n",
+      "updated": 1689750903000,
+      "body_original": "<a name=\"7TRMy\"></a>\n## 1. 问题\n将项目部署到 Windows server 2008 服务器上，开启了 http/https 之后，在用服务器本身的浏览器访问：[http://domain.com](http://domain.com) 就可以访问，可是在外用其他电脑就访问相同的 url 就不能够访问。\n\n<a name=\"gULFp\"></a>\n## 2. 原因\n造成以上问题，很大部分的原因在于服务器的防火墙限制了 80、443 对外的端口，也就是说没有开放这个端口给外部客户端访问。\n\n<a name=\"wywPX\"></a>\n## 3. 开启端口\nwindows server 2008 大多数端口都是默认关闭的，这里我们使用 httpd 的 80 端口为例，演示如何开启一个端口。\n\n\"**开始**\" -> \"**控制面板**\" ->\"**Windows 防火墙**\" -> \"**高级设置**\" -> \"**入站规则**\"：\n\n选择 \"**Windows 防火墙**\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036858993-2d97356a-6df9-4026-b31c-f1a19628d03e.png#averageHue=%23f6f5f5&height=431&id=eraTb&originHeight=431&originWidth=722&originalType=binary&ratio=1&rotation=0&showTitle=false&size=38916&status=done&style=none&title=&width=722)\n\n选择\"**高级设置**\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036806356-33a68ccf-13a6-4328-9ebc-3280fb5b0bf6.png#averageHue=%23efeeed&height=431&id=UUqh6&originHeight=431&originWidth=722&originalType=binary&ratio=1&rotation=0&showTitle=false&size=43779&status=done&style=none&title=&width=722)\n\n选择 \"入站规则\" → \"新建规则\"：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036673262-ce659a83-0eaa-4382-be28-4b2c3d7e8d2d.png#averageHue=%23edebea&height=487&id=bdVLr&originHeight=487&originWidth=719&originalType=binary&ratio=1&rotation=0&showTitle=false&size=55883&status=done&style=none&title=&width=719)\n\n点击端口：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557036949712-ee064673-9edc-463f-948d-aac021b42783.png#averageHue=%23dfdcd8&height=529&id=hw0y0&originHeight=529&originWidth=720&originalType=binary&ratio=1&rotation=0&showTitle=false&size=24482&status=done&style=none&title=&width=720)\n\n添加 80 端口：<br />![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037078099-4e0bd403-d601-4000-8d7e-28545c3483e1.png#averageHue=%23dfddda&height=531&id=gQeGd&originHeight=531&originWidth=721&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21813&status=done&style=none&title=&width=721)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037108133-6a523e0c-9080-4ae9-8814-a94991e3233b.png#averageHue=%23dddbd8&height=532&id=rB2Ev&originHeight=532&originWidth=719&originalType=binary&ratio=1&rotation=0&showTitle=false&size=25816&status=done&style=none&title=&width=719)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037135819-a9ee5f84-8308-43aa-8fd1-04c947886879.png#averageHue=%23dfddd9&height=532&id=kI6Uh&originHeight=532&originWidth=720&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21584&status=done&style=none&title=&width=720)\n\n![image.png](https://cdn.nlark.com/yuque/0/2019/png/126032/1557037200758-2054ad84-6d48-43fc-b495-ca161bb01e8a.png#averageHue=%23e7e5e3&height=529&id=xvHss&originHeight=529&originWidth=721&originalType=binary&ratio=1&rotation=0&showTitle=false&size=17383&status=done&style=none&title=&width=721)\n\n这样我们就可以访问我们的主机 apache 服务了。\n",
       "properties": {
         "title": "Windows server 2008 开启端口",
         "urlname": "windows-ports",
         "author": "章鱼猫先生",
         "date": "2019-07-01 03:50:35",
-        "updated": "2021-12-20 08:03:46"
+        "updated": "2023-07-19 07:15:03"
       },
       "catalog": [
         {
@@ -5841,6 +5753,81 @@
         }
       ],
       "body": ""
+    },
+    {
+      "id": 61304397,
+      "doc_id": "about-rhel",
+      "title": "about-rhel",
+      "updated": 1689752431000,
+      "body_original": "根据官网最新的产品规范，CentOS 7 在 2024 年停止支持，CentOS 8 将在今年年末停止支持。产品规范链接：[https://wiki.centos.org/zh/About/Product](https://wiki.centos.org/zh/About/Product)<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1630994486421-1ddbab6a-2aa5-4122-a21e-20a70857ca2d.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_27%2Ctext_5rKI57u054eVIHwg5YWs5LyX5Y-377yaQmlvSVTniLHlpb3ogIU%3D%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10#averageHue=%238eb481&clientId=u68174597-a7f7-4&from=paste&height=129&id=u8d834ce2&originHeight=129&originWidth=948&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14440&status=done&style=none&taskId=u10835c15-147d-4459-8ae2-4536a008294&title=&width=948)\n\n:::tips\n**Rocky Linux 8 (released **[**June 2021**](https://forums.rockylinux.org/t/rocky-linux-8-4-available-now/3015)**, LTS EOL **[**May 2029**](https://forums.rockylinux.org/t/what-is-eol-of-rl8/3316)**)**\n:::\n\n<a name=\"FPHiW\"></a>\n## 论坛社区\n\n官网：[https://rockylinux.org/](https://rockylinux.org/)<br />中文社区：[https://www.rockylinux.cn/](https://www.rockylinux.cn/)\n\n<a name=\"JckyM\"></a>\n## 镜像源\n\n官方源列表：[https://mirror.rockylinux.org/mirrormanager/mirrors](https://mirror.rockylinux.org/mirrormanager/mirrors)<br />阿里云源：[https://developer.aliyun.com/mirror/rockylinux](https://developer.aliyun.com/mirror/rockylinux)\n\n<a name=\"b4vHc\"></a>\n## 资料文档\nRocky Linux 的基础知识，可以阅读下面三个 PDF。<br />[RHEL 安装程序的引导选项.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287766015-55bcc398-3f4f-43da-8619-304e216fb3ab.pdf)<br />[在 Red Hat Enterprise Linux 8 中配置 InfiniBand 和 RDMA 网络的指南.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287807849-fd5169b0-3d12-4b1c-8133-8764259201a6.pdf)<br />[配置 Red Hat Enterprise Linux 9 中基本系统设置的指南.pdf](https://www.yuque.com/attachments/yuque/0/2023/pdf/126032/1684287824129-2584dc32-9e9e-4411-bcaa-fa1dbaa72655.pdf)\n\n",
+      "properties": {
+        "title": "关于 RHEL",
+        "urlname": "about-rhel",
+        "author": "章鱼猫先生",
+        "date": "2021-11-26 08:17:59",
+        "updated": "2023-07-19 07:40:31"
+      },
+      "catalog": [
+        {
+          "title": "专栏主题",
+          "doc_id": "about-rhel"
+        },
+        {
+          "title": "RHEL 系列",
+          "doc_id": "about-rhel"
+        }
+      ],
+      "body": ""
+    },
+    {
+      "id": 56079485,
+      "doc_id": "about-openeuler",
+      "title": "about-openeuler",
+      "updated": 1689752391000,
+      "body_original": "<a name=\"ZJwuC\"></a>\n## 论坛社区\nopenEuler 官网：[https://www.openeuler.org/](https://www.openeuler.org/)\n\n<a name=\"JjVHa\"></a>\n## 文档资料\nopenEuler 官方文档链接，相关的一系列操作可以直接参考官方文档。\n\n[openEuler documentation](https://docs.openeuler.org/zh/)\n\n![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1635298160363-d07623b0-ef9a-40aa-bfc4-52262f13441b.png#averageHue=%23fcfbfb&clientId=u424b1c3e-11a9-4&from=paste&height=539&id=ub5241cca&originHeight=539&originWidth=1337&originalType=binary&ratio=1&rotation=0&showTitle=false&size=62469&status=done&style=none&taskId=ubc1a1a0e-81bd-4627-ae57-dfacb3e8eb1&title=&width=1337)\n<a name=\"msOBk\"></a>\n# \n",
+      "properties": {
+        "title": "关于 openEuler",
+        "urlname": "about-openeuler",
+        "author": "章鱼猫先生",
+        "date": "2021-10-27 01:18:03",
+        "updated": "2023-07-19 07:39:51"
+      },
+      "catalog": [
+        {
+          "title": "专栏主题",
+          "doc_id": "about-openeuler"
+        },
+        {
+          "title": "openEuler系列",
+          "doc_id": "about-openeuler"
+        }
+      ],
+      "body": ""
+    },
+    {
+      "id": 55690521,
+      "doc_id": "about-debian-ubuntu",
+      "title": "about-debian-ubuntu",
+      "updated": 1689752464000,
+      "body_original": "根据官网最新的产品规范，CentOS 7 在 2024 年停止支持，CentOS 8 将在今年年末停止支持。产品规范链接：[https://wiki.centos.org/zh/About/Product](https://wiki.centos.org/zh/About/Product)<br />![image.png](https://cdn.nlark.com/yuque/0/2021/png/126032/1630994486421-1ddbab6a-2aa5-4122-a21e-20a70857ca2d.png#averageHue=%2385b179&clientId=u68174597-a7f7-4&from=paste&height=129&id=u8d834ce2&originHeight=129&originWidth=948&originalType=binary&ratio=1&rotation=0&showTitle=false&size=14440&status=done&style=none&taskId=u10835c15-147d-4459-8ae2-4536a008294&title=&width=948)<br />所以，想着要入手 Debian 学习和折腾一番，刚好腾讯云有个2核4G，80GB SSD盘的轻量云服务器，首年才74块，于是开始入手。\n\n<a name=\"UVeWU\"></a>\n## 论坛社区\n官网：[https://www.debian.org/](https://www.debian.org/)\n\n<a name=\"fAShw\"></a>\n## 文档资料\n\n- 《[Debian 用户手册](https://www.debian.org/doc/user-manuals.zh-cn.html)》\n- 《[Debian 管理员手册](https://debian-handbook.info/browse/zh-CN/stable/)》：一本介绍 Debian 发行版的书，从初始的安装过程到配置各种服务。\n\n<a name=\"ud88n\"></a>\n## 其他资料\n\n1. 张亚，《[[Linux]-Debian10基础使用](https://www.cnblogs.com/alaska/p/14141992.html)》，博客园\n",
+      "properties": {
+        "title": "关于 Debian 和 Ubuntu",
+        "urlname": "about-debian-ubuntu",
+        "author": "章鱼猫先生",
+        "date": "2021-10-21 04:36:15",
+        "updated": "2023-07-19 07:41:04"
+      },
+      "catalog": [
+        {
+          "title": "专栏主题",
+          "doc_id": "about-debian-ubuntu"
+        },
+        {
+          "title": "Debian 系列",
+          "doc_id": "about-debian-ubuntu"
+        }
+      ],
+      "body": ""
     }
   ],
   "catalog": [
@@ -6407,11 +6394,11 @@
     },
     {
       "type": "TITLE",
-      "title": "Linux 命令大全",
+      "title": "Linux 命令",
       "uuid": "O0mfvkUhO07OHj53",
       "url": "",
       "prev_uuid": "Z01BjOefnH8y5HVC",
-      "sibling_uuid": "RNX9c3RPi4Wkgm3d",
+      "sibling_uuid": "TALsxYpSLHNGKFT_",
       "child_uuid": "AEAREpghM4e3WbMg",
       "parent_uuid": "Z01BjOefnH8y5HVC",
       "doc_id": "",
@@ -6424,7 +6411,7 @@
     },
     {
       "type": "DOC",
-      "title": "screen：多重视窗管理程序",
+      "title": "多重视窗管理程序 screen",
       "uuid": "AEAREpghM4e3WbMg",
       "url": "gpg9ir",
       "prev_uuid": "O0mfvkUhO07OHj53",
@@ -6440,21 +6427,38 @@
       "slug": "gpg9ir"
     },
     {
-      "type": "DOC",
+      "type": "TITLE",
       "title": "RHEL 系列",
-      "uuid": "RNX9c3RPi4Wkgm3d",
-      "url": "siukgd",
+      "uuid": "TALsxYpSLHNGKFT_",
+      "url": "",
       "prev_uuid": "O0mfvkUhO07OHj53",
-      "sibling_uuid": "jwYl7bbasUn8LX_e",
-      "child_uuid": "hVAZGPRou1RZiAu6",
+      "sibling_uuid": "Kn0hrRsoz0gbnAbd",
+      "child_uuid": "RNX9c3RPi4Wkgm3d",
       "parent_uuid": "Z01BjOefnH8y5HVC",
-      "doc_id": 61304397,
+      "doc_id": "",
       "level": 1,
-      "id": 61304397,
+      "id": "",
       "open_window": 1,
       "visible": 1,
       "depth": 2,
-      "slug": "siukgd"
+      "slug": "#"
+    },
+    {
+      "type": "DOC",
+      "title": "关于 RHEL",
+      "uuid": "RNX9c3RPi4Wkgm3d",
+      "url": "about-rhel",
+      "prev_uuid": "TALsxYpSLHNGKFT_",
+      "sibling_uuid": "hVAZGPRou1RZiAu6",
+      "child_uuid": "",
+      "parent_uuid": "TALsxYpSLHNGKFT_",
+      "doc_id": 61304397,
+      "level": 2,
+      "id": 61304397,
+      "open_window": 1,
+      "visible": 1,
+      "depth": 3,
+      "slug": "about-rhel"
     },
     {
       "type": "DOC",
@@ -6464,7 +6468,7 @@
       "prev_uuid": "RNX9c3RPi4Wkgm3d",
       "sibling_uuid": "",
       "child_uuid": "",
-      "parent_uuid": "RNX9c3RPi4Wkgm3d",
+      "parent_uuid": "TALsxYpSLHNGKFT_",
       "doc_id": 61305871,
       "level": 2,
       "id": 61305871,
@@ -6474,21 +6478,38 @@
       "slug": "ut1tmm"
     },
     {
-      "type": "DOC",
-      "title": "openEuler 系列",
-      "uuid": "jwYl7bbasUn8LX_e",
-      "url": "ixziaz",
-      "prev_uuid": "RNX9c3RPi4Wkgm3d",
-      "sibling_uuid": "c1exhsNNiyIidMRd",
-      "child_uuid": "VBTZybC0ks7ukVZU",
+      "type": "TITLE",
+      "title": "openEuler系列",
+      "uuid": "Kn0hrRsoz0gbnAbd",
+      "url": "",
+      "prev_uuid": "TALsxYpSLHNGKFT_",
+      "sibling_uuid": "pTNbev7O-Am3HsSO",
+      "child_uuid": "jwYl7bbasUn8LX_e",
       "parent_uuid": "Z01BjOefnH8y5HVC",
-      "doc_id": 56079485,
+      "doc_id": "",
       "level": 1,
-      "id": 56079485,
+      "id": "",
       "open_window": 1,
       "visible": 1,
       "depth": 2,
-      "slug": "ixziaz"
+      "slug": "#"
+    },
+    {
+      "type": "DOC",
+      "title": "关于 openEuler",
+      "uuid": "jwYl7bbasUn8LX_e",
+      "url": "about-openeuler",
+      "prev_uuid": "Kn0hrRsoz0gbnAbd",
+      "sibling_uuid": "VBTZybC0ks7ukVZU",
+      "child_uuid": "",
+      "parent_uuid": "Kn0hrRsoz0gbnAbd",
+      "doc_id": 56079485,
+      "level": 2,
+      "id": 56079485,
+      "open_window": 1,
+      "visible": 1,
+      "depth": 3,
+      "slug": "about-openeuler"
     },
     {
       "type": "DOC",
@@ -6498,7 +6519,7 @@
       "prev_uuid": "jwYl7bbasUn8LX_e",
       "sibling_uuid": "",
       "child_uuid": "",
-      "parent_uuid": "jwYl7bbasUn8LX_e",
+      "parent_uuid": "Kn0hrRsoz0gbnAbd",
       "doc_id": 61270593,
       "level": 2,
       "id": 61270593,
@@ -6508,21 +6529,38 @@
       "slug": "psetzg"
     },
     {
-      "type": "DOC",
-      "title": "Debian | Ubuntu 系列",
-      "uuid": "c1exhsNNiyIidMRd",
-      "url": "debian-ubuntu",
-      "prev_uuid": "jwYl7bbasUn8LX_e",
+      "type": "TITLE",
+      "title": "Debian 系列",
+      "uuid": "pTNbev7O-Am3HsSO",
+      "url": "",
+      "prev_uuid": "Kn0hrRsoz0gbnAbd",
       "sibling_uuid": "",
-      "child_uuid": "_7VfxOR4v8WZ8wZu",
+      "child_uuid": "c1exhsNNiyIidMRd",
       "parent_uuid": "Z01BjOefnH8y5HVC",
-      "doc_id": 55690521,
+      "doc_id": "",
       "level": 1,
-      "id": 55690521,
+      "id": "",
       "open_window": 1,
       "visible": 1,
       "depth": 2,
-      "slug": "debian-ubuntu"
+      "slug": "#"
+    },
+    {
+      "type": "DOC",
+      "title": "关于 Debian 和 Ubuntu",
+      "uuid": "c1exhsNNiyIidMRd",
+      "url": "about-debian-ubuntu",
+      "prev_uuid": "pTNbev7O-Am3HsSO",
+      "sibling_uuid": "_7VfxOR4v8WZ8wZu",
+      "child_uuid": "",
+      "parent_uuid": "pTNbev7O-Am3HsSO",
+      "doc_id": 55690521,
+      "level": 2,
+      "id": 55690521,
+      "open_window": 1,
+      "visible": 1,
+      "depth": 3,
+      "slug": "about-debian-ubuntu"
     },
     {
       "type": "DOC",
@@ -6532,7 +6570,7 @@
       "prev_uuid": "c1exhsNNiyIidMRd",
       "sibling_uuid": "s7Xrr8eUke5Rlc2p",
       "child_uuid": "",
-      "parent_uuid": "c1exhsNNiyIidMRd",
+      "parent_uuid": "pTNbev7O-Am3HsSO",
       "doc_id": 61269275,
       "level": 2,
       "id": 61269275,
@@ -6547,9 +6585,9 @@
       "uuid": "s7Xrr8eUke5Rlc2p",
       "url": "hlgbmo",
       "prev_uuid": "_7VfxOR4v8WZ8wZu",
-      "sibling_uuid": "hTXnTdgkUfT5J3tY",
+      "sibling_uuid": "GClGeYzVaXQuavBE",
       "child_uuid": "",
-      "parent_uuid": "c1exhsNNiyIidMRd",
+      "parent_uuid": "pTNbev7O-Am3HsSO",
       "doc_id": 61269550,
       "level": 2,
       "id": 61269550,
@@ -6560,47 +6598,13 @@
     },
     {
       "type": "DOC",
-      "title": "软件包管理",
-      "uuid": "hTXnTdgkUfT5J3tY",
-      "url": "sfmr9t",
-      "prev_uuid": "s7Xrr8eUke5Rlc2p",
-      "sibling_uuid": "GClGeYzVaXQuavBE",
-      "child_uuid": "GnAmLE3z_LEPg6Fm",
-      "parent_uuid": "c1exhsNNiyIidMRd",
-      "doc_id": 63114941,
-      "level": 2,
-      "id": 63114941,
-      "open_window": 1,
-      "visible": 1,
-      "depth": 3,
-      "slug": "sfmr9t"
-    },
-    {
-      "type": "DOC",
-      "title": "GCC 套件",
-      "uuid": "GnAmLE3z_LEPg6Fm",
-      "url": "imno9x",
-      "prev_uuid": "hTXnTdgkUfT5J3tY",
-      "sibling_uuid": "",
-      "child_uuid": "",
-      "parent_uuid": "hTXnTdgkUfT5J3tY",
-      "doc_id": 61269749,
-      "level": 3,
-      "id": 61269749,
-      "open_window": 1,
-      "visible": 1,
-      "depth": 4,
-      "slug": "imno9x"
-    },
-    {
-      "type": "DOC",
       "title": "磁盘管理",
       "uuid": "GClGeYzVaXQuavBE",
       "url": "gyhb14",
-      "prev_uuid": "hTXnTdgkUfT5J3tY",
-      "sibling_uuid": "",
+      "prev_uuid": "s7Xrr8eUke5Rlc2p",
+      "sibling_uuid": "BzL846p9GshW4ZeJ",
       "child_uuid": "",
-      "parent_uuid": "c1exhsNNiyIidMRd",
+      "parent_uuid": "pTNbev7O-Am3HsSO",
       "doc_id": 61270243,
       "level": 2,
       "id": 61270243,
@@ -6608,6 +6612,40 @@
       "visible": 1,
       "depth": 3,
       "slug": "gyhb14"
+    },
+    {
+      "type": "TITLE",
+      "title": "软件包管理",
+      "uuid": "BzL846p9GshW4ZeJ",
+      "url": "",
+      "prev_uuid": "GClGeYzVaXQuavBE",
+      "sibling_uuid": "",
+      "child_uuid": "QbYZ74A1Boiep5aC",
+      "parent_uuid": "pTNbev7O-Am3HsSO",
+      "doc_id": "",
+      "level": 2,
+      "id": "",
+      "open_window": 1,
+      "visible": 1,
+      "depth": 3,
+      "slug": "#"
+    },
+    {
+      "type": "DOC",
+      "title": "GCC 套件",
+      "uuid": "QbYZ74A1Boiep5aC",
+      "url": "imno9x",
+      "prev_uuid": "BzL846p9GshW4ZeJ",
+      "sibling_uuid": "",
+      "child_uuid": "",
+      "parent_uuid": "BzL846p9GshW4ZeJ",
+      "doc_id": 61269749,
+      "level": 3,
+      "id": 61269749,
+      "open_window": 1,
+      "visible": 1,
+      "depth": 4,
+      "slug": "imno9x"
     },
     {
       "type": "TITLE",
