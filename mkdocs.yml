@@ -11,6 +11,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
 theme:
   name: material
+  language: zh
   custom_dir: overrides
   features:
     - navigation.instant
@@ -21,6 +22,8 @@ theme:
     - navigation.sections
     - content.action.edit
     - content.action.view
+    - content.code.copy
+    - navigation.footer
 repo_url: https://github.com/shenweiyan/Knowledge-Garden/
 edit_uri: edit/main/docs/
 site_author: Steven Shum
