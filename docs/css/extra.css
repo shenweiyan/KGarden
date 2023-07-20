@@ -1,4 +1,5 @@
 .md-typeset {font-size: .7rem;}
+.md-typeset img, .md-typeset svg, .md-typeset video {max-width: min-content'}
 
 pre { color: white !important; }
 
