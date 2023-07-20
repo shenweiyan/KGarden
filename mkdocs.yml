@@ -4,7 +4,7 @@ site_description: '记录 Bio+IT 相关的知识，沉淀生活，记录点滴�
 docs_dir: "docs"
 site_dir: "site"
 extra_css: 
-  - css/dark.css
+  - css/extra.css
   - https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js
