@@ -20,7 +20,6 @@ theme:
     - navigation.top
     - navigation.sections
 repo_url: https://github.com/shenweiyan/Knowledge-Garden/
-edit_uri: edit/main/docs/
 site_author: Steven Shum
 copyright: Copyright © 2021-2023 Steven Shum
 nav:
