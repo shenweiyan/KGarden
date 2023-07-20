@@ -67,6 +67,14 @@ jobs:
           git config --global user.name "shenweiyan"
           git config --global user.email "weiyanshum@gmail.com"
 
+      - name: Set Up Python
+        uses: actions/setup-python@main
+        with:
+          python-version: 3.9
+
+      - name: Generate index.md
+        run: python makeindex.py -r -d docs/cookbook
+
       - name: 提交yuque拉取的文章到GitHub仓库
         run: |
           echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.txt
