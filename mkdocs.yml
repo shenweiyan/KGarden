@@ -41,7 +41,8 @@ markdown_extensions:
         separator: "-"
         toc_depth: 3
     - pymdownx.highlight
-    - fancyboxmd
+    - fancyboxmd:
+        preview_width: "auto"
 plugins:
   - rss:
       enabled: True
@@ -53,7 +54,6 @@ plugins:
       as_creation: "date"
       as_update: "date"
       abstract_chars_count: -1
-      #datetime_format: "%Y-%m-%d"
       
   - search:
       separator: '[\s\u200b\-]'
