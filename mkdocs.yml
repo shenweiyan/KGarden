@@ -1,5 +1,5 @@
 site_name: 生信知识花园
-site_url: https://shenweiyan.github.io/NoteHub/
+site_url: https://shenweiyan.github.io/Knowledge-Garden/
 site_description: '记录 Bio+IT 相关的知识，沉淀生活，记录点滴。'
 docs_dir: "docs"
 site_dir: "site"
@@ -19,8 +19,8 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.sections
-repo_url: https://github.com/shenweiyan/NoteHub
-edit_uri: https://github.com/shenweiyan/NoteHub/edit/main/
+repo_url: https://github.com/shenweiyan/Knowledge-Garden
+edit_uri: https://github.com/shenweiyan/Knowledge-Garden/edit/main/
 site_author: Steven Shum
 copyright: Copyright © 2021-2023 Steven Shum
 nav:
@@ -28,7 +28,7 @@ nav:
     - 技术私房菜: cookbook
     - 随笔乱弹: https://www.yuque.com/shenweiyan/mind
     - 语雀知识库: https://www.yuque.com/shenweiyan
-    - RSS feed: https://shenweiyan.github.io/NoteHub/feed_rss_created.xml
+    - RSS feed: https://shenweiyan.github.io/Knowledge-Garden/feed_rss_created.xml
 markdown_extensions:
     - smarty
     - toc:
