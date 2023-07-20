@@ -1,5 +1,5 @@
 ---
-title: Python 列表、字典、元组的一些小技巧
+title: Python 的列表/字典/元组技巧
 urlname: 2019-05-18-python-list-dict-tuple-skills
 author: 章鱼猫先生
 date: "2019-05-18 20:50:51"
@@ -140,7 +140,7 @@ Out[3]: ['lilee', 'liquan', 'lisi', 'wangyuan', 'zhangsan']
 [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
 ```
 
-`operator`  模块还有可以进行多个级别排序的功能。例如，要按年级然后按年龄排序：
+`operator` 模块还有可以进行多个级别排序的功能。例如，要按年级然后按年龄排序：
 
 ```python
 >>> sorted(student_tuples, key=itemgetter(1,2))
@@ -162,7 +162,7 @@ Out[3]: ['lilee', 'liquan', 'lisi', 'wangyuan', 'zhangsan']
 
 ## 3. 升序和降序
 
-`list.sort()`  和 `sorted()`  方法都接受带有布尔值的 `reverse`  参数。这用于标记降序排序。
+`list.sort()` 和 `sorted()` 方法都接受带有布尔值的 `reverse` 参数。这用于标记降序排序。
 
 例如，要以相反的年龄顺序获取学生数据：
 
