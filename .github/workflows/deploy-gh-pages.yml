@@ -3,15 +3,14 @@ on:
   push:
     branches:
       - main
-      - master
 
 jobs:
   build:
-    name: Deploy docs
+    name: Deploy docs To gh-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout main
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -22,3 +21,4 @@ jobs:
           CONFIG_FILE: mkdocs.yml
           EXTRA_PACKAGES: build-base
           REQUIREMENTS: requirements.txt
+          CUSTOM_DOMAIN: doc.weiyan.cc

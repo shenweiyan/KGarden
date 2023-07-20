@@ -1,4 +1,4 @@
-name: Deploy To Github Pages
+name: Aync Yuque Docs
 
 on:
   # 允许手动push触发
@@ -60,14 +60,13 @@ jobs:
           #pnpm sync:flowus
           pnpm sync:yuque
           #pnpm sync:notion
-          cat  elog.cache.yuque.json
 
       - name: 配置Git用户名邮箱
         run: |
           git config --global user.name "shenweiyan"
           git config --global user.email "weiyanshum@gmail.com"
 
-      - name: Set Up Python
+      - name: 安装Python3
         uses: actions/setup-python@main
         with:
           python-version: 3.9
@@ -77,7 +76,7 @@ jobs:
 
       - name: 提交yuque拉取的文章到GitHub仓库
         run: |
-          echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.txt
+          echo `date +"%Y-%m-%d %H:%M:%S"` begin ... > time.txt
           git add .
           git commit -m "Refresh elog.cache.json" -a
 
