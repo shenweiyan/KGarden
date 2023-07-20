@@ -20,6 +20,7 @@ theme:
     - navigation.top
     - navigation.sections
     - content.action.edit
+    - content.action.view
 repo_url: https://github.com/shenweiyan/Knowledge-Garden/
 edit_uri: edit/main/docs/
 site_author: Steven Shum
