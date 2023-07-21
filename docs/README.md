@@ -1,13 +1,16 @@
 # 生信爱好者知识花园
 
-很长一段时间以来，一直都在使用[语雀](https://www.yuque.com/shenweiyan)来记录个人工作、生活的各种知识。
+很长一段时间以来，一直都在使用 [语雀](https://www.yuque.com/shenweiyan) 来记录个人工作、生活的各种知识。
 
 最近一段时间由于某些原因，开始考虑数据多平台使用+备份+搜索的一些使用场景，几经考虑于是决定开始 All in GitHub 的一些探索，把语雀的一些文章记录同步到这里。同时开始使用 [Issues](https://github.com/shenweiyan/Knowledge-Garden/issues) + [Discussions](https://github.com/shenweiyan/Knowledge-Garden/discussions) 全面替代小记。
 
-!![Welcome To My Knowledge-Garden](https://github.com/shenweiyan/Knowledge-Garden/assets/26101369/25a32767-be3e-4d94-bd9a-2d8c8ffc8f11)
+<figure markdown>
+![Welcome To My Knowledge-Garden](https://github.com/shenweiyan/Knowledge-Garden/assets/26101369/25a32767-be3e-4d94-bd9a-2d8c8ffc8f11 "Welcome To My Knowledge-Garden")
+<figcaption></figcaption>
+</figure>
 
 
-本知识库基于[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 进行部署，大部分文章来源于个人的[语雀知识库]((https://www.yuque.com/shenweiyan))，是作者关于生物信息学、互联网 IT、运维开发、软件测评使用等相关文章汇总。
+本知识库基于 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 进行部署，大部分文章来源于个人的 **[语雀知识库](https://www.yuque.com/shenweiyan)**，是作者关于生物信息学、互联网 IT、运维开发、软件测评使用等相关文章汇总。
 
 ## 如何搜索
 
@@ -26,5 +29,9 @@
 ## 赞赏
 
 如果你觉得到本知识库对你有帮助，欢迎赞赏，有你的支持，我们一定会越来越好！
-!![微信-支付宝赞赏码](https://user-images.githubusercontent.com/26101369/221133790-ecee318f-70fe-4dda-beb2-2ad03c20c0d6.jpg "感谢您的一路支持")
+
+<figure markdown>
+![微信-支付宝赞赏码](https://user-images.githubusercontent.com/26101369/221133790-ecee318f-70fe-4dda-beb2-2ad03c20c0d6.jpg "感谢你的一路支持")
+<figcaption>Random acts of kindness.</figcaption>
+</figure>
 

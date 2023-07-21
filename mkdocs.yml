@@ -39,6 +39,7 @@ nav:
     - 语雀知识库: https://www.yuque.com/shenweiyan
     - RSS feed: https://shenweiyan.github.io/Knowledge-Garden/feed_rss_created.xml
 markdown_extensions:
+    - md_in_html
     - smarty
     - toc:
         permalink: True
@@ -56,7 +57,9 @@ plugins:
       as_creation: "date"
       as_update: "date"
       abstract_chars_count: -1
-  - glightbox      
+  - glightbox:
+      auto_caption: false    
+      caption_position: bottom
   - search:
       separator: '[\s\u200b\-]'
   - git-revision-date
