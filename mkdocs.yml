@@ -20,10 +20,12 @@ theme:
     - navigation.indexes
     - navigation.top
     - navigation.sections
+    - navigation.path
     - content.action.edit
     - content.action.view
     - content.code.copy
     - navigation.footer
+    - toc.integrate
 repo_url: https://github.com/shenweiyan/Knowledge-Garden/
 edit_uri: edit/main/docs/
 site_author: Steven Shum

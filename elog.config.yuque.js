@@ -20,11 +20,11 @@ module.exports = {
   deploy: {
     platform: 'local',
     local: {
-      outputDir: './Cookbook',
-      filename: 'title',
-      format: 'markdown',
+      outputDir: './docs/cookbook',
+      filename: 'urlname',
+      format: 'matter-markdown',
       catalog: true,
-      formatExt: '',
+      formatExt: './elog.format.js',
     },
     confluence: {
       user: process.env.CONFLUENCE_USER,
