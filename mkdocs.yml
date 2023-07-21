@@ -45,8 +45,6 @@ markdown_extensions:
         separator: "-"
         toc_depth: 3
     - pymdownx.highlight
-    - fancyboxmd:
-        preview_width: "auto"
 plugins:
   - rss:
       enabled: True
@@ -58,7 +56,7 @@ plugins:
       as_creation: "date"
       as_update: "date"
       abstract_chars_count: -1
-      
+  - glightbox      
   - search:
       separator: '[\s\u200b\-]'
   - git-revision-date
