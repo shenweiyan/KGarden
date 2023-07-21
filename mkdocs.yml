@@ -11,6 +11,9 @@ extra_javascript:
   - https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js
 theme:
   name: material
+  font:
+    text: "open sans,helvetica neue,Arial,hiragino sans gb,microsoft yahei,wenquanyi micro hei,sans-serif"
+    code: "Consolas,Courier,courier new,stkaiti,kaiti,simkai,monospace"
   language: zh
   custom_dir: overrides
   features:
