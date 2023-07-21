@@ -6,18 +6,23 @@ date: "2023-04-18 14:27:48"
 updated: "2023-04-26 15:02:49"
 ---
 
-# 背景
+## 背景
 
-> 怎么样高效的搭建分析流程且能保证分析流程稳定运行的使用效果呢？目前主流的是 **conda **和**容器技术(container)**。
+> 怎么样高效的搭建分析流程且能保证分析流程稳定运行的使用效果呢？目前主流的是 **conda** 和 **容器技术(container)**。
+> 
 > conda 在很多文章中中已经介绍，在这不再过多叙述。虽然 **conda 能解决大部分生信软件安装问题**，但是若**软件安装多了**，会出现**兼容性**问题以及 **"臃肿"** 现象，为此，引入容器技术 (container) 来解决这些问题。
+> 
 > 在容器技术中，**docker** 和 **singularity** 是常用的容器软件。但 **docker 不太适合 HPC 环境**。因为在调度管理器上容器无法施加资源限制、多用户（非 root 用户）使用时会出现权限问题、而且 docker 会存在一些不必要的资源开销。
+> 
 > 为此，引进 **singularity** 容器来解决 docker 的一些缺点。首先，**singularity 可以兼容 docker 的镜像**，同时构建出的镜像可以很容易进行拷贝和转移，且体积更小；此外 singularity 假设用户在一个有 root 权限的系统上构建容器，在一个没有 root 权限的系统上运行容器，兼顾了数据的安全性和便捷性，更加符合实际的应用场景。
+> 
 > 🔗 来源：《[Singularity——生信流程搭建的幸运儿](https://mp.weixin.qq.com/s/dILzbYZhkzqvDazj4GAHlw)——"生信小尧"公众号》
 
 > Singularity 是一种专为科学计算和 HPC 环境设计的容器技术，具有与 HPC 环境的无缝集成、高度的可移植性和兼容性、安全性和可控性等优势。在处理大规模数据、模拟和深度学习等领域中，具有广泛的应用价值。
+> 
 > 🔗 来源：《[Singularity 使用真简单](https://mp.weixin.qq.com/s/PU3orRKAT5XziBsyJdhP3Q)！——"HPCLIB"公众号》
 
-# 安装
+## 安装
 
 最开始选择从 GitHub 的源码库 <https://github.com/sylabs/singularity/> 中进行**非 root 的普通用户**手动安装。
 服务器系统版本和内核版本：
@@ -37,7 +42,7 @@ Linux log01 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86
 
 1.  singularity 2.5.0 及以上要求升级 Linux 内核，否则`configure`会出现错误：
 
-**The**`**NO_NEW_PRIVS**`**bit is supported since Linux 3.5！**
+**The `NO_NEW_PRIVS` bit is supported since Linux 3.5！**
 
 ```bash
 $ ./configure --prefix=/Bioinfo/Pipeline/SoftWare/Singularity-2.5.0
@@ -115,35 +120,37 @@ FATAL: kernel too old
 ```
 
 - root/sudo 用户才能 build 建立镜像沙箱？说好的不依赖于 root 呢？
-- 以下链接内容说明了非 root 用户也可以安装和使用 singularity：
-
-<https://docs.sylabs.io/guides/3.5/admin-guide/installation.html#install-nonsetuid>
+- 以下链接内容说明了非 root 用户也可以安装和使用 singularity：<br/>
+  <https://docs.sylabs.io/guides/3.5/admin-guide/installation.html#install-nonsetuid>
 [issues 1258: Does Singularity support installation by user without root privileges?](https://github.com/apptainer/singularity/issues/1258)
 但有要求：
 
-1.  内核版本 >=3.8 - <https://apptainer.org/docs/admin/main/user_namespace.html>
-
+1.  内核版本 >=3.8 - <https://apptainer.org/docs/admin/main/user_namespace.html><br/>
 To allow unprivileged creation of user namespaces a kernel >=3.8 is required, with >=4.18 being recommended due to support for unprivileged mounting of FUSE filesystems (needed for example for mounting SIF files). The equivalent recommendation on RHEL7 is >=3.10.0-1127 from release 7.8, where unprivileged mounting of FUSE filesystems was backported. To use unprivileged overlayFS for persistent overlays, kernel >=5.11 is recommended, but if that’s not available then Apptainer will use fuse-overlayfs instead. That feature has not been backported to RHEL7.
 
-2.  默认安装要求安装文件具备 SetUID 权限，这一点暂时没能理解！！！
-
+2.  默认安装要求安装文件具备 SetUID 权限，这一点暂时没能理解！！！<br/>
 [Linux SetUID（SUID）文件特殊权限用法详解](http://c.biancheng.net/view/868.html)
 
-## User Namespace
+### User Namespace
 
 Singularity 如果不适用 SetUID，那它通过普通用户安装运行是要求开启 User Namespace！
 
 > When singularity/SingularityCE does not use setuid all container execution will use a user namespace.
+> 
 > 🔗 来源：<https://docs.sylabs.io/guides/3.8/admin-guide/user_namespace.html>
 
 ![701e36aec39a4a3be99fe11548aa4da.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FkpKd2AaoQ5kl1HM67TWhEeOrzoq.jpeg)
 
 > **📢 知识点 - User namespace**
+> 
 > User namespace 是 Linux 3.8 新增的一种 namespace，用于隔离安全相关的资源，包括 **user IDs** and **group IDs**，**keys**, 和 **capabilities**。同样一个用户的 user ID 和 group ID 在不同的 user namespace 中可以不一样(与 PID nanespace 类似)。换句话说，一个用户可以在一个 user namespace 中是普通用户，但在另一个 user namespace 中是超级用户。
+> 
 > User namespace 可以嵌套(目前内核控制最多 32 层)，除了系统默认的 user namespace 外，所有的 user namespace 都有一个父 user namespace，每个 user namespace 都可以有零到多个子 user namespace。 当在一个进程中调用 unshare 或者 clone 创建新的 user namespace 时，当前进程原来所在的 user namespace 为父 user namespace，新的 user namespace 为子 user namespace。
+> 
 > 🔗 来源：《[Linux Namespace: User](https://www.cnblogs.com/sparkdev/p/9462838.html) - 博客园》
 
 > 在 CentOS 内核 3.8 或更高版本中，添加了 user namespaces （户名命名空间）功能。但是，该功能默认情况下是禁用的，原因是 Red Hat 希望该功能在社区中孵化更长时间，以确保该功能的稳定性和安全性。目前越来越多的软件开始涉及该功能，例如 Docker 等。
+> 
 > 🔗 来源：《[CentOS 7 启用 user namespaces（用户命名空间）](https://www.123si.org/os/article/centos-7-enable-user-namespaces/)——123si 博客》
 
 在 CentOS 7.7 + 3.10.0-1062.1.1.el7.x86_64 内核下使用`conda create -n singularity -c conda-forge singularity`安装了 singularity-3.8.6 后发现，pull/shell/exec 都没问题，但 build 会出现异常：
@@ -172,11 +179,11 @@ FATAL:   While performing build: packer failed to pack: root filesystem extracti
 使用`yum install squashfs-tools`安装了`unsquashfs`并添加到 $PATH 中问题依然没法解决！！！
 ![16f4cadef5c03cdafaae5847f3e0672.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FkbnpUiB0x8v8X1EhUpD3Xm7dznd.png)
 
-## 源码编译
+### 源码编译
 
 最后还是选择从源码安装。
 
-### 安装 Go
+#### 安装 Go
 
 ```bash
 wget https://dl.google.com/go/go1.20.1.linux-amd64.tar.gz
@@ -184,7 +191,7 @@ tar -xzvf go1.20.1.linux-amd64.tar.gz
 sudo ln -s go /usr/local/bin
 ```
 
-### 安装 singularity
+#### 安装 singularity
 
 如果想要非 root 的普通用户也能正常使用，mconfig 时候需要加上 **--without-suid**。
 
@@ -197,7 +204,7 @@ $ make -C ./builddir
 $ make -C ./builddir install
 ```
 
-### 使用测试
+#### 使用测试
 
 初步测试 singularity build 也能正常使用了。
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fg7yJ8XqLya8z_7rI38Te4cVl3YG.png)
