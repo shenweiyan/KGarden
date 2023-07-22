@@ -2,5 +2,5 @@ mkdocs==1.4.2
 mkdocs-material
 mkdocs-rss-plugin
 mkdocs-git-revision-date-plugin
-mkdocs-include-dir-to-nav
+mkdocs-include-dir-to-nav==1.2.0
 mkdocs-glightbox
