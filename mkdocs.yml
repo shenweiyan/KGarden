@@ -35,11 +35,12 @@ copyright: Copyright © 2021-2023 Steven Shum
 nav:
     - 阅读说明: README.md
     - 技术私房菜: cookbook
-    - 随笔乱弹: https://www.yuque.com/shenweiyan/mind
+    - 随笔乱弹: notebook
     - 语雀知识库: https://www.yuque.com/shenweiyan
     - RSS feed: https://shenweiyan.github.io/Knowledge-Garden/feed_rss_created.xml
 markdown_extensions:
     - md_in_html
+    - pymdownx.superfences
     - smarty
     - toc:
         permalink: True

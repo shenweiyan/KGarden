@@ -18,7 +18,7 @@ updated: "2023-04-26 15:02:49"
 > 
 > 🔗 来源：《[Singularity——生信流程搭建的幸运儿](https://mp.weixin.qq.com/s/dILzbYZhkzqvDazj4GAHlw)——"生信小尧"公众号》
 
-
+<br/>
 > Singularity 是一种专为科学计算和 HPC 环境设计的容器技术，具有与 HPC 环境的无缝集成、高度的可移植性和兼容性、安全性和可控性等优势。在处理大规模数据、模拟和深度学习等领域中，具有广泛的应用价值。
 > 
 > 🔗 来源：《[Singularity 使用真简单](https://mp.weixin.qq.com/s/PU3orRKAT5XziBsyJdhP3Q)！——"HPCLIB"公众号》
@@ -43,37 +43,35 @@ Linux log01 2.6.32-431.el6.x86_64 #1 SMP Sun Nov 10 22:19:54 EST 2013 x86_64 x86
 
 1. singularity 2.5.0 及以上要求升级 Linux 内核，否则`configure`会出现错误：<br/>
    **The `NO_NEW_PRIVS` bit is supported since Linux 3.5！**
-```bash
-$ ./configure --prefix=/Bioinfo/Pipeline/SoftWare/Singularity-2.5.0
-checking build system type... x86_64-unknown-linux-gnu
-checking host system type... x86_64-unknown-linux-gnu
-......
-checking for feature: NO_NEW_PRIVS... no
+   <br/> 
+   ```bash
+   $ ./configure --prefix=/Bioinfo/Pipeline/SoftWare/Singularity-2.5.0
+   checking for feature: NO_NEW_PRIVS... no
+     
+   ERROR!!!!!!
 
-ERROR!!!!!!
-
-This host does not support the NO_NEW_PRIVS prctl functions!
-The kernel must be updated to support Singularity securely.
-```
-
+   This host does not support the NO_NEW_PRIVS prctl functions!
+   ```
+   
 2. singularity 2.4.6 虽然能在**非 root 的普通用户**手动安装下安装成功，但很多功能不支持，甚至导致错误：  
-   - 在 pull 下载一些镜像时，会引发 urllib2.URLError 的 ssl 异常：
-```bash
-$ singularity pull shub://vsoch/hello-world
-......
-  File "/usr/lib64/python2.6/urllib2.py", line 1198, in https_open
-    return self.do_open(httplib.HTTPSConnection, req)
-  File "/usr/lib64/python2.6/urllib2.py", line 1165, in do_open
-    raise URLError(err)
-urllib2.URLError: <urlopen error [Errno 1] _ssl.c:492: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure>
-```
+    - 在 pull 下载一些镜像时，会引发 urllib2.URLError 的 ssl 异常：
 
-   - build 时候，要求安装 squashfs-tools：
-```bash
-$ singularity build hello-world.simg shub://vsoch/hello-world
-ERROR: You must install squashfs-tools to build images
-ABORT: Aborting with RETVAL=255
-```
+    ```
+    $ singularity pull shub://vsoch/hello-world
+    测试在嵌套列表中插入代码
+
+    最后一行
+    ```
+
+    - build 时候，要求安装 squashfs-tools：
+
+3. 嵌套列表测试
+
+    ```bash
+    $ singularity build hello-world.simg shub://vsoch/hello-world
+    ERROR: You must install squashfs-tools to build images
+    ABORT: Aborting with RETVAL=255
+    ```
 
 鉴于以上问题，最后选择了通过 mamba/conda 的方式安装，并最终安装成功 3.7.1 版本。
 ```bash
