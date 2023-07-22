@@ -65,4 +65,4 @@ plugins:
       separator: '[\s\u200b\-]'
   - git-revision-date
   - include_dir_to_nav:
-      reverse_sort_file
+      reverse_sort_file: true
