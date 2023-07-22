@@ -66,3 +66,4 @@ plugins:
   - git-revision-date
   - include_dir_to_nav:
       reverse_sort_file: true
+      file_name_as_title: true 
