@@ -10,7 +10,7 @@ updated: "2023-06-09 14:10:27"
 
 如此酷热的天气，让一切都变成了无精打采，就连写个文章记个小记都懒得动笔了；加上 5 月下旬又严重的病毒性感冒了两次，好不容易缓过来后，整个人感觉都要蔫掉了。
 
-![e549b5af315700a9b3e7747b1623398.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FiqCEjITPiIwdeNGXLvHmuCbyWSG.png)
+![e549b5af315700a9b3e7747b1623398.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FiqCEjITPiIwdeNGXLvHmuCbyWSG.png)
 顶着酷热，参加了女儿在幼儿园的第一个六一儿童节亲子活动 🏃
 顶着夕阳，陪着女儿开始轮滑从零到一的入门 🌞
 

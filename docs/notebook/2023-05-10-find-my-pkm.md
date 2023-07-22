@@ -23,6 +23,6 @@ V2EX 上《[有没有一种知识管理工具，满足这些特性？](https://w
 
 看了一些工具，感觉还不错，先 Mark 一下，后续有需要可以研究一下。
 
-- Obsidian + [Quartz](https://github.com/abserari/quartz) Publish Web HomePage（Eg. <https://notes.abser.top/>）
+- Obsidian + [Quartz](https://github.com/abserari/quartz) Publish Web HomePage（Eg. [https://notes.abser.top/](https://notes.abser.top/)）
 - [NotionNext-快速免费搭建网站 | Tangly Blog](https://tangly1024.com/article/notion-next)
 - [用 notion 搭建的博客上线，硬加一波友联](https://www.v2ex.com/t/947306) - V2EX

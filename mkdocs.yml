@@ -64,4 +64,5 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
   - git-revision-date
-  - include_dir_to_nav
+  - include_dir_to_nav:
+      reverse_sort_file

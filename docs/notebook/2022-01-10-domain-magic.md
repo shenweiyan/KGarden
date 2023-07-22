@@ -6,7 +6,7 @@ date: "2022-01-10 16:55:07"
 updated: "2022-01-10 17:24:00"
 ---
 
-![domain-register.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fs3nERCsQx7eP1CprAhM4vgRg2qB.jpeg)
+![domain-register.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/Fs3nERCsQx7eP1CprAhM4vgRg2qB.jpeg)
 
 最近总想着注册域名，折腾完域名又想这去折腾 Foxmail 和 QQ 邮箱，简直魔障了！
 
@@ -21,5 +21,5 @@ updated: "2022-01-10 17:24:00"
 :::tips
 **.bio 这个域名可以代表“生物”或“生物学”。**
 :::
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fu3V2lHxytHoOTMBy_3Mc7avm1vz.png)
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fp_hVUG12CGWEBKRQfks-n3mY__-.png)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/Fu3V2lHxytHoOTMBy_3Mc7avm1vz.png)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/Fp_hVUG12CGWEBKRQfks-n3mY__-.png)

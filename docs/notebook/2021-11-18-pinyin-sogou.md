@@ -6,8 +6,8 @@ date: "2021-11-18 14:58:49"
 updated: "2022-01-12 10:54:51"
 ---
 
-这是关于输入法的第二篇乱弹笔记。专门聊一下我和搜狗输入法的那些事情\~
-![搜狗拼音输入法.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FgzbAuzkS4vpjdfgkVnYQOP4eaEe.png)
+这是关于输入法的第二篇乱弹笔记。专门聊一下我和搜狗输入法的那些事情~
+![搜狗拼音输入法.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FgzbAuzkS4vpjdfgkVnYQOP4eaEe.png)
 
 # 收藏的皮肤
 
@@ -15,9 +15,9 @@ updated: "2022-01-12 10:54:51"
 
 个人比较喜欢搜狗输入法的一款皮肤：[【鹿】四君子-兰 - 搜狗输入法 - 搜狗皮肤](https://pinyin.sogou.com/skins/detail/view/info/572400)，简洁，最重要的是纵向排列形 的状态栏不会把 Windows 的任务栏挡住！
 
-参考：<https://pinyin.sogou.com/images/help/s_mkskin/makeskin(s).pdf>
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FgRemRjcu9D3Th3yX0WllRBBAv1L.png)
-![](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FiGsKAnk4g1awYIMj6WdVD9eQ4fW.png)
+参考：[https://pinyin.sogou.com/images/help/s_mkskin/makeskin(s).pdf](<https://pinyin.sogou.com/images/help/s_mkskin/makeskin(s).pdf>)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FgRemRjcu9D3Th3yX0WllRBBAv1L.png)
+![](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FiGsKAnk4g1awYIMj6WdVD9eQ4fW.png)
 
 # 皮肤无法解压
 
@@ -37,4 +37,4 @@ updated: "2022-01-12 10:54:51"
 
 [札记 | 2021](https://www.yuque.com/shenweiyan/wow/srqyqv?view=doc_embed&inner=comment-21750872)
 
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FjpghqJs-16Udl2XmpLT87Vs0g0m.png)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FjpghqJs-16Udl2XmpLT87Vs0g0m.png)

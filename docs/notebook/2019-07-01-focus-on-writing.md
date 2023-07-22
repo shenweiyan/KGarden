@@ -8,7 +8,7 @@ updated: "2023-03-20 11:14:54"
 
 写博客、记录文字是一个好的习惯，相信很多人的初心都是很美好的。但是能真正坚持下来的，或许没有多少。
 
-![blog2.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FjFei9AbrugbaF_b3MEnmlL7PvK4.png)
+![blog2.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FjFei9AbrugbaF_b3MEnmlL7PvK4.png)
 
 记得最早接触博客和云笔记，还是在大学刚毕业后，真正意义上开始使用编程语言学习项目分析的那段时间。作为一个菜鸟，在接受团队技术分享、在培训过程中接触到了各种各样的知识，出于知识梳理、快速查找原始需求，开始接触使用有道云笔记和印象笔记。但是让人失望的是，那时候的有道云和印象笔记都不支持代码插入，而且 UI  界面很 low，这对一个经常与代码打交道的人来说体验时非常糟糕的。
 
@@ -25,9 +25,9 @@ updated: "2023-03-20 11:14:54"
 
 同年，接触到为知笔记，这是一款非常优秀的国产笔记。从功能和界面上来说，它可以说是国产笔记中做的最好的，各种插件能满足你日常工作和生活 99% 的需求。曾经在很长一段时间内，它一直是我作为个人知识管理最理想的工具之一。但有几个方面，仍有待完善：
 
-1.  万年不变的 web 端。为知笔记的 web 端很不好看，体验也很差，不支持 markdown 预览编辑模式。
-2.  建议反馈响应慢。为知笔记使用贴吧作为问题反馈平台，很多建议无法得到及时的响应。尤其是 web 端的问题，从 2015 到 2018 年一点变化都没有。
-3.  到了 2019 年 7 月，好奇心作祟回去看了一眼，居然发现为知笔记更新了一个 beta 版的 web 端，颜值还算可以，但列表栏自由宽度调整、主题、字体定义等还不够完善，md 在线编辑依然不支持！
+1. 万年不变的 web 端。为知笔记的 web 端很不好看，体验也很差，不支持 markdown 预览编辑模式。
+2. 建议反馈响应慢。为知笔记使用贴吧作为问题反馈平台，很多建议无法得到及时的响应。尤其是 web 端的问题，从 2015 到 2018 年一点变化都没有。
+3. 到了 2019 年 7 月，好奇心作祟回去看了一眼，居然发现为知笔记更新了一个 beta 版的 web 端，颜值还算可以，但列表栏自由宽度调整、主题、字体定义等还不够完善，md 在线编辑依然不支持！
 
 #### 2017 年，jekyll + leanote
 
@@ -51,12 +51,12 @@ Leanote 的体验是非常好的，尤其是它附带的博客系统具有非常
 
 我个人的大部分文档目前都保存在语雀，部分公开文档也和本人托管在 Gihub 的 Jekyll 博客进行了自动同步，有兴趣的可以关注交流一下！
 
-- 语雀：<https://www.yuque.com/shenweiyan>
-- 博客：<https://shen.bioitee.com>
+- 语雀：[https://www.yuque.com/shenweiyan](https://www.yuque.com/shenweiyan)
+- 博客：[https://shen.bioitee.com](https://shen.bioitee.com)
 
 #### 后记
 
 今天看到几个使用 github issues 安家博客的人，看着底下一个个的评论，感觉很有意思，分享一下：
 
-- 《个人博客，最终选择》：<https://github.com/atian25/blog/issues/07.md>
-- 《博客是什么》：<https://github.com/lifesinger/blog/issues/123>
+- 《个人博客，最终选择》：[https://github.com/atian25/blog/issues/07.md](https://github.com/atian25/blog/issues/07.md)
+- 《博客是什么》：[https://github.com/lifesinger/blog/issues/123](https://github.com/lifesinger/blog/issues/123)

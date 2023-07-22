@@ -8,7 +8,7 @@ updated: "2023-03-21 16:57:32"
 
 从星期四起，家里用了两年的联通宽带网络到期，断了。
 
-![liantong.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Ftko1AURPcDeuuHs3B3nAoncuJj9.jpeg)
+![liantong.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/Ftko1AURPcDeuuHs3B3nAoncuJj9.jpeg)
 
 - 没有任何提前的信息提示，也不能在线充值续费；
 - 去营业厅办理续费必须要身份证，居住证、驾驶证、社保卡之类的证件都不能用；

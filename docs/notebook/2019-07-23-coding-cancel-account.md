@@ -6,7 +6,7 @@ date: "2019-07-23 11:19:17"
 updated: "2021-06-30 09:47:49"
 ---
 
-![zhanghao.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FgjHQn_wdWob063qAiBlTG8nlKn2.jpeg)
+![zhanghao.jpg](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FgjHQn_wdWob063qAiBlTG8nlKn2.jpeg)
 
 作为一个生信工程师，不知道大家平时是怎么管理和备份自己的一些流程和脚本？而我个人则比较喜欢用 git。
 
@@ -18,13 +18,13 @@ CODING 个人版有几点不太友好的体检经历：
 
 - CODING 个人版个人主页，公开的项目却显示的是仓库名称！这样，在仓库中设置项目名称的意义是什么？
 
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FsIF_mY1Mplnv6WHf_Oc0LlOTAR3.png)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FsIF_mY1Mplnv6WHf_Oc0LlOTAR3.png)
 
 - 注销账号， CODING 只提供账号锁定功能！！！
 
 《电信和互联网用户个人信息保护规定》（工业和信息化部令第 24 号）第九款第四款规定：“电信业务经营者、互联网信息服务提供者在用户终止使用电信服务或者互联网信息服务后，应当停止对用户个人信息的收集和使用，并为用户提供注销号码或账号的服务。”
 
-![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FhEmqoge2p383tBp-vjGxFoAw3gk.png)
+![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-notebook-img/FhEmqoge2p383tBp-vjGxFoAw3gk.png)
 
 最后只想说，如果不是出于墙内网络的考虑，很多人应该都会选择 Github、Gitlab 的代码托管服务。当然，或许也有些人出于对  Github 账户/开源项目是否会受到美国出口管理条例管制的担心，或者追求更高的速度体验，而转向国内的代码托管服务。
 
