@@ -12,7 +12,7 @@ extra_javascript:
 theme:
   name: material
   font:
-    text: "'Tsukushi A Round','Hiragino Sans GB','inter','Noto Serif SC',sans-serif"
+    text: sans-serif
     code: "Consolas,Courier,courier new,stkaiti,kaiti,simkai,monospace"
   language: zh
   custom_dir: overrides
