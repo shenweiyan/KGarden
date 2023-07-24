@@ -7,3 +7,5 @@ updated: "2023-07-24 08:08:08"
 ---
 
 关于生物信息学、互联网 IT、运维开发、软件测评使用等相关的原创类文章。
+
+![cookbook image](https://github.com/shenweiyan/Knowledge-Garden/assets/26101369/cd5128b2-d9e0-4d79-9481-a93e9d425423)
