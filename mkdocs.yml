@@ -34,7 +34,15 @@ site_author: Steven Shum
 copyright: Copyright © 2021-2023 Steven Shum
 nav:
     - 阅读说明: README.md
-    - 技术私房菜: cookbook
+    - 技术私房菜: 
+        - cookbook/index.md
+        - 生物信息: cookbook/生物信息
+        - 专栏主题: cookbook/专栏主题
+        - 开发运维: cookbook/开发运维
+        - 数据库: cookbook/数据库
+        - 知识杂项: cookbook/知识杂项
+        - 编程技术: cookbook/编程技术
+        - 数据可视化: cookbook/数据可视化
     - 随笔乱弹: notebook
     - 语雀知识库: https://www.yuque.com/shenweiyan
     - RSS feed: https://shenweiyan.github.io/Knowledge-Garden/feed_rss_created.xml
