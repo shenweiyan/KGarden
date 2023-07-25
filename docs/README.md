@@ -3,8 +3,7 @@
 很长一段时间以来，一直都在使用 [语雀](https://www.yuque.com/shenweiyan) 来记录个人工作、生活的各种知识。
 
 最近一段时间由于某些原因，开始考虑数据多平台使用+备份+搜索的一些使用场景，几经考虑于是决定开始 All in GitHub 的一些探索，把语雀的一些文章记录同步到这里。同时开始使用 [Issues](https://github.com/shenweiyan/Knowledge-Garden/issues) + [Discussions](https://github.com/shenweiyan/Knowledge-Garden/discussions![Welcome To My Knowledge-Garden](https://github.com/shenweiyan/Knowledge-Garden/assets/26101369/25a32767-be3e-4d94-bd9a-2d8c8ffc8f11 "Welcome To My Knowledge-Garden")
-<figcaption></figcaption>
-</figure>
+
 ![Welcome To My Knowledge-Garden](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/mkdocs/kg-readme-cover.gif)
 
 本知识库基于 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 进行部署，大部分文章来源于个人的 **[语雀知识库](https://www.yuque.com/shenweiyan)**，是作者关于生物信息学、互联网 IT、运维开发、软件测评使用等相关文章汇总。
