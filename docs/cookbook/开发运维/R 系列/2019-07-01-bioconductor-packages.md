@@ -15,7 +15,7 @@ R 每年（通常是 4 月中旬）在 'x.y.z' 中发布一个 '.y' 版本，但
 Bioconductor 与 R 各自对应的版本如下：（参考：[Bioconductor releases](https://bioconductor.org/about/release-announcements/)）
 ![](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FuWsjeYOiJKjpvrMD1vvWkclbemC.png)
 
-# biocLite 使用
+## biocLite 使用
 
 在 R-3.5（Bioconductor-3.7） 前，Bioconductor 都是通过 biocLite 安装相关的 R 包：
 
@@ -26,9 +26,9 @@ biocLite(pkg_name)
 
 但是，从 R-3.5（Bioconductor-3.8）起，Bioconductor 更改了 R 包的安装方式：它们通过发布在 CRAN 的 `[BiocManager](https://cran.r-project.org/web/packages/BiocManager/index.html)` 包来对 Bioconductor 的包进行安装和管理——通过 CRAN 安装 `BiocManager`，再通过这个包来安装 Bioconductor 的包。
 
-# BiocManager 安装与使用
+## BiocManager 安装与使用
 
-## 1. 镜像，镜像，镜像！
+### 1. 镜像，镜像，镜像！
 
 重要的事情说三遍！很多安装  CRAN 和 Bioconductor 包的童鞋都会发现自己的包下载不完整，以至于出现各种神奇的报错！所以国内的用户推荐参考下面的用法，设置国内镜像，改善包下载速度慢的问题。
 
@@ -65,33 +65,33 @@ install.packages("ggplot2")
 install.packages("ggplot2",repos="http://mirrors.tuna.tsinghua.edu.cn/CRAN/")
 ```
 
-## 2. 安装 BiocManager 包
+### 2. 安装 BiocManager 包
 
 ```r
 chooseCRANmirror()							 # 选择 CRAN 的镜像
 install.packages("BiocManager")  # 安装 BiocManager 包
 ```
 
-## 3. 安装 Bioconductor 的 R 包
+### 3. 安装 Bioconductor 的 R 包
 
 ```r
 BiocManager::install(c("GenomicRanges", "Organism.dplyr"))
 ```
 
-## 4. 查看 Bioconductor 的版本
+### 4. 查看 Bioconductor 的版本
 
 ```r
 BiocManager::version()
 ## '3.8'
 ```
 
-## 5. 更新所有已经安装的 R 包
+### 5. 更新所有已经安装的 R 包
 
 ```r
 BiocManager::install()  # 更新到最新版本
 ```
 
-## 6. 旧和意外版本的 R 包
+### 6. 旧和意外版本的 R 包
 
 当 Bioconductor 的包都来自同一版本时，它们的效果最佳。 使用 `valid()` 来查看过期（out-of-date）或意外版本（unexpected versions）的 R 包。
 
@@ -168,7 +168,7 @@ ff  "2.2-13"  "3.5.0" "2.2-14" "https://cran.rstudio.com/src/contrib"
 >
 ```
 
-## 7. 适用的 R 包
+### 7. 适用的 R 包
 
 可以使用 `available()` 发现适用于我们的 Bioconductor 版本的软件包；第一个参数是可用于根据正则表达式过滤包名称，例如，可用于 Homo sapiens 的 **'BSgenome'** 包：
 
@@ -190,15 +190,15 @@ BiocManager::available("BSgenome.Hsapiens")
 ## [10] "BSgenome.Hsapiens.UCSC.hg38.masked"
 ```
 
-# 安装旧版本的 Bioconductor R 包
+## 安装旧版本的 Bioconductor R 包
 
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FsWdeAuTnAbrncvAU1q5kl7QcebP.png)
 
-## R≥3.5，Bioconductor≥3.7
+### R≥3.5，Bioconductor≥3.7
 
 可以使用 BiocManager 安装相关与版本匹配的 R 包。或者通过源码的方式安装旧版本 R 包。
 
-## R<3.5，Bioconductor<3.7
+### R<3.5，Bioconductor<3.7
 
 那么使用 3.5 以下 R 版本的用户是继续使用 biocLite，还是 BiocManager，还是其他的方法安装匹配相关版本的 R 包呢？
 
@@ -231,7 +231,7 @@ source("https://bioconductor.org/biocLite.R")
 BiocInstaller::biocLite(c("GenomicFeatures", "AnnotationDbi"))
 ```
 
-# 安装新版本的 Bioconductor R 包
+## 安装新版本的 Bioconductor R 包
 
 Bioconductor 是与特定版本的 R 绑定的，正常来说当 Bioconductor 的包都来自同一版本时，它们的效果最佳。
 
@@ -244,7 +244,7 @@ Bioconductor 是与特定版本的 R 绑定的，正常来说当 Bioconductor �
 以 **DiffBind** 包为例，[DiffBind==3.4.0](https://bioconductor.org/packages/3.14/bioc/html/DiffBind.html) 是基于 Bioconductor==3.14（对应 R-4.1）开发的；我们在 Bioconductor==3.13（对应 R-4.0）中执行 `BiocManager::install("DiffBind")`，默认安装的是 [DiffBind==3.0.15](https://bioconductor.org/packages/3.12/bioc/html/DiffBind.html)！
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fidxv_6XZ_eQf1AEOOj52EQdgkME.png)
 
-## 1. 源码方式安装
+### 1. 源码方式安装
 
 如果想要在 Bioconductor==3.13（对应 R-4.0）中安装 [DiffBind==3.4.0](https://bioconductor.org/packages/3.14/bioc/html/DiffBind.html)，可以直接通过源码包的方式安装：
 
@@ -253,7 +253,7 @@ Bioconductor 是与特定版本的 R 绑定的，正常来说当 Bioconductor �
 > install.packages(packageurl, repos=NULL, type="source")
 ```
 
-## 2. BiocInstaller 安装
+### 2. BiocInstaller 安装
 
 下面，我们以在 R-3.4（Bioconductor==3.6）中安装最新版本的 clusterProfiler 为例。
 
@@ -308,7 +308,7 @@ downloaded 4.3 MB
 [1] ‘3.6.0’
 ```
 
-# install.packages 一站式方案
+## install.packages 一站式方案
 
 用 install.packages 来安装 CRAN 和 Bioconductor 所有的包！这是来自于 Y 叔 2018-09-25 在公众号发表的《[不用 biocLite 安装 Bioconductor 包](https://mp.weixin.qq.com/s/xi2XPsHVsXsMijvbox90ew)》介绍的方法。这里截取部分内容介绍一下。
 
@@ -323,7 +323,7 @@ utils::setRepositories(ind=1:2)
 >
 > 然后你就可以愉快地使用  `install.packages` 来安装 Bioconductor 包了。
 
-# 安装体积比较大的 R 包
+## 安装体积比较大的 R 包
 
 安装 CRAN 或者 Bioconductor 中一些体积比较大的 R 包，如果网络不太好，经常可能会出现包下载不完（Timeout of 60 seconds was reached），从而导致无法正常安装。
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FkT19wEWbN-7DeYe42UDzDiZJKsR.png)
@@ -340,7 +340,7 @@ options(timeout=100)
 
 以上，就是  Bioconductor R 包安装和使用的全部内容，希望对大家有所帮助。
 
-# 参考资料
+## 参考资料
 
 1.  omicsgene，《[R 语言包安装方法，设置国内镜像加快安装速度](https://www.omicsclass.com/article/106)》，OmicsClass  组学大讲堂问答社区
 2.  Y 叔叔，《[不用 biocLite 安装 Bioconductor 包](https://mp.weixin.qq.com/s/xi2XPsHVsXsMijvbox90ew)》，"biobable"公众号
