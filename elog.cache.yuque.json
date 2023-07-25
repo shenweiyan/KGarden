@@ -3380,31 +3380,6 @@
       "body": ""
     },
     {
-      "id": 3485895,
-      "doc_id": "uhunvv",
-      "title": "uhunvv",
-      "updated": 1624588445000,
-      "body_original": "<a name=\"8d3947b3\"></a>\n# 名词解释\n\n**GO**<br />GO 是 Gene Ontology 的缩写，是基因功能国际标准分类体系。它旨在建立一个适用于各种物种的，对基因和蛋白质功能进行限定和描述的，并能随着研究不断深入而更新的语言词汇标准。GO 数据库分别从**分子功能（Molecular Function）**、**生物过程（Biological Process）**及**细胞组成（Cellular Component）**对基因产物进行了标准化描述，即对基因产物进行了简单注释。\n\n通过 **GO 富集分析**可以粗略了解差异基因富集在哪些生物学功能、途径或者细胞定位。\n\n**Pathway**<br />Pathway 指代谢通路，对差异基因进行 pathway 分析，可以**了解实验条件下显著改变的代谢通路**，在机制研究中显得尤为重要。\n\nGO 分析好比是将基因分门别类放入一个个功能类群，而 pathway 则是将基因一个个具体放到代谢网络中的指定位置。\n\n<a name=\"e911bee4\"></a>\n# 1. 什么是富集分析\n\n基因富集分析是分析基因表达信息的一种方法，富集是指将基因按照先验知识，也就是基因组注释信息进行分类。\n\n<a name=\"c86ac6c6\"></a>\n# 2. 富集分析原理是什么\n\n<a name=\"0aa4d60c\"></a>\n# 3. 怎么做富集分析\n\n基因富集分析需要我们提供某一类功能基因的集合用于背景，常用的注释数据库如：\n\n- The Gene Ontology Consortium: 描述基因的层级关系\n- Kyoto Encyclopedia of Genes and Genomes: 提供了 pathway 的数据库。\n\n未完，待续....\n",
-      "properties": {
-        "title": "富集分析的几个区别",
-        "urlname": "uhunvv",
-        "author": "章鱼猫先生",
-        "date": "2019-12-05 09:02:46",
-        "updated": "2021-06-25 02:34:05"
-      },
-      "catalog": [
-        {
-          "title": "生物信息",
-          "doc_id": "uhunvv"
-        },
-        {
-          "title": "富集分析",
-          "doc_id": "uhunvv"
-        }
-      ],
-      "body": ""
-    },
-    {
       "id": 3485775,
       "doc_id": "lwsgg0",
       "title": "lwsgg0",
@@ -5828,6 +5803,31 @@
         }
       ],
       "body": ""
+    },
+    {
+      "id": 3485895,
+      "doc_id": "enrichment-analysis-differentiation",
+      "title": "enrichment-analysis-differentiation",
+      "updated": 1690252809000,
+      "body_original": "<a name=\"8d3947b3\"></a>\n## 名词解释\n\n<a name=\"l6xXr\"></a>\n### GO\nGO 是 Gene Ontology 的缩写，是基因功能国际标准分类体系。它旨在建立一个适用于各种物种的，对基因和蛋白质功能进行限定和描述的，并能随着研究不断深入而更新的语言词汇标准。GO 数据库分别从**分子功能(Molecular Function)**、**生物过程(Biological Process) **及**细胞组成(Cellular Component) **对基因产物进行了标准化描述，即对基因产物进行了简单注释。\n\n通过 **GO 富集分析**可以粗略了解差异基因富集在哪些生物学功能、途径或者细胞定位。\n\n<a name=\"RtcOP\"></a>\n### Pathway\nPathway 指代谢通路，对差异基因进行 pathway 分析，可以**了解实验条件下显著改变的代谢通路**，在机制研究中显得尤为重要。\n\nGO 分析好比是将基因分门别类放入一个个功能类群，而 pathway 则是将基因一个个具体放到代谢网络中的指定位置。\n\n<a name=\"e911bee4\"></a>\n## 1. 什么是富集分析\n\n基因富集分析是分析基因表达信息的一种方法，富集是指将基因按照先验知识，也就是基因组注释信息进行分类。\n\n<a name=\"c86ac6c6\"></a>\n# 2. 富集分析原理是什么\n\n<a name=\"0aa4d60c\"></a>\n## 3. 怎么做富集分析\n\n基因富集分析需要我们提供某一类功能基因的集合用于背景，常用的注释数据库如：\n\n- The Gene Ontology Consortium: 描述基因的层级关系\n- Kyoto Encyclopedia of Genes and Genomes: 提供了 pathway 的数据库。\n\n未完，待续....\n",
+      "properties": {
+        "title": "富集分析的几个区别",
+        "urlname": "enrichment-analysis-differentiation",
+        "author": "章鱼猫先生",
+        "date": "2019-12-05 09:02:46",
+        "updated": "2023-07-25 02:40:09"
+      },
+      "catalog": [
+        {
+          "title": "生物信息",
+          "doc_id": "enrichment-analysis-differentiation"
+        },
+        {
+          "title": "富集分析",
+          "doc_id": "enrichment-analysis-differentiation"
+        }
+      ],
+      "body": ""
     }
   ],
   "catalog": [
@@ -6039,7 +6039,7 @@
       "type": "DOC",
       "title": "富集分析的几个区别",
       "uuid": "227777:akks8c2x55fzhpxw",
-      "url": "uhunvv",
+      "url": "enrichment-analysis-differentiation",
       "prev_uuid": "-TKoJGGS9j8ncWDD",
       "sibling_uuid": "227777:zzmzp44ydlvygtb5",
       "child_uuid": "",
@@ -6050,7 +6050,7 @@
       "open_window": 1,
       "visible": 1,
       "depth": 3,
-      "slug": "uhunvv"
+      "slug": "enrichment-analysis-differentiation"
     },
     {
       "type": "DOC",
@@ -6649,7 +6649,7 @@
     },
     {
       "type": "TITLE",
-      "title": "开发与运维",
+      "title": "开发运维",
       "uuid": "227777:lpyd9hq9qlmvn9qk",
       "url": "",
       "prev_uuid": "Z01BjOefnH8y5HVC",
