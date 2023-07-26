@@ -4,3 +4,4 @@ mkdocs-rss-plugin
 mkdocs-git-revision-date-plugin
 mkdocs-include-dir-to-nav==1.2.0
 mkdocs-glightbox
+jieba
