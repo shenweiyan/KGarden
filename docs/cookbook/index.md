@@ -4,6 +4,7 @@ urlname: 2023-07-24-cookbook-index
 author: 章鱼猫先生
 date: "2023-07-24 08:08:08"
 updated: "2023-07-24 08:08:08"
+comments: true
 ---
 
 > Real beauty comes from learning, growing, and loving in the ways of life. That is the Art of Life.
