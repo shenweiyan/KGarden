@@ -2,26 +2,26 @@
 title: WebStack-Hugo | 一个静态响应式导航主题
 urlname: 2021-07-16-webstack-hugo
 author: 章鱼猫先生
-date: "2021-07-16 14:29:20"
-updated: "2023-07-17 07:30:29"
+date: "2021-07-16 06:29:20"
+updated: "2023-07-27 00:43:09"
 ---
 
 :::tips
-**📢 让更多人的人制作自己的导航网站。如果你觉得本主题对你有所帮助，欢迎请作者**[**喝杯咖啡**](#OhWDI)\*\* >.<\*\*
+**📢 让更多人的人制作自己的导航网站。如果你觉得本主题对你有所帮助，欢迎请作者**[**喝杯咖啡**](#OhWDI)** >.<**
 :::
 
 [我给自己做了一个导航网站](https://mp.weixin.qq.com/s/gVWGjxG9qd7qSyX3N8Zgag)
 
 **主题开源地址：**
 🔗 Gitee - [**https://gitee.com/shenweiyan/WebStack-Hugo**](https://gitee.com/shenweiyan/WebStack-Hugo)
-🔗 GitHub -\*\* \*\*[**https://github.com/shenweiyan/WebStack-Hugo**](https://github.com/shenweiyan/WebStack-Hugo)
+🔗 GitHub -\*\* **[**https://github.com/shenweiyan/WebStack-Hugo**](https://github.com/shenweiyan/WebStack-Hugo)
 
 **主题展示地址：**
 
 - [~~**https://nav.bioitee.com**~~](https://nav.bioitee.com/)~~\*\* \*\*~~**- Bio & IT 网址导航**（**该链接后续将不可用**）
-- [**https://bioit.top/**](https://bioit.top/)\*\* - WebStack-Hugo 网址导航\*\*
-- [**https://hao.bioitee.com/**](https://hao.bioitee.com/)\*\* - 生信网址导航\*\*
-- [**https://so.gd.cn**](https://so.gd.cn/)\*\* - 搜搜化州 | 信息导航\*\*
+- [**https://bioit.top/**](https://bioit.top/)** - WebStack-Hugo 网址导航**
+- [**https://hao.bioitee.com/**](https://hao.bioitee.com/)** - 生信网址导航**
+- [**https://so.gd.cn**](https://so.gd.cn/)** - 搜搜化州 | 信息导航**
 
 # 为什么做这个网站
 
@@ -42,9 +42,9 @@ updated: "2023-07-17 07:30:29"
 
 本项目是基于纯静态的网址导航网站 [webstack.cc](https://github.com/WebStackPage/WebStackPage.github.io) 制作的 [Hugo](https://gohugo.io/) 主题，其中部分代码参考了以下几个开源项目：
 
-- <https://github.com/WebStackPage/WebStackPage.github.io>
+- [https://github.com/WebStackPage/WebStackPage.github.io](https://github.com/WebStackPage/WebStackPage.github.io)
 - [https://github.com/liutongxu/liutongxu.github.io](https://github.com/WebStackPage/WebStackPage.github.io)
-- <https://github.com/iplaycode/webstack-hugo>
+- [https://github.com/iplaycode/webstack-hugo](https://github.com/iplaycode/webstack-hugo)
 
 总体说一下特点：
 
@@ -88,7 +88,7 @@ updated: "2023-07-17 07:30:29"
 
 ## 第一，下载 Windows 版本的 hugo
 
-下载链接：<https://github.com/gohugoio/hugo/releases>，在这里我们下载 [hugo_0.89.4_Windows-64bit.zip](https://github.com/gohugoio/hugo/releases/download/v0.89.4/hugo_0.89.4_Windows-64bit.zip)。
+下载链接：[https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)，在这里我们下载 [hugo_0.89.4_Windows-64bit.zip](https://github.com/gohugoio/hugo/releases/download/v0.89.4/hugo_0.89.4_Windows-64bit.zip)。
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fkm43Bi3mi71qf16MaRdUJKjBWWx.png)
 
 ## 第二，解压
@@ -106,11 +106,11 @@ Windows 命令运行窗口中可以使用 Tab 进行命令行补全，例如你�
 使用命令行补全，可以减少代码（或者文件名）的输入，方便快捷，又能减少错误！
 :::
 
-1.  在 Windows 中使用 **Win+R** 打开“**运行**”对话框，在对话框中输入“**cmd**”，点击确认。
+1. 在 Windows 中使用 **Win+R** 打开“**运行**”对话框，在对话框中输入“**cmd**”，点击确认。
 
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FmIW4HA2hWImM7IrtsdCtWwWqcdi.png)
 
-2.  在 Windows 运行窗口，先切换盘符到 **F** 盘，然后进入 hugo 的解压缩目录（**F:\WebStack**），具体操作如下。
+2. 在 Windows 运行窗口，先切换盘符到 **F** 盘，然后进入 hugo 的解压缩目录（**F:\WebStack**），具体操作如下。
 
 - 在光标处输入**F:**，然后按回车；
 
@@ -130,7 +130,7 @@ Windows 命令运行窗口中可以使用 Tab 进行命令行补全，例如你�
 
 ## 第四，下载 WebStack-Hugo
 
-浏览器打开 <https://github.com/shenweiyan/WebStack-Hugo>，点击 Code 下的 **"Download ZIP"**，把 WebStack-hugo-main.zip 下载到刚才 hugo 解压缩的目录（**F:\WebStack**）。
+浏览器打开 [https://github.com/shenweiyan/WebStack-Hugo](https://github.com/shenweiyan/WebStack-Hugo)，点击 Code 下的 **"Download ZIP"**，把 WebStack-hugo-main.zip 下载到刚才 hugo 解压缩的目录（**F:\WebStack**）。
 ![2022.09.26-11.47.12.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FgBB_DzuGlOUFs1Nt4iseGF6yhN0.png)
 
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fqyg5wJJpttIrC7LVXg9bnCf6Wgv.png)
@@ -213,7 +213,7 @@ hugo -D
 
 # 导出 HTML 静态网页至 publishDir
 
-Windows/Linux 下执行的 **hugo server** 命令将会通过热加载的方式临时启动一个 Hugo 服务器（Hugo 可以启动一个 Web 服务器，同时构建站点内容到内存中并在检测到文件更改后重新渲染，方便我们在开发环境实时预览对站点所做的更改），这个时候我们打开浏览器 <http://127.0.0.1:1313/>，就可以看到我们站点的样子了。
+Windows/Linux 下执行的 **hugo server** 命令将会通过热加载的方式临时启动一个 Hugo 服务器（Hugo 可以启动一个 Web 服务器，同时构建站点内容到内存中并在检测到文件更改后重新渲染，方便我们在开发环境实时预览对站点所做的更改），这个时候我们打开浏览器 [http://127.0.0.1:1313/](http://127.0.0.1:1313/)，就可以看到我们站点的样子了。
 
 如果我们想要把我们的站点部署到 GitHub/Gitee Pages（或者本地的服务器），我们可以：
 
@@ -231,15 +231,15 @@ hugo -D 或者 hugo --minify
 
 > Hugo 允许您在网站内容的前言设定中设置文档的`draft`，`publishdate`甚至`expirydate`字段。默认情况下，Hugo 不会发布下面内容：
 >
-> 1.  `publishdate` 发布日期值设定在未来的内容；
-> 2.  `draft:true` 草案状态设置为真的内容；
-> 3.  `expirydate` 过期日期值设置为过去某事件的内容。
+> 1. `publishdate` 发布日期值设定在未来的内容；
+> 2. `draft:true` 草案状态设置为真的内容；
+> 3. `expirydate` 过期日期值设置为过去某事件的内容。
 >
 > 这三个可以在本地开发和部署编译时通过对`hugo`和`hugo server`分别添加如下参数来重新设定，或者在配置文件中设定对应(不包含`--`)域的 boolean 值：
 >
-> 1.  \-F, --buildFuture include content with publishdate in the future
-> 2.  \-D, --buildDrafts include content marked as draft
-> 3.  \-E, --buildExpired include expired content
+> 1. -F, --buildFuture include content with publishdate in the future
+> 2. -D, --buildDrafts include content marked as draft
+> 3. -E, --buildExpired include expired content
 
 ## 2. 部署站点
 
@@ -253,15 +253,15 @@ hugo -D 或者 hugo --minify
 
 左侧、顶部导航栏图标用的都是 **Font Awesome** 图标库 **v5** 版本 **Free** 的图标。链接如下：
 
-🔗 <https://fontawesome.com/v5/search?o=r&m=free>
+🔗 [https://fontawesome.com/v5/search?o=r&m=free](https://fontawesome.com/v5/search?o=r&m=free)
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FoHd7w72AykJGSrbzttHgGi4VqlY.png)
 
 ## 调整头部搜索栏
 
 头部搜索栏的默认位置可以通过下面的方法进行修改。
 
-1.  直接修改 **layouts/partials/content_search.html**，调整对应部分的位置。
-2.  调整默认的搜索（即点击"常用/搜索/工具 ...." 时下指箭头的指向），把对应的 id 添加到对应的 label 里面。
+1. 直接修改 **layouts/partials/content_search.html**，调整对应部分的位置。
+2. 调整默认的搜索（即点击"常用/搜索/工具 ...." 时下指箭头的指向），把对应的 id 添加到对应的 label 里面。
 
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FoPMASsgrgPyFSsJy8HvPrgq8ELN.png)
 ![2022.09.21-10.48.55.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fp0fJmbfJVdg_hVP1ULdh_MmjCcX.png)
@@ -293,11 +293,11 @@ hugo -D 或者 hugo --minify
 
 [Bio & IT 网址导航](https://nav.bioitee.com/)默认使用的是个人收集的网站图标，主要是查看网站源码、百度、谷歌等途径把对应导航的图标下载下来，这个方法比较原始繁琐，适合导航不是很多的情况。
 
-你也可以使用一为提供的的 [Favicon](https://www.iowen.cn/tag/favicon/) 图标 [api](https://www.iowen.cn/tag/api/)：<https://api.iowen.cn/doc/favicon.html>。
+你也可以使用一为提供的的 [Favicon](https://www.iowen.cn/tag/favicon/) 图标 [api](https://www.iowen.cn/tag/api/)：[https://api.iowen.cn/doc/favicon.html](https://api.iowen.cn/doc/favicon.html)。
 
-**接口地址：**<https://api.iowen.cn/favicon>
-\*\*返回格式：\*\*图片
-\*\*请求方式：\*\*get
+**接口地址：**[https://api.iowen.cn/favicon](https://api.iowen.cn/favicon)
+**返回格式：**图片
+**请求方式：**get
 **请求示例：**
 
       - [https://api.iowen.cn/favicon/www.iowen.cn.png](https://api.iowen.cn/favicon/www.iowen.cn.png)
@@ -305,9 +305,10 @@ hugo -D 或者 hugo --minify
 
 **请求参数说明：**
 
-| 名称 | 必填 | 类型 | 说明   |                                                                                                                                                       |
-| ---- | ---- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-|      | url  | 是   | string | 需要获取图标的 URL 地址，如：[www.iowen.cn，确保 URL 能够正常打开](http://www.iowen.cn，确保URL能够正常打开)**不需要 http(s):// ，且结尾必须填 .png** |
+| 名称                                      | 必填 | 类型 | 说明   |                                                                |
+| ----------------------------------------- | ---- | ---- | ------ | -------------------------------------------------------------- |
+|                                           | url  | 是   | string | 需要获取图标的 URL 地址，如：www.iowen.cn，确保URL能够正常打开 |
+| **不需要 http(s):// ，且结尾必须填 .png** |
 
 **返回参数说明：**
 
@@ -315,11 +316,11 @@ hugo -D 或者 hugo --minify
 | ---- | ---- | ---- |
 | 无   | 无   | 无   |
 
-\*\*返回示例：\*\*返回网址图标
+**返回示例：**返回网址图标
 
 # 已知问题
 
-1.  日间模式与夜间模式切换时候，头部搜索栏的背景图片切换不够流畅（个人的 js 知识有限，在 footer.html 做了一些简单的调整来实现），如果你有更好的想法，欢迎 PR 或者交流。
+1. 日间模式与夜间模式切换时候，头部搜索栏的背景图片切换不够流畅（个人的 js 知识有限，在 footer.html 做了一些简单的调整来实现），如果你有更好的想法，欢迎 PR 或者交流。
 
 # 感谢墙
 
@@ -333,8 +334,8 @@ hugo -D 或者 hugo --minify
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FuJQKMnwajVc-di8fIJO6Mu9w6a7.png)
 
 感谢以下所有朋友对本主题所做出的贡献。
-[**@yanbeiyinhanghang**](https://github.com/yinhanghang)\*\* \*\*
-[**@jetsung**](https://github.com/jetsung)
+[**@yanbeiyinhanghang**](https://github.com/yinhanghang)\*\* **
+[**@jetsung\*\*](https://github.com/jetsung)
 
 # 赞赏
 
