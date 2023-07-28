@@ -28,10 +28,16 @@ theme:
     - content.action.view
     - content.code.copy
     - navigation.footer
+
+# Repository
+repo_name: Knowledge-Garden
 repo_url: https://github.com/shenweiyan/Knowledge-Garden/
 edit_uri: edit/main/docs/
 site_author: Steven Shum
+
+# Copyright
 copyright: Copyright © 2021-2023 Steven Shum
+
 nav:
     - 阅读说明: README.md
     - 技术私房菜: 
@@ -46,6 +52,7 @@ nav:
     - 随笔乱弹: notebook
     - 语雀知识库: https://www.yuque.com/shenweiyan
     - RSS feed: https://shenweiyan.github.io/Knowledge-Garden/feed_rss_created.xml
+    
 markdown_extensions:
     - md_in_html
     - pymdownx.superfences
@@ -55,6 +62,7 @@ markdown_extensions:
         separator: "-"
         toc_depth: 3
     - pymdownx.highlight
+    
 plugins:
   - rss:
       enabled: True
@@ -74,6 +82,7 @@ plugins:
   - git-revision-date
   - include_dir_to_nav:
       reverse_sort_file: true
+      
 extra:
   homepage: https://doc.weiyan.cc
   social:
