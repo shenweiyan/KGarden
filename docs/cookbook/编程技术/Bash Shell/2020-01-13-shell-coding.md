@@ -4,6 +4,7 @@ urlname: 2020-01-13-shell-coding
 author: 章鱼猫先生
 date: "2020-01-13 02:35:44"
 updated: "2023-08-01 01:00:12"
+comments: true
 ---
 
 基础性的语法不啰嗦了，记录一下比较容易忘记的一些点。
