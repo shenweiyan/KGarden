@@ -4,6 +4,7 @@ urlname: 2020-01-13-shell-coding
 author: 章鱼猫先生
 date: "2020-01-13 10:35:44"
 updated: "2021-06-30 09:39:56"
+comments: true
 ---
 
 基础性的语法不啰嗦了，记录一下比较容易忘记的一些点。
@@ -215,7 +216,7 @@ sort temp|uniq -c|sort -k1nr > $2
 rm -f temp
 ```
 
-## 切割字符串并打印分割后的值
+### 切割字符串并打印分割后的值
 
 ```bash
 awk -F ',' '{for(i=1;i<=NF;i++){print $i}}'` file.txt
