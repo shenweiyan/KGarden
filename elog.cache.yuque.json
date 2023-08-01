@@ -3180,31 +3180,6 @@
       "body": ""
     },
     {
-      "id": 4107466,
-      "doc_id": "sfpgok",
-      "title": "sfpgok",
-      "updated": 1625017196000,
-      "body_original": "基础性的语法不啰嗦了，记录一下比较容易忘记的一些点。\n\n\n<a name=\"0VhtT\"></a>\n# Shell 示例脚本\n```bash\n#!/bin/sh\nSTART=$(date +'%Y-%m-%d %H:%M:%S');\necho \"Start: $START\" >/home/shenweiyan/log.txt\n\nfor i in `find /data/database/onekp/nucl-v2/samples/ -name \"*.fa\"`;\ndo\n    dir=`dirname $i`;\n    fa=`basename $i`;\n    cd $dir; makeblastdb -in $fa -dbtype nucl;\n    echo $i >>/data/database/onekp/nucl-v2/memo/log;\ndone \nEND=$(date);echo \"End: $END\" >>/home/shenweiyan/log.txt\n```\n\n<a name=\"675df5e1\"></a>\n# Shell 程序模板\n```\n#!/bin/bash\nset -e\n# 设置程序参数的缺省值，少用参数即可运行\n# Default parameter\ninput=input.txt\noutput=output.txt\ndatabase=database.txt\nexecute='TRUE'\n# 程序功能描述，每次必改程序名、版本、时间等；版本更新要记录清楚，一般可用-h/-?来显示这部分\n# Function for script description and usage\nusage()\n{\ncat <<EOF >&2\nUsage:\n-------------------------------------------------------------------------------\nFilename:    template.sh\nRevision:    1.0\nDate:        2017/6/24\nAuthor:      Yong-Xin Liu\nEmail:       yxliu@genetics.ac.cn\nWebsite:     http://bailab.genetics.ac.cn/\nDescription: This script is solve parameter read and default\nNotes:       Function of this script\n-------------------------------------------------------------------------------\nCopyright:   2017 (c) Yong-Xin Liu\nLicense:     GPL\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \nas published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty \nof MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\nIf any changes are made to this script, please mail me a copy of the changes\n-------------------------------------------------------------------------------\nVersion 1.0 2017/6/24\n# 输入输出文件格式和示例，非常有用，不知道格式怎么准备文件呀\n# Input files: input.txt, can inclue many file\n# 1. input.txt, design of expriment\nSampleID    BarcodeSequence    group\nWT.1    TAGCTT    WT    \nWT.2    GGCTAC    WT \nWT.3    CGCGCG    WT\n# 2. database.txt, annotation of gene\nID    description\nAT3G48300    Transcript factor\n# Output file\n1. Annotated samples & DE genes\nSamples    ID    description\nWt    AT3G48300    Transcript factor\n2. Volcano plot: vol_otu_SampleAvsSampleB.pdf\n# 参数描述，写清功能的缺省值\nOPTIONS:\n    -d database file, default database.txt\n    -i input file, recommend must give\n    -o output file or output directory, default output.txt\n    -h/? show help of script\nExample:\n    template.sh -i input.txt -d database.txt -o result.txt\nEOF\n}\n# 解释命令行参数，是不是很面熟，其实是调用了perl语言的getopts包，\n# Analysis parameter\nwhile getopts \"d:h:i:o:\" OPTION\ndo\n    case $OPTION in\n        d)\n            database=$OPTARG\n            ;;\n        h)\n            usage\n            exit 1\n            ;;\n        i)\n            input=$OPTARG\n            ;;\n        o)\n            output=$OPTARG\n            ;;\n        ?)\n            usage\n            exit 1\n            ;;\n    esac\ndone\n# for 循环批量调用程序，如批量绘制热图\n# 有多种批量输入文件的方式，以下N种任选其一，其它用#注释掉\nfor i in a.txt b.txt n.txt; do # 文件不多，手动放在in后用空格分开\nfor i in `seq 1 9`; do # 文字名为数字顺序，用seq命令生成连续数据，引用命令需反引\nfor i in `ls data/*.txt`; do # 匹配某类文件作为输入\nfor i in `cat list.txt`; do # 使用文本原为输入列表\nfor i in `cat list.txt|cut -f 1`; do # 指定某列作为输入文件名\n    plot_heatmap.sh -i data/${i} -o heatmap/${i}.pdf\ndone\n```\n\n将以上代码保存为 template.sh，然后根据实际需要调整。\n\n<a name=\"G6BfC\"></a>\n# Shell 语法与知识\n<a name=\"hi0ql\"></a>\n## if 基础语法\n\n```bash\nif [ command ]; then\n   符合该条件执行的语句\nelif [ command ]; then\n   符合该条件执行的语句\nelse\n   符合该条件执行的语句\nfi\n```\n\n<a name=\"ONWSU\"></a>\n## 文件与目录判断\n\n```bash\n[ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。\n[ -c FILE ] 如果 FILE 存在且是一个字特殊文件则为真。\n[ -d DIR ]  如果 FILE 存在且是一个目录则为真。\n[ -e FILE ] 如果 FILE 存在则为真。\n[ -f FILE ] 如果 FILE 存在且是一个普通文件则为真。\n[ -g FILE ] 如果 FILE 存在且已经设置了 SGID 则为真。\n[ -k FILE ] 如果 FILE 存在且已经设置了粘制位则为真。\n[ -p FILE ] 如果 FILE 存在且是一个名字管道(F如果O)则为真。\n[ -r FILE ] 如果 FILE 存在且是可读的则为真。\n[ -s FILE ] 如果 FILE 存在且大小不为0则为真。\n[ -t FD ]   如果文件描述符 FD 打开且指向一个终端则为真。\n[ -u FILE ] 如果 FILE 存在且设置了SUID (set user ID)则为真。\n[ -w FILE ] 如果 FILE 存在且是可写的则为真。\n[ -x FILE ] 如果 FILE 存在且是可执行的则为真。\n[ -O FILE ] 如果 FILE 存在且属有效用户ID则为真。\n[ -G FILE ] 如果 FILE 存在且属有效用户组则为真。\n[ -L FILE ] 如果 FILE 存在且是一个符号连接则为真。\n[ -N FILE ] 如果 FILE 存在 and has been mod如果ied since it was last read则为真。\n[ -S FILE ] 如果 FILE 存在且是一个套接字则为真。\n[ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。\n[ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。\n[ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。\n\n[ -o OPTIONNAME ] 如果 shell选项 “OPTIONNAME” 开启则为真。\n[ -z STRING ] “STRING” 的长度为零则为真。\n[ -n STRING ] or [ STRING ] “STRING” 的长度为非零 non-zero则为真。\n[ STRING1 == STRING2 ] 如果2个字符串相同。 “=” may be used instead of “==” for strict POSIX compliance则为真。\n[ STRING1 != STRING2 ] 如果字符串不相等则为真。\n[ STRING1 < STRING2 ] 如果 “STRING1” sorts before “STRING2” lexicographically in the current locale则为真。\n[ STRING1 > STRING2 ] 如果 “STRING1” sorts after “STRING2” lexicographically in the current locale则为真。\n[ ARG1 OP ARG2 ] “OP” is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if “ARG1” is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to “ARG2”, respectively. “ARG1” and “ARG2” are integers.\n```\n\n\n<a name=\"7AHU5\"></a>\n# Bash Shell 实战示例\n\n一些常见的 bash shell 实战示例。\n\n<a name=\"rtYSd\"></a>\n## 排除当前行及下一行的内容\n```shell\nsed '/关键字/,+1d' file >file2\n```\n\n<a name=\"ixD0Q\"></a>\n## 批量重命名文件\n\n- 把 1.xtx，2.txt，...，26.txt 分别重命名为 a.txt，b.txt，...，z.txt。\n```bash\nn=1;for i in {a..z}.txt;do echo mv ${n}.txt $i.txt;n=$((n+1));done\n```\n\n<a name=\"XwLZO\"></a>\n## 字符出现次数统计\n\n- 统计文档中每个字符出现的次数。\n```bash\n# 本脚本需要两个参数，第一个参数是要统计的文件，第二个参数是输出统计结果的文件。\n#!/bin/sh\n\nfor line in `cat $1`; do\n    count=`echo $line|wc -m`\n    echo $count $line\n\n    i=1;\n    while [ \"$i\" -lt \"$count\" ]; do\n        one_word=`echo $line|cut -c$i`\n        #echo $i $one_word\n        echo \"$one_word\" >>temp\n        ((i++))\n    done\ndone\n\nsort temp|uniq -c|sort -k1nr > $2\n\nrm -f temp\n```\n\n<a name=\"nlr95\"></a>\n## 切割字符串并打印分割后的值\n```bash\nawk -F ',' '{for(i=1;i<=NF;i++){print $i}}'` file.txt\n```\n",
-      "properties": {
-        "title": "Linux shell 编程笔记",
-        "urlname": "sfpgok",
-        "author": "章鱼猫先生",
-        "date": "2020-01-13 02:35:44",
-        "updated": "2021-06-30 01:39:56"
-      },
-      "catalog": [
-        {
-          "title": "编程技术",
-          "doc_id": "sfpgok"
-        },
-        {
-          "title": "Bash Shell",
-          "doc_id": "sfpgok"
-        }
-      ],
-      "body": ""
-    },
-    {
       "id": 3894726,
       "doc_id": "jupyterlab-server-note",
       "title": "jupyterlab-server-note",
@@ -5825,6 +5800,31 @@
         {
           "title": "富集分析",
           "doc_id": "enrichment-analysis"
+        }
+      ],
+      "body": ""
+    },
+    {
+      "id": 4107466,
+      "doc_id": "shell-coding",
+      "title": "shell-coding",
+      "updated": 1690851612000,
+      "body_original": "基础性的语法不啰嗦了，记录一下比较容易忘记的一些点。\n\n<a name=\"0VhtT\"></a>\n## Shell 示例脚本\n```bash\n#!/bin/sh\nSTART=$(date +'%Y-%m-%d %H:%M:%S');\necho \"Start: $START\" >/home/shenweiyan/log.txt\n\nfor i in `find /data/database/onekp/nucl-v2/samples/ -name \"*.fa\"`;\ndo\n    dir=`dirname $i`;\n    fa=`basename $i`;\n    cd $dir; makeblastdb -in $fa -dbtype nucl;\n    echo $i >>/data/database/onekp/nucl-v2/memo/log;\ndone \nEND=$(date);echo \"End: $END\" >>/home/shenweiyan/log.txt\n```\n\n<a name=\"675df5e1\"></a>\n## Shell 程序模板\n```shell\n#!/bin/bash\nset -e\n# 设置程序参数的缺省值，少用参数即可运行\n# Default parameter\ninput=input.txt\noutput=output.txt\ndatabase=database.txt\nexecute='TRUE'\n# 程序功能描述，每次必改程序名、版本、时间等；版本更新要记录清楚，一般可用-h/-?来显示这部分\n# Function for script description and usage\nusage()\n{\ncat <<EOF >&2\nUsage:\n-------------------------------------------------------------------------------\nFilename:    template.sh\nRevision:    1.0\nDate:        2017/6/24\nAuthor:      Yong-Xin Liu\nEmail:       yxliu@genetics.ac.cn\nWebsite:     http://bailab.genetics.ac.cn/\nDescription: This script is solve parameter read and default\nNotes:       Function of this script\n-------------------------------------------------------------------------------\nCopyright:   2017 (c) Yong-Xin Liu\nLicense:     GPL\nThis program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License \nas published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty \nof MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\nIf any changes are made to this script, please mail me a copy of the changes\n-------------------------------------------------------------------------------\nVersion 1.0 2017/6/24\n# 输入输出文件格式和示例，非常有用，不知道格式怎么准备文件呀\n# Input files: input.txt, can inclue many file\n# 1. input.txt, design of expriment\nSampleID    BarcodeSequence    group\nWT.1    TAGCTT    WT    \nWT.2    GGCTAC    WT \nWT.3    CGCGCG    WT\n# 2. database.txt, annotation of gene\nID    description\nAT3G48300    Transcript factor\n# Output file\n1. Annotated samples & DE genes\nSamples    ID    description\nWt    AT3G48300    Transcript factor\n2. Volcano plot: vol_otu_SampleAvsSampleB.pdf\n# 参数描述，写清功能的缺省值\nOPTIONS:\n    -d database file, default database.txt\n    -i input file, recommend must give\n    -o output file or output directory, default output.txt\n    -h/? show help of script\nExample:\n    template.sh -i input.txt -d database.txt -o result.txt\nEOF\n}\n# 解释命令行参数，是不是很面熟，其实是调用了perl语言的getopts包，\n# Analysis parameter\nwhile getopts \"d:h:i:o:\" OPTION\ndo\n    case $OPTION in\n        d)\n            database=$OPTARG\n            ;;\n        h)\n            usage\n            exit 1\n            ;;\n        i)\n            input=$OPTARG\n            ;;\n        o)\n            output=$OPTARG\n            ;;\n        ?)\n            usage\n            exit 1\n            ;;\n    esac\ndone\n# for 循环批量调用程序，如批量绘制热图\n# 有多种批量输入文件的方式，以下N种任选其一，其它用#注释掉\nfor i in a.txt b.txt n.txt; do # 文件不多，手动放在in后用空格分开\nfor i in `seq 1 9`; do # 文字名为数字顺序，用seq命令生成连续数据，引用命令需反引\nfor i in `ls data/*.txt`; do # 匹配某类文件作为输入\nfor i in `cat list.txt`; do # 使用文本原为输入列表\nfor i in `cat list.txt|cut -f 1`; do # 指定某列作为输入文件名\n    plot_heatmap.sh -i data/${i} -o heatmap/${i}.pdf\ndone\n```\n\n将以上代码保存为 template.sh，然后根据实际需要调整。\n<a name=\"G6BfC\"></a>\n## Shell 语法与知识\n<a name=\"hi0ql\"></a>\n### if 基础语法\n\n```bash\nif [ command ]; then\n   符合该条件执行的语句\nelif [ command ]; then\n   符合该条件执行的语句\nelse\n   符合该条件执行的语句\nfi\n```\n\n<a name=\"ONWSU\"></a>\n### 文件与目录判断\n\n```bash\n[ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。\n[ -c FILE ] 如果 FILE 存在且是一个字特殊文件则为真。\n[ -d DIR ]  如果 FILE 存在且是一个目录则为真。\n[ -e FILE ] 如果 FILE 存在则为真。\n[ -f FILE ] 如果 FILE 存在且是一个普通文件则为真。\n[ -g FILE ] 如果 FILE 存在且已经设置了 SGID 则为真。\n[ -k FILE ] 如果 FILE 存在且已经设置了粘制位则为真。\n[ -p FILE ] 如果 FILE 存在且是一个名字管道(F如果O)则为真。\n[ -r FILE ] 如果 FILE 存在且是可读的则为真。\n[ -s FILE ] 如果 FILE 存在且大小不为0则为真。\n[ -t FD ]   如果文件描述符 FD 打开且指向一个终端则为真。\n[ -u FILE ] 如果 FILE 存在且设置了SUID (set user ID)则为真。\n[ -w FILE ] 如果 FILE 存在且是可写的则为真。\n[ -x FILE ] 如果 FILE 存在且是可执行的则为真。\n[ -O FILE ] 如果 FILE 存在且属有效用户ID则为真。\n[ -G FILE ] 如果 FILE 存在且属有效用户组则为真。\n[ -L FILE ] 如果 FILE 存在且是一个符号连接则为真。\n[ -N FILE ] 如果 FILE 存在 and has been mod如果ied since it was last read则为真。\n[ -S FILE ] 如果 FILE 存在且是一个套接字则为真。\n[ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。\n[ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。\n[ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。\n\n[ -o OPTIONNAME ] 如果 shell选项 “OPTIONNAME” 开启则为真。\n[ -z STRING ] “STRING” 的长度为零则为真。\n[ -n STRING ] or [ STRING ] “STRING” 的长度为非零 non-zero则为真。\n[ STRING1 == STRING2 ] 如果2个字符串相同。 “=” may be used instead of “==” for strict POSIX compliance则为真。\n[ STRING1 != STRING2 ] 如果字符串不相等则为真。\n[ STRING1 < STRING2 ] 如果 “STRING1” sorts before “STRING2” lexicographically in the current locale则为真。\n[ STRING1 > STRING2 ] 如果 “STRING1” sorts after “STRING2” lexicographically in the current locale则为真。\n[ ARG1 OP ARG2 ] “OP” is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if “ARG1” is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to “ARG2”, respectively. “ARG1” and “ARG2” are integers.\n```\n\n<a name=\"7AHU5\"></a>\n## Bash Shell 实战示例\n\n一些常见的 bash shell 实战示例。\n\n<a name=\"rtYSd\"></a>\n### 排除当前行及下一行的内容\n```shell\nsed '/关键字/,+1d' file >file2\n```\n\n<a name=\"ixD0Q\"></a>\n### 批量重命名文件\n\n- 把 1.xtx，2.txt，...，26.txt 分别重命名为 a.txt，b.txt，...，z.txt。\n```bash\nn=1;for i in {a..z}.txt;do echo mv ${n}.txt $i.txt;n=$((n+1));done\n```\n\n<a name=\"XwLZO\"></a>\n### 字符出现次数统计\n\n- 统计文档中每个字符出现的次数。\n```bash\n# 本脚本需要两个参数，第一个参数是要统计的文件，第二个参数是输出统计结果的文件。\n#!/bin/sh\n\nfor line in `cat $1`; do\n    count=`echo $line|wc -m`\n    echo $count $line\n\n    i=1;\n    while [ \"$i\" -lt \"$count\" ]; do\n        one_word=`echo $line|cut -c$i`\n        #echo $i $one_word\n        echo \"$one_word\" >>temp\n        ((i++))\n    done\ndone\n\nsort temp|uniq -c|sort -k1nr > $2\n\nrm -f temp\n```\n\n<a name=\"nlr95\"></a>\n### 切割字符串并打印分割后的值\n```bash\nawk -F ',' '{for(i=1;i<=NF;i++){print $i}}'` file.txt\n```\n",
+      "properties": {
+        "title": "Linux shell 编程笔记",
+        "urlname": "shell-coding",
+        "author": "章鱼猫先生",
+        "date": "2020-01-13 02:35:44",
+        "updated": "2023-08-01 01:00:12"
+      },
+      "catalog": [
+        {
+          "title": "编程技术",
+          "doc_id": "shell-coding"
+        },
+        {
+          "title": "Bash Shell",
+          "doc_id": "shell-coding"
         }
       ],
       "body": ""
@@ -10204,7 +10204,7 @@
       "type": "DOC",
       "title": "Linux shell 编程笔记",
       "uuid": "227777:dyw12b8gaytg2txc",
-      "url": "sfpgok",
+      "url": "shell-coding",
       "prev_uuid": "227777:ey6brrncltoshf0v",
       "sibling_uuid": "",
       "child_uuid": "",
@@ -10215,7 +10215,7 @@
       "open_window": 1,
       "visible": 1,
       "depth": 3,
-      "slug": "sfpgok"
+      "slug": "shell-coding"
     },
     {
       "type": "TITLE",
