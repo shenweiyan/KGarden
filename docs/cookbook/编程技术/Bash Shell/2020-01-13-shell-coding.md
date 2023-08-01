@@ -1,6 +1,6 @@
 ---
 title: Linux shell 编程笔记
-urlname: 2020-01-13-sfpgok
+urlname: 2020-01-13-shell-coding
 author: 章鱼猫先生
 date: "2020-01-13 10:35:44"
 updated: "2021-06-30 09:39:56"
@@ -8,7 +8,7 @@ updated: "2021-06-30 09:39:56"
 
 基础性的语法不啰嗦了，记录一下比较容易忘记的一些点。
 
-# Shell 示例脚本
+## Shell 示例脚本
 
 ```bash
 #!/bin/sh
@@ -25,7 +25,7 @@ done
 END=$(date);echo "End: $END" >>/home/shenweiyan/log.txt
 ```
 
-# Shell 程序模板
+## Shell 程序模板
 
     #!/bin/bash
     set -e
@@ -121,9 +121,9 @@ END=$(date);echo "End: $END" >>/home/shenweiyan/log.txt
 
 将以上代码保存为 template.sh，然后根据实际需要调整。
 
-# Shell 语法与知识
+## Shell 语法与知识
 
-## if 基础语法
+### if 基础语法
 
 ```bash
 if [ command ]; then
@@ -135,7 +135,7 @@ else
 fi
 ```
 
-## 文件与目录判断
+### 文件与目录判断
 
 ```bash
 [ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。
@@ -171,17 +171,17 @@ fi
 [ ARG1 OP ARG2 ] “OP” is one of -eq, -ne, -lt, -le, -gt or -ge. These arithmetic binary operators return true if “ARG1” is equal to, not equal to, less than, less than or equal to, greater than, or greater than or equal to “ARG2”, respectively. “ARG1” and “ARG2” are integers.
 ```
 
-# Bash Shell 实战示例
+## Bash Shell 实战示例
 
 一些常见的 bash shell 实战示例。
 
-## 排除当前行及下一行的内容
+### 排除当前行及下一行的内容
 
 ```shell
 sed '/关键字/,+1d' file >file2
 ```
 
-## 批量重命名文件
+### 批量重命名文件
 
 - 把 1.xtx，2.txt，...，26.txt 分别重命名为 a.txt，b.txt，...，z.txt。
 
@@ -189,7 +189,7 @@ sed '/关键字/,+1d' file >file2
 n=1;for i in {a..z}.txt;do echo mv ${n}.txt $i.txt;n=$((n+1));done
 ```
 
-## 字符出现次数统计
+### 字符出现次数统计
 
 - 统计文档中每个字符出现的次数。
 
