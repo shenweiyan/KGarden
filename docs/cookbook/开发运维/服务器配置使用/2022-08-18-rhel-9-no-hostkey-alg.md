@@ -2,8 +2,8 @@
 title: RHEL6 ssh 到 RHEL9 的 no hostkey alg 错误
 urlname: 2022-08-18-rhel-9-no-hostkey-alg
 author: 章鱼猫先生
-date: "2022-08-18 09:24:02"
-updated: "2022-08-18 10:22:35"
+date: "2022-08-18 01:24:02"
+updated: "2023-08-11 05:21:07"
 ---
 
 昨天把阿里云的一个轻量云服务器升级到了 AlmaLinux release 9.0 (Emerald Puma)，开启 RHEL 9 系列的新体验。
@@ -17,9 +17,8 @@ $ ssh root@xxx.123.456.xx
 no hostkey alg
 ```
 
-一开始拿着这个错误去谷歌，找了不少答案（例如，KexAlgorithms 算法支持问题；/etc/ssh/ssh_host_*key 问题；权限问题，等等）都没办法解决，后来去 AlmaLinux 社区提问，才最终把这个问题解决了。
+一开始拿着这个错误去谷歌，找了不少答案（例如，KexAlgorithms 算法支持问题；`/etc/ssh/ssh_host_*key`问题；权限问题，等等）都没办法解决，后来去 AlmaLinux 社区提问，才最终把这个问题解决了。
 ![image.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Flgu92Si4SO1GDPjqVHq-UPUBRCX.png)
-
 从 RHEL9 的官网文档《[1.0.2. Crypto-policies, RHEL core cryptographic components, and protocols](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html-single/considerations_in_adopting_rhel_9/index#ref_considerations-security-crypto_changes-to-security)（加密策略、RHEL 核心加密组件和协议）》可以看到 SHA-1 已经在 RHEL9 中弃用了！
 
 > In RHEL 9, SHA-1 usage for signatures is restricted in the DEFAULT system-wide cryptographic policy. Except for HMAC, SHA-1 is no longer allowed in TLS, DTLS, SSH, IKEv2, DNSSEC, and Kerberos protocols. Individual applications not controlled by the RHEL system-wide crypto policies are also moving away from using SHA-1 hashes in RHEL 9.
@@ -38,5 +37,5 @@ no hostkey alg
 
 ## 参考资料
 
-1.  [1.0.2. Crypto-policies, RHEL core cryptographic components, and protocols](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html-single/considerations_in_adopting_rhel_9/index#ref_considerations-security-crypto_changes-to-security)，RHEL9 官网文档
-2.  [No hostkey alg error from RHEL6 ssh to AlmaLinux9](https://almalinux.discourse.group/t/no-hostkey-alg-error-from-rhel6-ssh-to-almalinux9/1509)，AlmaLinux 社区
+1. [1.0.2. Crypto-policies, RHEL core cryptographic components, and protocols](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html-single/considerations_in_adopting_rhel_9/index#ref_considerations-security-crypto_changes-to-security)，RHEL9 官网文档
+2. [No hostkey alg error from RHEL6 ssh to AlmaLinux9](https://almalinux.discourse.group/t/no-hostkey-alg-error-from-rhel6-ssh-to-almalinux9/1509)，AlmaLinux 社区
