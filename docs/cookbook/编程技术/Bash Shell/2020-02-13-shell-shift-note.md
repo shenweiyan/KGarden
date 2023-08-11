@@ -1,9 +1,9 @@
 ---
-title: shell 编程 | shift 命令用法笔记
+title: Linux shift 命令用法笔记
 urlname: 2020-02-13-shell-shift-note
 author: 章鱼猫先生
-date: "2020-02-13 14:20:04"
-updated: "2021-06-30 09:39:40"
+date: "2020-02-13 06:20:04"
+updated: "2023-08-01 01:13:26"
 ---
 
 ## 特殊变量

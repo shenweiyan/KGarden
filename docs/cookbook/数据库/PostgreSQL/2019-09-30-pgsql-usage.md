@@ -2,8 +2,8 @@
 title: PostgreSQL 常用命令
 urlname: 2019-09-30-pgsql-usage
 author: 章鱼猫先生
-date: "2019-09-30 16:39:14"
-updated: "2022-04-12 19:06:13"
+date: "2019-09-30 08:39:14"
+updated: "2023-08-05 07:51:32"
 ---
 
 关于 PostgreSQL 的基本用法，供初次使用者上手。以下内容基于 CentOS 操作系统，其他操作系统实在没有精力兼顾，但是大部分内容应该普遍适用。
@@ -13,26 +13,26 @@ updated: "2022-04-12 19:06:13"
 - **重启：** /etc/init.d/postgresql restart
 - **登陆：** psql -U user -d dbname  （默认的用户和数据库是 postgres）
 
-<!---->
+```
+psql -h 172.16.254.21 -p 5432 -U postgres –d databasename     # 访问远程数据库
+```
 
-    psql -h 172.16.254.21 -p 5432 -U postgres –d databasename     # 访问远程数据库
+```
+\h             // 查看 SQL 命令的解释，比如 \h select。
+\?             // 查看 psql 命令列表。
+\l             // 列举数据库，相当于 mysql 的 show databases
+\c dbname      // 切换数据库，相当于 mysql 的use dbname
+\dt            // 查看表结构，相当于 desc tblname,show columns from tbname
+\d tblname     // 看数据结构
+\di            // 查看索引
+\q             // 退出
+```
 
-<!---->
-
-    \h             // 查看 SQL 命令的解释，比如 \h select。
-    \?             // 查看 psql 命令列表。
-    \l             // 列举数据库，相当于 mysql 的 show databases
-    \c dbname      // 切换数据库，相当于 mysql 的use dbname
-    \dt            // 查看表结构，相当于 desc tblname,show columns from tbname
-    \d tblname     // 看数据结构
-    \di            // 查看索引
-    \q             // 退出
-
-<!---->
-
-    create database [数据库名];               // 创建数据库
-    drop database [数据库名];                 // 删除数据库
-    alter table [表名A] rename to [表名B];    // 重命名一个表
+```
+create database [数据库名];               // 创建数据库
+drop database [数据库名];                 // 删除数据库
+alter table [表名A] rename to [表名B];    // 重命名一个表
+```
 
 # 2. 用户操作
 
@@ -46,12 +46,14 @@ createuser -P 用户名
 
 运行该命令后系统会自动提示输入该用户的密码、是否为超级用户、是否具有创建数据库，或者其他用户的权限。
 
-    bash-4.1$ createuser -P shenweiyan`
-    Enter ``password` `for` `new role:`
-    Enter it again:`
-    Shall the new role be a superuser? (y/n) n`
-    Shall the new role be allowed ``to` `create` `databases? (y/n) y`
-    Shall the new role be allowed ``to` `create` `more new roles? (y/n) n
+```
+bash-4.1$ createuser -P shenweiyan`
+Enter ``password` `for` `new role:`
+Enter it again:`
+Shall the new role be a superuser? (y/n) n`
+Shall the new role be allowed ``to` `create` `databases? (y/n) y`
+Shall the new role be allowed ``to` `create` `more new roles? (y/n) n
+```
 
 ## 为新用户创建新数据库
 
@@ -59,22 +61,24 @@ createuser -P 用户名
 createdb 数据库名 -O 用户名
 ```
 
-    bash-4.1$ createdb djangodb -O shenweiyan
-    bash-4.1$ psql`
-    psql (8.4.20)`
-    Type "help" for elp.
-    postgres=# \l
-    List of databases
-    Name    |   Owner    | Encoding |  Collation  |    Ctype    |   Access privileges
-    -----------+------------+----------+-------------+-------------+-----------------------
-    djangodb  | shenweiyan | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
-    postgres  | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
-    template0 | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
-                                                                  : postgres=CTc/postgres
-    template1 | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
-                                                                  : postgres=CTc/postgres
-    (4 rows)
-    bash-4.1$
+```
+bash-4.1$ createdb djangodb -O shenweiyan
+bash-4.1$ psql`
+psql (8.4.20)`
+Type "help" for elp.
+postgres=# \l
+List of databases
+Name    |   Owner    | Encoding |  Collation  |    Ctype    |   Access privileges
+-----------+------------+----------+-------------+-------------+-----------------------
+djangodb  | shenweiyan | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+postgres  | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+template0 | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
+                                                              : postgres=CTc/postgres
+template1 | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
+                                                              : postgres=CTc/postgres
+(4 rows)
+bash-4.1$
+```
 
 ## 删除用户
 
@@ -84,14 +88,16 @@ dropuser -e 用户名
 
 **注意：删除用户，必须先要删除该用户所拥有的数据库，否则无法删除。**
 
-    bash-4.1$ dropuser -e shenweiyan
-    DROP ROLE shenweiyan;
-    dropuser: removal of role "shenweiyan" failed: ERROR:  role "shenweiyan" cannot be dropped because some objects depend on it
-    DETAIL:  owner of database djangodb
-    bash-4.1$ dropdb -U postgres -e djangodb
-    DROP DATABASE djangodb;
-    bash-4.1$ dropuser -e shenweiyan
-    DROP ROLE shenweiyan;
+```
+bash-4.1$ dropuser -e shenweiyan
+DROP ROLE shenweiyan;
+dropuser: removal of role "shenweiyan" failed: ERROR:  role "shenweiyan" cannot be dropped because some objects depend on it
+DETAIL:  owner of database djangodb
+bash-4.1$ dropdb -U postgres -e djangodb
+DROP DATABASE djangodb;
+bash-4.1$ dropuser -e shenweiyan
+DROP ROLE shenweiyan;
+```
 
 ## 查看数据库用户
 
@@ -99,19 +105,23 @@ dropuser -e 用户名
 select * from pg_user; （注意分号不能省）
 ```
 
-    postgres=# select * from pg_user;
-      usename   | usesysid | usecreatedb | usesuper | usecatupd |  passwd  | valuntil | useconfig
-    ------------+----------+-------------+----------+-----------+----------+----------+-----------
-     postgres   |       10 | t           | t        | t         | ******** |          |
-     shenweiyan |    16408 | t           | f        | f         | ******** |          |
-    (2 rows)
+```
+postgres=# select * from pg_user;
+  usename   | usesysid | usecreatedb | usesuper | usecatupd |  passwd  | valuntil | useconfig
+------------+----------+-------------+----------+-----------+----------+----------+-----------
+ postgres   |       10 | t           | t        | t         | ******** |          |
+ shenweiyan |    16408 | t           | f        | f         | ******** |          |
+(2 rows)
+```
 
 ## 修改数据库内某个用户密码
 
-    postgres=# \password djangoadmin
-    Enter new password:
-    Enter it again:
-    postgres=#
+```
+postgres=# \password djangoadmin
+Enter new password:
+Enter it again:
+postgres=#
+```
 
 # 3. 数据库操作
 
@@ -154,85 +164,93 @@ ALTER DATABASE "3_8_dev_test" RENAME TO "3_8_dev_demo";
 
 ## 数据表导入与导出
 
-    # 从 galaxydb 数据库中把 galaxy_user 表导出为表格(\t)
-    $ echo 'copy "galaxy_user" to stdout' | psql galaxydb > galaxy_user.txt
+```
+# 从 galaxydb 数据库中把 galaxy_user 表导出为表格(\t)
+$ echo 'copy "galaxy_user" to stdout' | psql galaxydb > galaxy_user.txt
 
-    # 从 galaxydb 数据库中把 galaxy_user 表导出为 sql
-    $ pg_dump -Upostgres -t galaxy_user -f galaxy_user.sql galaxydb
+# 从 galaxydb 数据库中把 galaxy_user 表导出为 sql
+$ pg_dump -Upostgres -t galaxy_user -f galaxy_user.sql galaxydb
 
-    # 把 galaxy_user.txt 内容导入 galaxy_user 表
-    galaxydb=# \copy "galaxy_user" from '/home/postgres/galaxy_user.txt';
+# 把 galaxy_user.txt 内容导入 galaxy_user 表
+galaxydb=# \copy "galaxy_user" from '/home/postgres/galaxy_user.txt';
 
-    # 把 galaxy_user.sql 导入 galaxy_user 表
-    $ psql -U galaxy -d galaxydb -f galaxy_user.sql
+# 把 galaxy_user.sql 导入 galaxy_user 表
+$ psql -U galaxy -d galaxydb -f galaxy_user.sql
+```
 
 ## 赋予所有权限
 
-    # 把 galaxydb 数据库的所有权限赋予 shenweiyan 用户
-    postgres=# grant all on database galaxydb to shenweiyan;
+```
+# 把 galaxydb 数据库的所有权限赋予 shenweiyan 用户
+postgres=# grant all on database galaxydb to shenweiyan;
+```
 
 ## 常用数据表操作命令
 
-    # 创建 user_table 新表
-    CREATE TABLE user_table(name VARCHAR(20), signup_date DATE);
-    # 在 user_table 表中插入数据
-    INSERT INTO user_table(name, signup_date) VALUES('张三', '2013-12-22');
-    # 查找 user_table 表记录
-    SELECT * FROM user_table;
-    # 更新数据
-    UPDATE user_table set name = '李四' WHERE name = '张三';
-    # 删除记录
-    DELETE FROM user_table WHERE name = '李四' ;
-    # 添加 email 字段
-    ALTER TABLE user_table ADD email VARCHAR(40);
-    # 更新结构
-    ALTER TABLE user_table ALTER COLUMN signup_date SET NOT NULL;
-    # 重命名 signup_date 字段
-    ALTER TABLE user_table RENAME COLUMN signup_date TO signup;
-    # 删除字段
-    ALTER TABLE user_table DROP COLUMN email;
-    # 表重命名
-    ALTER TABLE user_table RENAME TO user_tbl;
-    # 删除表
-    DROP TABLE IF EXISTS user_tbl;
+```
+# 创建 user_table 新表
+CREATE TABLE user_table(name VARCHAR(20), signup_date DATE);
+# 在 user_table 表中插入数据
+INSERT INTO user_table(name, signup_date) VALUES('张三', '2013-12-22');
+# 查找 user_table 表记录
+SELECT * FROM user_table;
+# 更新数据
+UPDATE user_table set name = '李四' WHERE name = '张三';
+# 删除记录
+DELETE FROM user_table WHERE name = '李四' ;
+# 添加 email 字段
+ALTER TABLE user_table ADD email VARCHAR(40);
+# 更新结构
+ALTER TABLE user_table ALTER COLUMN signup_date SET NOT NULL;
+# 重命名 signup_date 字段
+ALTER TABLE user_table RENAME COLUMN signup_date TO signup;
+# 删除字段
+ALTER TABLE user_table DROP COLUMN email;
+# 表重命名
+ALTER TABLE user_table RENAME TO user_tbl;
+# 删除表
+DROP TABLE IF EXISTS user_tbl;
+```
 
 # 4. 备份数据库 shell 脚本
 
-    #!/bin/bash
-    #PostgreSQL database_backup
+```
+#!/bin/bash
+#PostgreSQL database_backup
 
-    #SET VARIABLE-----
+#SET VARIABLE-----
 
-    DB_NAME="galaxydb"
-    DB_USER="shenweiyan"
-    BIN_DIR="/usr/bin/pg_dump"
-    BACK_DIR="/data/db_backup/galaxy"
-    LOG_DIR="/root/logs"
-    DATE="$(date +'%Y%m%d-%H-%M')"
-    LogFile="${LOG_DIR}/${DB_NAME}-bakup.log"
-    BackNewFile=${DB_NAME}-$DATE.sql
-    KEEP_TIME="30"
+DB_NAME="galaxydb"
+DB_USER="shenweiyan"
+BIN_DIR="/usr/bin/pg_dump"
+BACK_DIR="/data/db_backup/galaxy"
+LOG_DIR="/root/logs"
+DATE="$(date +'%Y%m%d-%H-%M')"
+LogFile="${LOG_DIR}/${DB_NAME}-bakup.log"
+BackNewFile=${DB_NAME}-$DATE.sql
+KEEP_TIME="30"
 
-    #BACK_UP----------------------------------------------------
+#BACK_UP----------------------------------------------------
 
-    [ ! -d ${BACK_DIR} ] && mkdir -p ${BACK_DIR}
+[ ! -d ${BACK_DIR} ] && mkdir -p ${BACK_DIR}
 
-    $BIN_DIR -U $DB_USER -Fc $DB_NAME > $BACK_DIR/${BackNewFile}
+$BIN_DIR -U $DB_USER -Fc $DB_NAME > $BACK_DIR/${BackNewFile}
 
-    echo -----------------------"$(date +"%Y-%m-%d %H:%M:%S")"----------------------- >> $LogFile
+echo -----------------------"$(date +"%Y-%m-%d %H:%M:%S")"----------------------- >> $LogFile
 
-    echo  createFile:"$BackNewFile" >> $LogFile
+echo  createFile:"$BackNewFile" >> $LogFile
 
-    #BACK_UP_FILE_CLEAN ----------------------------------------
+#BACK_UP_FILE_CLEAN ----------------------------------------
 
-    find "${BACK_DIR}" -atime +$KEEP_TIME -type f -name "${DB_NAME}-*.sql" -print > ${LOG_DIR}/${DB_NAME}_del_list
+find "${BACK_DIR}" -atime +$KEEP_TIME -type f -name "${DB_NAME}-*.sql" -print > ${LOG_DIR}/${DB_NAME}_del_list
 
-    echo -e "delete files:\n" >> $LogFile
+echo -e "delete files:\n" >> $LogFile
 
-    cat ${LOG_DIR}/${DB_NAME}_del_list | while read LINE
-    do
-        rm -rf $LINE
-        echo $LINE >> $LogFile
-    done
+cat ${LOG_DIR}/${DB_NAME}_del_list | while read LINE
+do
+    rm -rf $LINE
+    echo $LINE >> $LogFile
+done
 
-    echo -e "---------------------------------------------------------------\n \n" >> $LogFile
+echo -e "---------------------------------------------------------------\n \n" >> $LogFile
+```
