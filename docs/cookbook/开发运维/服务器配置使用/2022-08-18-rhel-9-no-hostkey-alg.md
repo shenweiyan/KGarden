@@ -1,6 +1,6 @@
 ---
 title: RHEL6 ssh 到 RHEL9 的 no hostkey alg 错误
-urlname: 2022-08-18-ka6bgp
+urlname: 2022-08-18-rhel-9-no-hostkey-alg
 author: 章鱼猫先生
 date: "2022-08-18 09:24:02"
 updated: "2022-08-18 10:22:35"
