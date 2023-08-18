@@ -8,7 +8,7 @@ updated: "2023-08-05 07:51:32"
 
 关于 PostgreSQL 的基本用法，供初次使用者上手。以下内容基于 CentOS 操作系统，其他操作系统实在没有精力兼顾，但是大部分内容应该普遍适用。
 
-# 1. 数据库登录
+## 1. 数据库登录
 
 - **重启：** /etc/init.d/postgresql restart
 - **登陆：** psql -U user -d dbname  （默认的用户和数据库是 postgres）
@@ -34,11 +34,11 @@ drop database [数据库名];                 // 删除数据库
 alter table [表名A] rename to [表名B];    // 重命名一个表
 ```
 
-# 2. 用户操作
+## 2. 用户操作
 
 创建删除用户：postgres 创建除 postgres 本身以外的新用户，需要通过以 postgres 登录命令行的方式进行创建，或者删除。
 
-## 创建新用户
+### 创建新用户
 
 ```bash
 createuser -P 用户名
@@ -55,7 +55,7 @@ Shall the new role be allowed ``to` `create` `databases? (y/n) y`
 Shall the new role be allowed ``to` `create` `more new roles? (y/n) n
 ```
 
-## 为新用户创建新数据库
+### 为新用户创建新数据库
 
 ```bash
 createdb 数据库名 -O 用户名
@@ -80,7 +80,7 @@ template1 | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres
 bash-4.1$
 ```
 
-## 删除用户
+### 删除用户
 
 ```bash
 dropuser -e 用户名
@@ -99,7 +99,7 @@ bash-4.1$ dropuser -e shenweiyan
 DROP ROLE shenweiyan;
 ```
 
-## 查看数据库用户
+### 查看数据库用户
 
 ```sql
 select * from pg_user; （注意分号不能省）
@@ -114,7 +114,7 @@ postgres=# select * from pg_user;
 (2 rows)
 ```
 
-## 修改数据库内某个用户密码
+### 修改数据库内某个用户密码
 
 ```
 postgres=# \password djangoadmin
@@ -123,9 +123,9 @@ Enter it again:
 postgres=#
 ```
 
-# 3. 数据库操作
+## 3. 数据库操作
 
-## 3.1 数据库导入与导出
+### 3.1 数据库导入与导出
 
 数据库的导入导出是最常用的功能之一，每种数据库都提供有这方面的工具，例如 Oracle 的 **exp/imp**，Informi 的**dbexp/dbimp**，MySQL 的 **mysqldump**，而 PostgreSQL 提供的对应工具为 **pg_dump** 和 **pg_restore**。
 
@@ -154,18 +154,47 @@ $ pg_restore -d newdb db.dump
 
 ---
 
-## 3.2 修改数据库名
+### 3.2 修改数据库名
 
 ```plsql
 ALTER DATABASE "3_8_dev_test" RENAME TO "3_8_dev_demo";
 ```
 
-# 4. 常用数据库表操作
+## 4. 常用数据库表操作
 
-## 数据表导入与导出
+### 数据表导入与导出
 
+在 postgres 数据库中执行：
 ```
-# 从 galaxydb 数据库中把 galaxy_user 表导出为表格(\t)
+bash-4.1$ psql
+psql (10.18, server 9.6.23)
+Type "help" for help.
+
+postgres=# \l
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
+-----------+----------+----------+-------------+-------------+-----------------------
+ galaxydb  | shenwy   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/shenwy           +
+           |          |          |             |             | shenwy=CTc/shenwy
+ plpgsql   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+(5 rows)
+
+postgres=# \c plpgsql
+psql (10.18, server 9.6.23)
+You are now connected to database "plpgsql" as user "postgres".
+# 从数据库中把 clustercas_gene 表导出为表格(\t)，且带表头
+plpgsql=# \copy clustercas_gene to '/home/shenweiyan/pg/clustercas_gene.txt' with csv header DELIMITER E'\t';
+COPY 3
+```
+
+在命令行中执行：
+```
+# 从 galaxydb 数据库中把 galaxy_user 表导出为表格(\t)，默认不带表头
 $ echo 'copy "galaxy_user" to stdout' | psql galaxydb > galaxy_user.txt
 
 # 从 galaxydb 数据库中把 galaxy_user 表导出为 sql
@@ -178,14 +207,14 @@ galaxydb=# \copy "galaxy_user" from '/home/postgres/galaxy_user.txt';
 $ psql -U galaxy -d galaxydb -f galaxy_user.sql
 ```
 
-## 赋予所有权限
+### 赋予所有权限
 
 ```
 # 把 galaxydb 数据库的所有权限赋予 shenweiyan 用户
 postgres=# grant all on database galaxydb to shenweiyan;
 ```
 
-## 常用数据表操作命令
+### 常用数据表操作命令
 
 ```
 # 创建 user_table 新表
@@ -212,7 +241,7 @@ ALTER TABLE user_table RENAME TO user_tbl;
 DROP TABLE IF EXISTS user_tbl;
 ```
 
-# 4. 备份数据库 shell 脚本
+## 4. 备份数据库 shell 脚本
 
 ```
 #!/bin/bash
