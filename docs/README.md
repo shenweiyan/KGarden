@@ -14,9 +14,9 @@
 
 1. 使用点[本站](https://doc.weiyan.cc/)自带的搜索（推荐方法）。
 
-2. 使用 [Sourcegraph.com](https://sourcegraph.com/github.com/shenweiyan/Knowledge-Garden) 进行搜索。（推荐方法）
+2. 使用 [Sourcegraph.com](https://sourcegraph.com/github.com/shenweiyan/Knowledge-Garden) 进行搜索。
 
-3. 使用 GitHub 自带的搜索，但只支持搜索英文单词。
+3. 使用 GitHub 自带的搜索。
 
 ## 致谢
 
