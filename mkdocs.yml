@@ -60,7 +60,7 @@ markdown_extensions:
     - toc:
         permalink: True
         separator: "-"
-        toc_depth: 3
+        toc_depth: 5
     - pymdownx.highlight
     
 plugins:
