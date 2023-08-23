@@ -3,7 +3,8 @@ title: 各个平台下 Perl 模块安装总结
 urlname: 2020-06-19-how-to-install-perl-modules
 author: 章鱼猫先生
 date: "2020-06-19 14:54:19"
-updated: "2023-05-08 14:45:53"
+updated: "2023-08-23 14:45:53"
+comments: true
 ---
 
 从 1994 年 10 月 17 日发布的  Perl 5.000 起，Perl  增加了模块的概念，用来提供面向对象编程的能力。这是 Perl 语言发展史上的一个里程碑。此后，广大自由软件爱好者开发了大量功能强大、构思精巧的 Perl 模块，极大地扩展了 Perl 语言的功能。
@@ -12,11 +13,14 @@ CPAN，Comprehensive Perl Archive Network（<https://www.cpan.org/>) 是 Perl �
 
 Perl 作为生物信息数据预处理、文本处理和格式转换中的一把瑞士军刀，其强大和重要性不言而喻。今天，我们在这里主要介绍一下各种平台下 perl 模块的安装方法。以安装 Bio::SeqIO  模块为例。
 
-# 一、Linux 下安装 Perl 模块
+## 一、Linux 下安装 Perl 模块
 
-Linux/Unix 下安装 Perl 模块有两种方法：手工安装和自动安装。 第一种方法是从 CPAN 上下载您需要的模块，手工编译、安装。第二种方法是使用 CPAN 模块自动完成下载、编译、安装的全过程。
+Linux/Unix 下安装 Perl 模块有两种方法：手工安装和自动安装。 
 
-## 1.1 手工安装
+- 第一种方法是从 CPAN 上下载您需要的模块，手工编译、安装；
+- 第二种方法是使用 CPAN 模块自动完成下载、编译、安装的全过程。
+
+### 1.1 手工安装
 
 ```bash
 # 从 CPAN(https://metacpan.org/)下载了 BioPerl 模块 1.7.5 版的压缩文件 BioPerl-1.7.5.tar.gz
@@ -62,13 +66,13 @@ $ ./Build test
 $ ./Build install
 ```
 
-## 1.2 自动安装
+### 1.2 自动安装
 
 Linux/Unix 下自动安装 Perl 模块主要有两种方法，一是利用 `perl -MCPAN -e 'install 模块'`  安装；二是直接使用 `cpan`  的命令执行安装。这两种方法都是通过与  CPAN 进行交互，然后执行对应模块的自动安装，本质上都是一样的。
 
-### 1.2.1 使用 CPAN 模块
+#### 1.2.1 使用 CPAN 模块
 
-#### 自动安装方法一
+##### 自动安装方法一
 
 - 执行 `perl -MCPAN -e shell`  命令，或者直接运行 `cpan`  命令，都可以进入 cpan 交互模式。
 
@@ -120,7 +124,7 @@ o conf commit
 
 > The first line configures [MakeMaker](https://metacpan.org/pod/ExtUtils::MakeMaker) to use sudo. The second line does the same for [Module::Build](https://metacpan.org/pod/Module::Build). The third line saves the changes.
 
-#### 自动安装方法二
+##### 自动安装方法二
 
 可以使用命令行的方式执行安装。
 
@@ -130,11 +134,29 @@ cpan -i 模块名
 例如：cpan -i CGI
 ```
 
-### 1.2.3 修改 CPAN mirror 的默认源
+#### 1.2.3 修改 CPAN 镜像源
 
-安装 perl 下的很多模块文件时，比较快捷的方法是使用 cpan 工具。默认 cpan shell 使用的是 cpan.org 的源，在国内使用的话速度会非常的慢。如果更换为国内的如阿里或网易等公司的源的话，速度会明显提高。修改方法如下：
+安装 perl 下的很多模块文件时，比较快捷的方法是使用 cpan 工具。默认 cpan shell 使用的是 cpan.org 的源，在国内使用的话速度会非常的慢。如果更换为国内的如阿里或网易等公司的源的话，速度会明显提高。
 
-- 执行 `cpan`  命令，或者通过  `perl -MCPAN -e shell` 命令进入 CPAN 交互模式查看当前源配置。
+CPAN (The Comprehensive Perl Archive Network) 镜像源的配置文件为 `MyConfig.pm`（一般位于 `~/.cpan/CPAN/MyConfig.pm`），可使用包管理脚本 `cpan` 进行修改。关于 CPAN 镜像使用帮助，可以参考：[清华大学开源软件镜像站 - CPAN 镜像使用帮助](https://mirrors.tuna.tsinghua.edu.cn/help/CPAN/)，以下为部分摘录。
+
+##### 初次使用
+
+如果 `MyConfig.pm` 配置文件不存在，在命令行中执行：
+```bash
+# 自动生成 MyConfig.pm
+## 对于 Perl 5.36 （或 CPAN 2.29）及以上，使用如下命令
+PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("pushy_https", 0); CPAN::HandleConfig->edit("urllist", "unshift", "https://mirrors.tuna.tsinghua.edu.cn/CPAN/"); mkmyconfig'
+## 对于较久版本，使用如下命令
+PERL_MM_USE_DEFAULT=1 perl -MCPAN -e 'CPAN::HandleConfig->edit("urllist", "unshift", "https://mirrors.tuna.tsinghua.edu.cn/CPAN/"); mkmyconfig'
+
+# 或不使用默认配置，手动确认各个配置选项
+perl -MCPAN -e 'mkmyconfig'
+```
+
+##### 已有配置
+
+- 在命令行中执行 `cpan`  命令，或者通过  `perl -MCPAN -e shell` 命令进入 CPAN 交互模式查看当前源配置。
 
 ```perl
 cpan[1]> o conf
@@ -150,7 +172,8 @@ $CPAN::Config options from /root/.cpan/CPAN/MyConfig.pm:
     build_dir          [/root/.cpan/build]
     build_dir_reuse    [0]
     ......
-cpan[2]> o conf urllist
+# 列出当前的镜像设置
+cpan[2]> o conf urllist 
     urllist
         0 [http://www.cpan.org/]
 Type 'o conf' to view all configuration items
@@ -159,35 +182,48 @@ Type 'o conf' to view all configuration items
 - 增加源或移出源并提交
 
 ```bash
-cpan[2]> o conf urllist
+cpan[1]> o conf urllist
     urllist
         0 [http://www.cpan.org/]
 Type 'o conf' to view all configuration items
 
+# 将清华大学 CPAN 镜像加入镜像列表首位
+# 注：若已在列表中则可跳过本步直接退出，修改列表不会执行自动去重
+cpan[2]> o conf urllist unshift https://mirrors.tuna.tsinghua.edu.cn/CPAN/
 
-cpan[3]> o conf urllist push https:////mirrors.aliyun.com/CPAN/
+# 或将清华大学 CPAN 镜像加入镜像列表末尾
+# 注：本命令和上面的命令执行一个即可，修改列表不会执行自动去重
+cpan[3]> o conf urllist push https://mirrors.tuna.tsinghua.edu.cn/CPAN/
 Please use 'o conf commit' to make the config permanent!
 
+# 或清空镜像列表，仅保留本站
+cpan[4]> o conf urllist https://mirrors.tuna.tsinghua.edu.cn/CPAN/
 
-cpan[4]> o conf commit
+# Perl 5.36 及以上用户需要关闭 pushy_https 以使用镜像站
+cpan[5]> o conf pushy_https 0
+
+# 保存修改后的配置至 MyConfig.pm
+cpan[6]> o conf commit
 commit: wrote '/root/.cpan/CPAN/MyConfig.pm'
 
-cpan[5]> o conf urllist
+cpan[7]> o conf urllist
     urllist
         0 [http://www.cpan.org/]
-        1 [https://mirrors.aliyun.com/CPAN/]
+        1 [https://mirrors.tuna.tsinghua.edu.cn/CPAN/]
 Type 'o conf' to view all configuration items
+
+# 退出 cpan shell
+cpan[8]> quit
 ```
 
-移出一个源或者多个源可以使用 `pop`  函数，如下：
-
+- 移出一个源或者多个源可以使用 `pop`  函数，如下：
 ```bash
-cpan[6]> o conf urllist pop https://mirrors.aliyun.com/CPAN/
+cpan[9]> o conf urllist pop https://mirrors.aliyun.com/CPAN/
 
-cpan[3]> o conf urllist pop http://www.cpan.org/ https://mirrors.aliyun.com/CPAN/
+cpan[10]> o conf urllist pop http://www.cpan.org/ https://mirrors.aliyun.com/CPAN/
 ```
 
-也可以一次增加多个源：
+- 也可以一次增加多个源：
 
 ```bash
 cpan[4]> o conf urllist ftp://mirrors.sohu.com/CPAN/ http://mirrors.163.com/cpan/
@@ -224,9 +260,9 @@ Type 'o conf' to view all configuration items
 cpan> o conf init
 ```
 
-### 1.2.4  使用  cpanm 命令安装
+#### 1.2.4  使用 cpanm 命令安装
 
-除了 `**cpan**` 以外，Perl 的模块安装还可以通过 `**cpanm**` 命令进行安装，而要获取 `**cpanm**` 命令我们需要先安装 Perl 的 [**App::cpanminus**](https://metacpan.org/pod/distribution/App-cpanminus/lib/App/cpanminus/fatscript.pm) 模块：
+除了 **`cpan`** 以外，Perl 的模块安装还可以通过 **`cpanm`** 命令进行安装，而要获取 **`cpanm`** 命令我们需要先安装 Perl 的 [**App::cpanminus**](https://metacpan.org/pod/distribution/App-cpanminus/lib/App/cpanminus/fatscript.pm) 模块：
 
 ```bash
 [root@ecs-steven data]# cpan
@@ -253,7 +289,7 @@ Scanning cache /root/.cpan/build for sizes
 
 ```
 
-[**App::cpanminus**](https://metacpan.org/pod/distribution/App-cpanminus/lib/App/cpanminus/fatscript.pm) 模块安装完成后， `cpanm` 命令就会自动安装到对应 Perl 所在的目录（如果用的是 `/bin/perl` ， `cpanm`  将默认安装到 `/usr/local/bin/cpanm` ）。
+**[App::cpanminus](https://metacpan.org/pod/distribution/App-cpanminus/lib/App/cpanminus/fatscript.pm)** 模块安装完成后， `cpanm` 命令就会自动安装到对应 Perl 所在的目录（如果用的是 `/bin/perl` ， `cpanm`  将默认安装到 `/usr/local/bin/cpanm` ）。
 
 使用 `cpanm`  安装 Perl 模块，命令后直接接模块名称即可，如：
 
@@ -262,15 +298,15 @@ $ sudo cpanm CGI::Session
 $ sudo cpanm Template
 ```
 
-注: 如果不是 root 权限，cpanm 也一样能用。它会将模块下载安装到用户的根目录(\~)下。
+注: 如果不是 root 权限，cpanm 也一样能用。它会将模块下载安装到用户的根目录(`~`)下。
 
-为了加快 cpanm 下载速度, 可以指定使用镜像. 并只从镜像下载. 如下:
+为了加快 cpanm 下载速度, 可以指定使用镜像，并只从镜像下载。如下：
 
 ```bash
  $ sudo cpanm --mirror http://mirrors.163.com/cpan --mirror-only CGI::Session
 ```
 
-# 二、windows 下 Perl 模块安装
+## 二、windows 下 Perl 模块安装
 
 在开始介绍 windows 下 Perl 模块安装前，我们先来了解一些关于 make、gmake、nmake、dmake 等编译工具。
 
@@ -284,10 +320,10 @@ nmake 是 Microsoft Visual Studio 中的附带命令，需要安装 VS；安装 
 
 使用 nmake 的方法有两种：
 
-1.  打开 VS 自带的命令行 "`Visual Studio 2008 Command Prompt`"，然后在该命令行中使用 nmake；
-2.  将路径 "`C:\Program Files (x86)\Microsoft Visual Studio 9\VC\bin`"  设置到环境变量中去，然后在 DOS 命令行中使用 nmake。
+1. 打开 VS 自带的命令行 "`Visual Studio 2008 Command Prompt`"，然后在该命令行中使用 nmake；
+2. 将路径 "`C:\Program Files (x86)\Microsoft Visual Studio 9\VC\bin`"  设置到环境变量中去，然后在 DOS 命令行中使用 nmake。
 
-## 2.1 解压编译手动安装
+### 2.1 解压编译手动安装
 
 windows 下手动 Perl 模块方法跟 Linux 类似。都需要解压后执行：
 
@@ -296,15 +332,15 @@ windows 下手动 Perl 模块方法跟 Linux 类似。都需要解压后执行�
     nmake/dmake test
     nmake/dmake install
 
-## 2.2 cpan 自动安装
+### 2.2 cpan 自动安装
 
 安装前需要对 cpan 配置，cpan 需要安装其他的模块 [dmake](https://metacpan.org/release/dmake)  和 [MinGw gcc compiler](http://www.mingw.org/)。完成后，进入 cpan 交互界面安装（参考上面的 linux cpan 自动安装）。
 
-## 2.3 PPM 自动安装
+### 2.3 PPM 自动安装
 
 如果使用 ActivePerl，可以使用 PPM（Perl Package Manager） 来安装，使用 PPM GUI 或 PPM Commandline。PPM commandline 实例如下：
 
-1.  add correct repositories.
+1. add correct repositories.
 
 ```powershell
 c:\perl\bin\ppm repo add http://theoryx5.uwinnipeg.ca/ppms/package.lst
@@ -336,7 +372,7 @@ Last-Access: 9 seconds ago
 Refresh-In: 1 day
 ```
 
-2.  install the packages
+2. install the packages
 
 <!---->
 
@@ -348,9 +384,9 @@ Refresh-In: 1 day
 
 更多关于 ActivePerl 的文档与资料，可以参考：<http://docs.activestate.com/>。
 
-# 三、其他异常处理
+## 三、其他异常处理
 
-## 3.1 not contain a Line-Count heade
+### 3.1 not contain a Line-Count heade
 
 使用 cpan 安装 PERL 模块的时候，遇到下面的问题导致无法安装 Perl 模块，具体错误信息如下：
 
@@ -368,25 +404,27 @@ Warning: Your /root/.cpan/sources/modules/02packages.details.txt.gz does not con
 
 原因是由于 `cpan`  模块中的数据损坏造成。解决方法如下：
 
-1.  删除用户主目录下面的 cpan 目录：
+1. 删除用户主目录下面的 cpan 目录：
 
 ```bash
 rm -rf ~/.cpan
+# 也可以直接删除提示异常的 02packages.details.txt.gz
+# rm -rf /root/.cpan/sources/modules/02packages.details.txt.gz
 ```
 
-2.  执行 `perl -MCPAN -e shell`  命令，输入：
+2. 执行 `perl -MCPAN -e shell`  命令，输入：
 
 ```bash
 cpan[1]> reload index
 ```
 
-3.  安装此模块：
+3. 安装此模块：
 
 ```bash
 cpan[1]> install Bundle::CPAN
 ```
 
-4.  最后执行
+4. 最后执行
 
 ```bash
 cpan[1]> reload CPAN
@@ -394,7 +432,7 @@ cpan[1]> reload CPAN
 
 这样即可正常通过命令行 install MODULES 模块的正常安装了。
 
-# 四、参考资料
+## 四、参考资料
 
 - itybku，《[修改 CPAN mirror 的默认源](http://www.361way.com/change-cpan-default-mirror/5094.html)》，运维之路的博客
 - 生信菜鸟团，《[perl 模块安装大全](http://www.bio-info-trainee.com/2451.html)》，WordPress 博客
