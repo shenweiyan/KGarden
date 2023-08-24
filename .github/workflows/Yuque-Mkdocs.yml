@@ -1,4 +1,4 @@
-name: Aync-Yuque-Docs
+name: Aync-Yuque-Mkdocs-Pages
 
 on:
   # 允许手动push触发
@@ -85,3 +85,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 配置 Python3 环境
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
+      - name: mkdocs gh-deploy
+        uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install -r requirements.txt
+      - run: mkdocs gh-deploy --force
