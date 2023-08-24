@@ -3,16 +3,17 @@ title: 使用 Python 中的 mygene 模块进行 ID 匹配
 urlname: 2019-07-01-python-mygene
 author: 章鱼猫先生
 date: "2019-07-01 11:50:35"
-updated: "2023-07-10 16:33:03"
+updated: "2023-08-24 11:42:50"
+comments: true
 ---
 
-# 一、背景
+## 一、背景
 
 对于每个生物信息分析的人来说，ID 匹配（映射）是一项非常常见，但又很繁琐的任务。假设，我们有一个来自上游分析的 gene symbol 或报告的 ID 列表，然后我们的下一个分析却需要使用基因 ID（例如 Entrez gene id 或 Ensembl gene id）。这时候，我们就希望将基因符号或报告的 ID 的列表转换为相应的基因 ID。
 
-在开始介绍今天的主角 mygene 前，我们先来认识一下  [MyGene.info](https://www.yuque.com/shenweiyan/bioit/qr6blq/MyGene.info)。
+在开始介绍今天的主角 mygene 前，我们先来认识一下 <MyGene.info>。
 
-## MyGene.info
+### MyGene.info
 
 MyGene.info 是一个由 NIH(美国国立卫生研究院)/NIGMS 资助，用于提供简单易用的 REST Web 服务来查询/检索基因注释数据的 API。 MyGene.info 目前包含了 NCBI Entrez、Ensembl、Uniprot、UCSC 在内的 20 多个数据库，MyGene.info 会每周从这些数据库中进行数据更新。虽然 MyGene.info 中包含的各个数据源可能有数据使用限制，但 MyGene.info 本身的服务是免费的，其源码托管在：<https://github.com/biothings/mygene.info>。
 
@@ -31,9 +32,9 @@ MyGene.info 提供两种简单的 Web 服务：一种用于基因查询，另一
 
 在这里，我们简单展示如何在 Python 中使用 **mygene**  模块来快速轻松地进行类似的 ID 匹配（映射）。**mygene**  本质上是一个方便的 Python 模块，通过这个模块我们可以访问 [MyGene.info](MyGene.info)  的基因查询 Web 服务。
 
-# 二、mygene 安装与使用
+## 二、mygene 安装与使用
 
-## 1. 安装 mygene
+### 1. 安装 mygene
 
 在 Python 中 mygene 的安装非常简单，直接使用 pip 就可以安装。
 
@@ -49,7 +50,7 @@ import mygene
 mg = mygene.MyGeneInfo()
 ```
 
-## 2. 把 gene symbols 转换成 Entrez gene ids
+### 2. 把 gene symbols 转换成 Entrez gene ids
 
 假设 xli 是我们要转换为 entrez gene id 的 gene symbol 列表：
 
@@ -89,7 +90,7 @@ Finished.
 
 上面程序的匹配（映射）结果作为字典列表返回。每个字典都包含我们要求返回的字段，在本例中为 "entrezgene" 字段。 每个字典还返回匹配的查询词 "query" 和内部 id("**\_id**")，大部分时间与 "entrezgene" 相同（如果基因仅来自 Ensembl，则为 ensembl 基因 id）。
 
-## 3. 把 gene symbols 转换成 Ensembl gene ids
+### 3. 把 gene symbols 转换成 Ensembl gene ids
 
 如果我们只需要返回  Ensembl gene ids 时，只需要把  fields 参数值改成  'ensembl.gene' 即可：
 
@@ -112,7 +113,7 @@ Finished.
 {u'ensembl': {u'gene': u'ENSG00000101473'}, u'query': u'ACOT8', u'_id': u'10005', u'_score': 83.99602}
 ```
 
-## 4. ID 与基因不匹配
+### 4. ID 与基因不匹配
 
 如果输入 id 没有匹配的基因，mygene 将在屏幕输出中打印相关的通知。此查询条目返回的字典中将包含 "notfound" 值为 True 的关键字。
 
@@ -135,9 +136,11 @@ Pass "returnall=True" to return complete lists of duplicate or missing query ter
 {u'query': u'Gm10494', u'notfound': True}
 ```
 
-## 5.  输入 ID 不仅仅是符号
+### 5. 输入 ID 不仅仅是符号
 
-    xli = ['DDX26B', 'CCDC83', 'MAST3', 'FLOT1', 'RPL11', 'Gm10494', '1007_s_at', 'AK125780']
+```
+xli = ['DDX26B', 'CCDC83', 'MAST3', 'FLOT1', 'RPL11', 'Gm10494', '1007_s_at', 'AK125780']
+```
 
 上面的 xli 列表包含了 symbols, reporters 和 accession numbers，现在我们想要找回 Entrez gene id 和 uniprot id。 幸运的是，mygene 的参数范围，字段，物种都足够灵活，可以支持多个值，列表或逗号分隔的字符串：
 
@@ -162,7 +165,7 @@ Pass "returnall=True" to return complete lists of duplicate or missing query ter
 ]
 ```
 
-## 6. ID 匹配多个基因
+### 6. ID 匹配多个基因
 
 从上一个结果中，你可能已经注意到查询词 "1007_s_at" 与两个基因匹配。在这种情况下，我们将从输出中收到通知，返回的结果将包括两个匹配的基因。
 
@@ -195,6 +198,4 @@ Finished.
 
 根据 mygene 的说法，mygene 可以支持大批量的列表 ID 转换。如传递一个大于 1000 ids 的 id 列表（即上面的 xli），mygene 将一次批量映射 1000 个 ID，然后将所有结果连接起来。因此，从用户端来看，它与传递较短列表完全相同。同时我们不必担心 mygene 后端服务器的饱和。
 
-mygene 是一款强大的基因 ID 匹配转换模块，以 MyGene.info 为后台也可以有更多的玩法，感兴趣的可以参考
-
-MyGene.info 的官方文档：<http://docs.mygene.info/en/latest/index.html>，也欢迎留言交流。
+mygene 是一款强大的基因 ID 匹配转换模块，以 MyGene.info 为后台也可以有更多的玩法，感兴趣的可以参考 MyGene.info 的官方文档：<http://docs.mygene.info/en/latest/index.html>，也欢迎留言交流。
