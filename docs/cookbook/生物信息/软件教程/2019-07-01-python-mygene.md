@@ -11,7 +11,7 @@ comments: true
 
 对于每个生物信息分析的人来说，ID 匹配（映射）是一项非常常见，但又很繁琐的任务。假设，我们有一个来自上游分析的 gene symbol 或报告的 ID 列表，然后我们的下一个分析却需要使用基因 ID（例如 Entrez gene id 或 Ensembl gene id）。这时候，我们就希望将基因符号或报告的 ID 的列表转换为相应的基因 ID。
 
-在开始介绍今天的主角 mygene 前，我们先来认识一下 <MyGene.info>。
+在开始介绍今天的主角 mygene 前，我们先来认识一下 **[MyGene.info](https://mygene.info/)**。
 
 ### MyGene.info
 
@@ -66,9 +66,7 @@ xli = ['CCDC83',
        'ACOT8']
 ```
 
-然后我们调用 `querymany`  方法，并告诉它我们输入的是 "符号(symbol)"，我们想要返回的是 "entrezgene"(Entrez
-
-gene ids)：
+然后我们调用 `querymany`  方法，并告诉它我们输入的是 "符号(symbol)"，我们想要返回的是 "entrezgene"(Entrezgene ids)：
 
 ```python
 >>> out = mg.querymany(xli, scopes='symbol', fields='entrezgene', species='human')
