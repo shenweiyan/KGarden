@@ -1,0 +1,48 @@
+name: Mkdocs-Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检查分支
+        uses: actions/checkout@v3
+
+      - name: 配置Git用户名邮箱
+        run: |
+          git config --global user.name "shenweiyan"
+          git config --global user.email "weiyanshum@gmail.com"
+
+      - name: 安装Python3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Generate index.md
+        run: python3 makeindex.py -r -d docs/cookbook
+
+      - name: Commit files
+        run: |
+          echo `date +"%Y-%m-%d %H:%M:%S"` begin ... > time.txt
+          git add .
+          git commit -a -m "Add Changes" 
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install -r requirements.txt
+      - run: mkdocs gh-deploy --force
