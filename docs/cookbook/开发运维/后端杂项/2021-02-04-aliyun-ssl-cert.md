@@ -2,8 +2,8 @@
 title: 阿里云证书套路太深，还是我打开姿势不对？
 urlname: 2021-02-04-aliyun-ssl-cert
 author: 章鱼猫先生
-date: "2021-02-04 09:30:17"
-updated: "2023-03-24 11:25:59"
+date: "2021-02-04 01:30:17"
+updated: "2023-08-30 08:06:23"
 ---
 
 ## 一、阿里云证书资源包初体验
@@ -39,10 +39,10 @@ updated: "2023-03-24 11:25:59"
 
 阿里云免费 SSL 证书需要支付 0 元，购买云盾证书资源包中的免费证书扩容包：
 
-1.  打开[阿里云 SSL 证书选购页面](https://www.xinshouzhanzhang.com/url/cas/)，点击“选购证书”；
-2.  商品类型选择“云盾证书资源包”；
-3.  资源包规格选择“免费证书扩容包”；
-4.  资源包个数选择“20”。
+1. 打开[阿里云 SSL 证书选购页面](https://www.xinshouzhanzhang.com/url/cas/)，点击“选购证书”；
+2. 商品类型选择“云盾证书资源包”；
+3. 资源包规格选择“免费证书扩容包”；
+4. 资源包个数选择“20”。
 
 ![](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/Fh34XBDHG0Gs75WwWejtaNOE7EST.jpeg)
 如上图，选择完毕后总配置费用为 0 元，然后点“立即购买”支付 0 元即可。至此完成了阿里云 SSL 免费证书资源包的购买，之后还要在控制台输入域名等信息来申请 SSL 证书文件。
@@ -71,7 +71,7 @@ updated: "2023-03-24 11:25:59"
 
 ![ssl-ab4.png](https://shub-1251708715.cos.ap-guangzhou.myqcloud.com/elog-cookbook-img/FrMY9jAF5zTvuq9-4H5FbvMC0Lew.png)
 
-- 证书绑定域名：填写你要申请 SSL 的域名，如 [www.bioitee.com](http://www.bioitee.com)
+- 证书绑定域名：填写你要申请 SSL 的域名，如 www.bioitee.com
 - 域名验证方式：如果你的域名在本账号下，可以选择自动 DNS 验证，阿里云系统会为你的域名添加\_dnsauth 的 TXT 解析记录；如果域名不在本账号下，可以选择手工 DNS 验证或文件验证。详细教程参考：[阿里云 SSL 证书申请域名验证选择及操作流程](https://www.xinshouzhanzhang.com/sslyumingyanzheng.html)
 - 联系人：填写联系人信息，可以新建也可以选择之前保存的
 - 所在地：根据实际情况选择即可
@@ -105,5 +105,5 @@ bioitee 选择的是 Nginx 证书，SSL 证书文件自动下载保存到本地�
 
 ## 三、参考资料
 
-1.  [2021 阿里云 SSL 免费证书申请教程（云盾证书资源包） - 新手站长网](https://www.xinshouzhanzhang.com/aliyunssl2021.html)
-2.  [申请免费 DV 证书 - SSL 证书 - 阿里云](https://help.aliyun.com/document_detail/156645.html)
+1. [2021 阿里云 SSL 免费证书申请教程（云盾证书资源包） - 新手站长网](https://www.xinshouzhanzhang.com/aliyunssl2021.html)
+2. [申请免费 DV 证书 - SSL 证书 - 阿里云](https://help.aliyun.com/document_detail/156645.html)
