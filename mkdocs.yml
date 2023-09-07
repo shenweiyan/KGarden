@@ -61,6 +61,8 @@ markdown_extensions:
         permalink: True
         separator: "-"
         toc_depth: 5
+    - pymdownx.github
+    - pymdownx.blocks
     - pymdownx.highlight
     
 plugins:
