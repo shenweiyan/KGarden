@@ -139,6 +139,7 @@ $ export LD_LIBRARY_PATH=/Bioinfo/Pipeline/SoftWare/sqlite-3.36.0/lib:$LD_LIBRAR
 Python3 需要引用 `openssl`  模块，但是 python3.7+ 在 CentOS 中要求的 openssl 版本最低为 1.0.2，而 CentOS 默认的为 1.0.1（CentOS-6.x 通过 `yum`  源安装的 openssl 的最高版本是 1.0.1），所以需要手动更新 openssl。
 
 对于 openssl 版本的选择，建议至少选择 1.1.1+ 版本：
+
 1. urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'OpenSSL 1.0.2k-fips  26 Jan 2017'. See: https://github.com/urllib3/urllib3/issues/2168
 2. **Python requires an OpenSSL 1.0.2 or 1.1 compatible libssl with X509_VERIFY_PARAM_set1_host().**
 
