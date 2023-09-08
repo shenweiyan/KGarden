@@ -30,14 +30,14 @@ theme:
     - navigation.footer
   palette:
     - scheme: default
-      primary: white
-      # accent: indigo
+      primary: grey
+      accent: indigo
       toggle:
         icon: material/theme-light-dark
         name: Switch to dark mode
     - scheme: slate
       primary: grey
-      # accent: indigo
+      accent: indigo
       toggle:
         icon: material/theme-light-dark
         name: Switch to light mode
