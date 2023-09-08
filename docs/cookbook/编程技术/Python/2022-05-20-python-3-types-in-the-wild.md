@@ -8,7 +8,9 @@ updated: "2023-09-08 09:34:55"
 
 > **作者 |** [James Somers](https://www.theatlantic.com/author/james-somers/) <br>
 > **编译 |** [史提芬先森](https://www.yuque.com/shenweiyan/)<br>
-> **原文 |** [Python 3 Types in the Wild](https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/)<br>
+> **原文 |** [Python 3 Types in the Wild](https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/)
+
+<!-- -->
 
 > Python used to be the kind of language you could pick up in a couple of days, but "used to be" was many years ago. Coming back to developing products with it after 11 years away, I've been a little overwhelmed by how many features have been added, and how hard it is to make sense of a modern code base without understanding all of them.
 
