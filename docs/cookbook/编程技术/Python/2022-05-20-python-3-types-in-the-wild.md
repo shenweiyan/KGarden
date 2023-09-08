@@ -8,10 +8,10 @@ updated: "2023-09-08 09:34:55"
 
 > **作者 |** [James Somers](https://www.theatlantic.com/author/james-somers/) <br>
 > **编译 |** [史提芬先森](https://www.yuque.com/shenweiyan/)<br>
-> **原文 |** [Python 3 Types in the Wild](https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/)
+> **原文 |** [Python 3 Types in the Wild](https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/)<br>
 
 > Python used to be the kind of language you could pick up in a couple of days, but "used to be" was many years ago. Coming back to developing products with it after 11 years away, I've been a little overwhelmed by how many features have been added, and how hard it is to make sense of a modern code base without understanding all of them.
-> 
+
 Python 曾经是一种你可以在几天内学会的语言，但 "曾经是" 是很多年前的事了。最近，我相隔 11 年后重新用这门语言开发产品时，有点不知所措，它添加了太多的新功能，如果你不了解所有这些新功能，理解现代 Python 代码将是多么困难的一件事。
 
 > One of the biggest changes has been the addition of type annotations, which allow developers to say that a function returns `Dict[List[Set[FrozenSet[int]]], str]` (i.e., a dictionary that maps lists of sets of frozensets of integers onto strings). \[[RakAmnouykit2020](https://neverworkintheory.org/bib/#RakAmnouykit2020)] takes an empirical look at how programmers use these annotations, and turns up some surprising results. For one, the most common kind of type annotation is a user-defined type:
